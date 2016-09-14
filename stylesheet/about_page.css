@@ -1,0 +1,14 @@
+/*"About page" styling*/
+#aboutPic img{
+	width: 75%;
+	height: 99%;
+}
+#about-left-container p{
+	font-weight: bold;
+	color: #6697cc;
+	margin-left: 20px;
+}
+
+#about-left-container p:first-letter{
+	font-size: 22px;
+}

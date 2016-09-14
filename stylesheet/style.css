@@ -1,7 +1,8 @@
 body {
-	margin: 0;	
-	font-family: Arial, Helvetica, sans-serif;
-	min-width: 600px;
+	/*margin: 0;
+	padding: 0;	*/
+	font-family: sans-serif, Arial, Helvetica;
+	background-color: #f9f2ec;
 }
 
 /*all links on whole page*/
@@ -18,7 +19,6 @@ body a:hover{
 
 /*all h1 headers on whole page*/
 h1{
-	margin-top: 0;
 	text-align: center;
 }
 
@@ -30,12 +30,11 @@ h1{
 	background-repeat: no-repeat;
 	padding-top: 10px;
 	padding-bottom: 120px;
-	/*background-size: cover;*/
+	background-size: cover;
 	/*overflow: hidden;*/
 }
 
-.hastings-header {
-	font-size: 25px;
+header {
 	text-align: center;
 }
 
@@ -43,6 +42,7 @@ h1{
 .main-nav a{
 	margin-right: 35px;
 	margin-left: 35px;
+	font-size: 25px;
 }
 
 /*provisions, name, & second-nav(contact)*/
@@ -70,43 +70,12 @@ h1{
 	margin-left: 40%;
 }
 
-/*Make sure this is noooooooooooooooooooot affecting other pages*/
-#home-mid-container{
-	margin-top: 10px;
-	margin-right:30px;
-	margin-left: 10px;
+/*mid content*/
+.mid-container{
+	width: 100%;
 }
 
-#home-mid-container p{
-	margin-right: 10px;
-	margin-left: 10px;
-}
-
-#home-mid-container ul{
-	padding-left: 15px;
-}
-
-#home-mid-container li{
-	margin-top: 10px;
-	margin-right: 10px;
-	margin-left: 10px;
-}
-
-/*Side Content for all pages*//*This neeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeds to be looked at*/
 .sidebar{
-	width: 30%;
-	float: right;
-	border-right: solid;
-	border-left: solid;
-	border-width: 1px;
-	background-color: #99badd;
-	margin-bottom: 20px;
-	box-shadow:  15px 10px 25px 1px;
-}
-
-#home-sidebar{
-	width: 30%;
-	float: right;
 	text-align: center;
 	border-right: solid;
 	border-left: solid;
@@ -116,195 +85,52 @@ h1{
 	box-shadow:  15px 10px 25px 1px #A8310A;
 }
 
-#home-sidebar h1{
+.sidebar h1{
 	color: white;
 	font-size: 30px;
 	margin-bottom: 10px;
 }
 
-#home-sidebar iframe{
+.sidebar iframe{
 	width: 90%;
 	height: 400px;
 	margin-top: 0;
 	margin-bottom: 10px;
 }
-
-/*main content on left side of home page*/
-#home-main{
-	margin-right: 30%; 
-}
-
-#home-main p{
-	font-weight: bold;
-}
-
-#home-main p:first-letter{
-	font-size: 22px;
-}
-
-#home-left-column{
-	float: left;
-	width: 33.333333%;
-}
-
-#home-middle-column{
-	margin-right: 33.333333%;
-	margin-left: 33.333333%;
-}
-
-#home-right-column{
-	float: right;
-	width: 33.333333%;
-}
-
 /*#push{
 	clear: both;
 	height: 100px;
 }*/
 
-.hastings-footer{
+.bottom-line{
+	border-top-style: groove;
+	margin-right: 20%;
+	margin-left: 20%;
+}
+
+footer{
 	padding-top: 15px;
 	height: 100px;
 	overflow: hidden;
 	clear: both;
 	font-size: 25px;
 	text-align: center;
-	border-top-style: groove;
-	margin: 15px 250px 0 250px;
 }
 
-.hastings-footer a{
-	color: #99badd;
-}
-
-.hastings-footer p{
+footer p{
 	font-size: 12px;
 	color: black;
-	text-align: center;
-	margin-left: 15%;
-	margin-right: 15%;
 }
 
-/*"About page" styling*/
-#aboutPic{
-	text-align: center;
-	margin: 7px 5px 5px 5px
+@media only screen and (max-width: 468px){
+	.strap{
+		background-position: 58% 50%;
+	}
+	.main-nav a{
+		margin: 0 3% 0 3%;
+		font-size: 18px;
+	}
+	#my-contact-link{
+		margin: 0 30% 0 30%;
+	}
 }
-
-#aboutPic img{
-	width: 75%;
-	height: 99%;
-}
-
-#main-contact{
-	margin-top: 20px;
-	margin-right: 25%;
-	margin-left: 25%;
-	border-right: solid;
-	border-left: solid;
-	border-width: 1px;
-	background-color: #99badd;
-	margin-bottom: 20px;
-	box-shadow:  15px 10px 25px 1px;
-	padding: 20px 5px 20px 5px;
-}
-
-#main-contact h1{
-	color: white;
-	font-size: 40px;
-}
-
-#main-contact h2{
-	color: white
-}
-
-#main-contact p{
-	color: white;
-	font-size: 30px;
-	text-align: center;
-}
-
-/*"Blog page" styling*/
-#mid-container-blog{
-	margin: 20px;
-}
-
-#blog{
-	text-align: center;
-}
-
-#blog iframe{
-	width: 50%;
-	height: 400px;
-	box-shadow:  15px 10px 25px 1px #A8310A;
-}
-
-/*"Calculator page" styling*/
-#calc{
-	border: solid;
-	border-color: #99badd;
-	height: 500px;
-	width: 400px;
-	border-radius: 10px;
-	margin: 20px auto 20px auto;
-	background-color: gray;
-}
-
-#calc-window{
-	border-radius: 5px 5px 0 0;
-	margin: 5px;
-	background-color: white;
-	height: 40px;
-}
-
-#calc-operators{
-	float: right;
-	width: 95px;
-	border: solid;
-	border-width: 1px;
-	border-color: #99badd;
-	text-align: center;
-}
-
-.operator-button{
-	margin: 15px;
-	border: solid;
-	border-color: white;
-	width: 40px;
-	height: 24px;
-	text-align: center;
-	display: inline-block;
-}
-
-.operator-button p{
-	margin: auto;
-	padding-top: 2%;
-	padding-bottom: 2%;
-}
-
-#calc-numbers{
-	border: solid;
-	border-width: 1px;
-	border-color: #99badd;
-	width: 300px;
-	text-align: center;
-}
-
-.number-button{
-	margin: 15px;
-	border: solid;
-	border-color: white;
-	width: 60px;
-	height: 60px;
-	text-align: center;
-	display: inline-block;
-}
-
-.number-button p{
-	margin: auto;
-	padding-top: 35%;
-	padding-bottom: 35%;
-}
-
-
-
