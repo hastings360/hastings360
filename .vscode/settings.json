@@ -1,0 +1,12 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "files.autoSave": "afterDelay",
+
+    "files.autoSaveDelay": 10000,
+
+    "editor.wrappingColumn": 125,
+
+    "editor.cursorBlinking": "expand",
+
+    "editor.cursorStyle": "block",
+}

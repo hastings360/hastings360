@@ -3,26 +3,27 @@
 
 	<head>
 	<!-------------------------------------------------------------------------------------------------->
-		
 		<meta charset="UTF-8">
 		<!-- IE Edge Meta Tag--IE 8 and beyond--Equivalent to html5 doctype -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<!-- Mobile display adaption--No shrinkage--Breakpoint adaptable -->
 		<meta name="viewport" content="widith=device-width, initial-scale=1">
-		<!-- Latest compiled and minified CSS--Bootstrap CDN -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-		
+		<!-- Latest compiled and minified CSS--Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<!------------------------------------------------------------->
 		
 		<!-- My style sheet--Must be after bootstrap -->
 		<!-- <link rel="stylesheet" href="example"> -->
 		<link rel="stylesheet" href="stylesheet/style.css">
+		<link rel="stylesheet" href="stylesheet/home_page.css"
 		
 		
 		<!------------------------------------------------------------->
 		
 		<!-- Optional theme--Extra bootstrap CSS feature--Smoother Gradients-->
-		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"-->
+		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" 
+		integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
 		
 		<!-- Optional IE8 Support--Help with newer HTML5 tags and responsive breakpoints -->
 		<!--[if lt IE 9]>
@@ -31,113 +32,92 @@
 		<![endif]-->
 	<!--------------------------------------------------------------------------------------------------->
 		<title>Larry Hastings--Web Design and Development</title>
-		
-
 	</head>
 	
-	
-	<!-- whole site container -->
 	<body>
-		
 			<!-- top container for header, name, and contact-resume -->
 			<div class="jumbotron strap">
-				
-				<!-- header, mainly contains nav bar -->
-				<header class="template-head">
-					
+				<!-- header, contains nav bar and contact info -->
+				<header class="hastings-header">
 					<nav class="main-nav">
 						<a href="index.html">Home</a>
 						<a href="secondary_pages/about.html">About</a>
 						<a href="secondary_pages/blog.html">Blog</a>
 						<a href="docs/IT_Resume(NHCS).pdf">Resume</a>	
 					</nav>
-					
-					<!-- provisions, name, & contact-resume -->
-					<div class="info">
-						
-						<p id="provisions">Website Design and Development</p>
-						<p id="name">Larry Hastings</p>
-						<p id="second-nav">
+					<!-- contact info -->
+					<div id="my-info">
+						<p id="my-job">Website Design and Development</p>
+						<p id="my-name">Larry Hastings</p>
+						<nav id="my-contact-link">
 							<a href="secondary_pages/contact.html">Contact</a>
-						</p>
+						</nav>
 					</div>
-
 				</header>
-				
 			</div>
-		
-			<!-- Contains everything between strap and push(above footer) -->
-			<div id="mid-container">
+
+				<div class="row mid-container">
+					<div id="home-left-container" class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12" >
+						<section class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">		
+							<h1>Website Design</h1>
+							<p>The visual layout and style of your website is important.  There are many
+								aspects that must be thought about during the planning phase such as branding,
+								strategy, and appealing content, but a website also needs to serve as a business
+								function because it is ultimately where potential customers, partners, employees, 
+								or investors get their initial impression.  That impression may either keep them 
+								coming back or turn them away for good.  I believe a website should be simple and 
+								pleasing to look at while serving its purpose with a layout that makes it easy for
+								the end-user to find necessary information, interact with business resources, and, 
+								ultimately, promote the interests of the owning organization.</p>							
+						</section> <!-- end left-column -->
 				
-				<!-- side content on right side -->	
-				<aside id="sidebar-index">
-					
-					<h1>Blog</h1>
-					<iframe src="https://hastingslweb2.wordpress.com/"></iframe>
-					
-				</aside><!-- end sidebar -->	
+						<section class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+							<h1>Website Deployment</h1>
+							<p>Where or how will you host your website?  There are many options, but it comes 
+								down your needs and requirements.  I can advise and provide options for
+								your unique situation.  Below are some general options for website 
+								deployments, but there are many different and detailed solutions 
+								from different vendors including various operating systems and hardware 
+								to host your website.</p>
+							<ul>
+								<li>Managed In-House Server</li>
+								<li>Managed Cloud Server</li>
+								<li>Non-managed Cloud Provider</li>
+							</ul>
+						</section> <!-- end middle-column -->
+
+						<section class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+							<h1>Website Optimization</h1>
+							<p>Using good practices and anlytics to increase traffic to your website is the 
+								best way to spread your message and introduce new users to your products.  
+								Analytics are important becuase one can view statistical reports, analyze 
+								activity, and find mistakes, which ultimately lead to product enhancements.  
+								Below are some common technical terms used in website optimization.</p>
+							<ul>
+								<li>Search Engine Optimization (SEO)</li>
+								<li>User Experience (UX)</li>
+								<li>User Interface (UI)</li>
+								<li>Web Analytics</li>
+								<li>Web Governance</li>
+							</ul>
+						</section> <!-- end right-column -->
+					</div> <!-- end main-left content -->
+
+					<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12"><!-- side content on right side -->	
+						<aside  class="sidebar col-xl-12 col-xl-offset-0 col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-12 col-xs-offset-0">
+							<h1>Blog</h1>
+							<iframe src="https://hastingslweb2.wordpress.com/"></iframe>
+						</aside>
+					</div> <!-- end home-aside -->
+
+				</div><!--end main content row -->
 			
-				<section id="main"><!-- main content on left side -->
-				
-					<section id="left-column">
-									
-						<h1>Website Design</h1>
-						<p>The visual layout and style of your website is important.  There are many
-							aspects that must be thought about during the planning phase such as branding,
-							strategy, and appealing content, but a website also needs to serve as a business
-							function because it is ultimately where potential customers, partners, employees, 
-							or investors get their initial impression.  That impression may either keep them 
-							coming back or turn them away for good.  I believe a website should be simple and 
-							pleasing to look at while serving its purpose with a layout that makes it easy for
-							the end-user to find necessary information, interact with business resources, and, 
-							ultimately, promote the interests of the owning organization.</p>			
-											
-					</section> <!-- end left-column -->
-			
-					<section id="right-column">
-						
-						<h1>Website Optimization</h1>
-						<p>Using good practices and anlytics to increase traffic to your website is the 
-							best way to spread your message and introduce new users to your products.  
-							Analytics are important becuase one can view statistical reports, analyze 
-							activity, and find mistakes, which ultimately lead to product enhancements.  
-							Below are some common technical terms used in website optimization.</p>
-						<ul>
-							<li>Search Engine Optimization (SEO)</li>
-							<li>User Experience (UX)</li>
-							<li>User Interface (UI)</li>
-							<li>Web Analytics</li>
-							<li>Web Governance</li>
-						</ul>
-						
-					</section> <!-- end right-column -->
-				
-					<section id="middle-column">
-						
-						<h1>Website Deployment</h1>
-						<p>Where or how will you host your website?  There are many options, but it comes 
-							down your needs and requirements.  I can advise and provide options for
-							your unique situation.  Below are some general options for website 
-							deployments, but there are many different and detailed solutions 
-							from different vendors including various operating systems and hardware 
-							to host your website.</p>
-						<ul>
-							<li>Managed In-House Server</li>
-							<li>Managed Cloud Server</li>
-							<li>Non-managed Cloud Provider</li>
-						</ul>
-						
-					</section> <!-- end middle-column -->
-					
-				</section><!-- end main -->
-				
-			</div><!-- end mid-container -->
-			
-			<!-- To keep footer on window bottom -->
+			<!-- To keep footer on window bottom if page height is short-->
 			<!--<div id="push"></div>-->
-			
+
+			<div class="bottom-line"></div>
 			<!-- footer -->
-			<footer id="template-foot">
+			<footer>
 				
 				<nav class="main-nav">
 						<a href="index.html">Home</a>
@@ -155,14 +135,13 @@
 			  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
 			  crossorigin="anonymous"></script>
 		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" 
-			integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" 
-			crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	
 	<!--------------------------------------------------------------------->
 	
 		<!-- My javascript file -->
-		<script src="js/check_list.js"></script>
+		<!-- <script src="js/example"></script> -->
 		
 	<!--------------------------------------------------------------------->					
 	</body>
