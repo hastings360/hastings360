@@ -1,14 +1,12 @@
 /*"Blog page" styling*/
-#mid-container-blog{
-	margin: 20px;
-}
-
-#blog{
-	text-align: center;
-}
-
-#blog iframe{
-	width: 50%;
+#blog-main iframe{
+	width: 100%;
 	height: 400px;
 	box-shadow:  15px 10px 25px 1px #A8310A;
+	margin-bottom: 20px;
+}
+@media only screen and (max-width: 360px){
+	#blog-main{
+		width: 100%;
+	}
 }

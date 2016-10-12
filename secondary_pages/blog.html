@@ -1,70 +1,100 @@
 <!DOCTYPE html>
 <html>
-	
+
 	<head>
+	<!-------------------------------------------------------------------------------------------------->
+		<meta charset="UTF-8">
+		<!-- IE Edge Meta Tag--IE 8 and beyond--Equivalent to html5 doctype -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- Mobile display adaption--No shrinkage--Breakpoint adaptable -->
+		<meta name="viewport" content="widith=device-width, initial-scale=1">
+		<!-- Latest compiled and minified CSS--Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!------------------------------------------------------------->
 		
-		<title>Larry Hastings--Blog</title>
+		<!-- My style sheet--Must be after bootstrap -->
+		<!-- <link rel="stylesheet" href="example"> -->
 		<link rel="stylesheet" href="../stylesheet/style.css">
+		<link rel="stylesheet" href="../stylesheet/blog_page.css"
 		
+		
+		<!------------------------------------------------------------->
+		
+		<!-- Optional theme--Extra bootstrap CSS feature--Smoother Gradients-->
+		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" 
+		integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
+		
+		<!-- Optional IE8 Support--Help with newer HTML5 tags and responsive breakpoints -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	<!--------------------------------------------------------------------------------------------------->
+		<title>Larry Hastings--Blog</title>
 	</head>
 	
-	
-	<!-- whole site container -->
 	<body>
-		
 			<!-- top container for header, name, and contact-resume -->
-			<div id="strap">
-				
-				<!-- header, mainly contains nav bar -->
-				<header id="template-head">
-					
+			<div class="jumbotron strap">
+				<!-- header, contains nav bar and contact info -->
+				<header class="hastings-header">
 					<nav class="main-nav">
 						<a href="../index.html">Home</a>
 						<a href="about.html">About</a>
 						<a href="blog.html">Blog</a>
-						<a href="../docs/IT_Resume(NHCS).pdf">Resume</a>		
+						<a href="IT_Resume(NHCS).pdf">Resume</a>	
 					</nav>
-					
+					<!-- contact info -->
+					<div id="my-info">
+						<p id="my-job">Website Design and Development</p>
+						<p id="my-name">Larry Hastings</p>
+						<nav id="my-contact-link">
+							<a href="secondary_pages/contact.html">Contact</a>
+						</nav>
+					</div>
 				</header>
-				
-				<!-- provisions, name, & contact-resume -->
-				<section id="info">
-					
-					<p id="provisions">Website Design and Development</p>
-					<p id="name">Larry Hastings</p>
-					<p id="second-nav">
-						<a href="contact.html">Contact</a>
-					</p>
-					
-				</section>
-				
 			</div>
 		
-			<!-- Contains everything between strap and push(above footer) -->
-			<div id="mid-container-blog">
-				
-				<section id="blog">
+			
+			<div class="row">
+				<section id="blog-main" class="col-xl-8 col-xl-offset-2 col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-8 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
 					<iframe src="https://hastingslweb2.wordpress.com/"></iframe>
 				</section>
-				
-			</div><!-- end mid-container-blog -->
+			</div><!-- end mid-container -->
 			
 			<!-- To keep footer on window bottom -->
 			<!-- <div id="push"></div> -->
 			
+			<div class="bottom-line"></div>
 			<!-- footer -->
-			<footer id="template-foot">
+			<footer>
 				
 				<nav class="main-nav">
 						<a href="../index.html">Home</a>
-						<a href="about.html">About</a>
-						<a href="blog.html">Blog</a>
+						<a href="../secondary_pages/about.html">About</a>
+						<a href="../secondary_pages/blog.html">Blog</a>
 						<a href="../docs/IT_Resume(NHCS).pdf">Resume</a>		
 				</nav>
 				<p>Design by Larry Hastings</p>
 				
 			</footer>
-						
-	</body>
+
+	<!------------------------------------------------------------------------------------------->
+		<!-- Begin script insertions--jQuery, javascript, etc... -->
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+			  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+			  crossorigin="anonymous"></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	
+	<!--------------------------------------------------------------------->
+	
+		<!-- My javascript file -->
+		<!-- <script src="js/example"></script> -->
+		
+	<!--------------------------------------------------------------------->					
+	</body>
+
 </html>
