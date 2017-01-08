@@ -8,5 +8,5 @@
 
     "editor.cursorBlinking": "expand",
 
-    "editor.cursorStyle": "block",
+    "editor.cursorStyle": "line"
 }
