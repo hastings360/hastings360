@@ -67,30 +67,52 @@
 				</section>
 			</div>
 			<script>
-				const one = getElementById("one");
-				const two = getElementById("two");
-				const three = getElementById("three");
-				const four = getElementById("four");
-				const five = getElementById("five");
-				const six = getElementById("six");
-				const seven = getElementById("seven");
-				const eight = getElementById("eight");
-				const nine = getElementById("nine");
+				const one = document.getElementById("one");
+				const two = document.getElementById("two");
+				const three = document.getElementById("three");
+				const four = document.getElementById("four");
+				const five = document.getElementById("five");
+				const six = document.getElementById("six");
+				const seven = document.getElementById("seven");
+				const eight = document.getElementById("eight");
+				const nine = document.getElementById("nine");
 
-				const mult = getElementById("multiplication");
-				const divide = getElementById("divide");
-				const plus = getElementById("plus");
-				const minus = getElementById("minus");
-				const equals = getElementById("equals");
+				const mult = document.getElementById("multiplication");
+				const divide = document.getElementById("divide");
+				const plus = document.getElementById("plus");
+				const minus = document.getElementById("minus");
+				const equals = document.getElementById("equals");
+	
+				let display = "0";
 
-				let display = 0;
-
-				function sum(){
-
+				function addToDisplay(x){
+					if(display === "0"){
+						display = x;
+					}else{
+						display = display  + x;
+					};
+					document.getElementById("calc-window").innerHTML = display;
 				};
 
 				document.getElementById("calc-window").innerHTML = display;
-				alert(display);
+
+				one.onclick = function(){addToDisplay("1")};
+				two.onclick = function(){addToDisplay("2")};
+				three.onclick = function(){addToDisplay("3")};
+				four.onclick = function(){addToDisplay("4")};
+				five.onclick = function(){addToDisplay("5")};
+				six.onclick = function(){addToDisplay("6")};
+				seven.onclick = function(){addToDisplay("7")};
+				eight.onclick = function(){addToDisplay("8")};
+				nine.onclick = function(){addToDisplay("9")};
+
+				mult.onclick = function(){addToDisplay("*")};
+				divide.onclick = function(){addToDisplay("/")};
+				plus.onclick = function(){addToDisplay("+")};
+				minus.onclick = function(){addToDisplay("-")};
+				equals.onclick = function(){
+					document.getElementById("calc-window").innerHTML = math.eval(display);
+				};
 			</script>
 
 		</section><!-- end mid-container -->
@@ -109,6 +131,8 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" 
 			integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" 
 			crossorigin="anonymous"></script>
+		<!--math.js minified -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.8.1/math.min.js" type="text/javascript"></script>
 	
 	<!--------------------------------------------------------------------->
 	
