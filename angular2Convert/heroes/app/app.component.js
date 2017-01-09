@@ -32,10 +32,13 @@ var AppComponent = (function () {
         this.title = 'Tour of Heroes';
         this.heroes = HEROES;
     }
+    AppComponent.prototype.onSelect = function (hero) {
+        this.selectedHero = hero;
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n            <h1>{{title}}</h1>\n            <h2>My Heroes</h2>\n            <ul class=\"heroes\">\n              <li *ngFor=\"let hero of heroes\">\n                <span class=\"badge\">{{hero.id}}</span> {{hero.name}}\n              </li>\n            </ul>\n            \n            \n            \n            <h2>{{hero.name}} details!</h2>\n            <div>\n              <label>id: </label>{{hero.id}}\n            </div>\n            <div>\n              <label>name: </label>\n              <input [(ngModel)]=\"heroes[1].name\" placeholder=\"name\">\n            </div>\n  ",
+            template: "\n            <h1>{{title}}</h1>\n            <h2>My Heroes</h2>\n            <ul class=\"heroes\">\n              <li *ngFor=\"let hero of heroes\" (click)=\"onSelect(hero)\">\n                <span class=\"badge\">{{hero.id}}</span> {{hero.name}}\n              </li>\n            </ul>\n            <div *ngIf=\"selectedHero\">\n              <h2>{{selectedHero.name}} details!</h2>\n              <div><label>id: </label>{{selectedHero.id}}</div>\n              <div>\n                  <label>name: </label>\n                  <input [(ngModel)]=\"selectedHero.name\" placeholder=\"name\"/>\n              </div>\n            </div>\n            \n      \n  ",
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
