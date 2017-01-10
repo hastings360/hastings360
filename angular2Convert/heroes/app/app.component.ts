@@ -24,7 +24,7 @@ const HEROES: Hero[] = [
             <h1>{{title}}</h1>
             <h2>My Heroes</h2>
             <ul class="heroes">
-              <li *ngFor="let hero of heroes" (click)="onSelect(hero)">
+              <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
                 <span class="badge">{{hero.id}}</span> {{hero.name}}
               </li>
             </ul>
@@ -36,8 +36,6 @@ const HEROES: Hero[] = [
                   <input [(ngModel)]="selectedHero.name" placeholder="name"/>
               </div>
             </div>
-            
-      
   `,
 })
 
