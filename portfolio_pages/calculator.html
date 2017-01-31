@@ -3,28 +3,28 @@
 
 	<head>
 	<!-------------------------------------------------------------------------------------------------->
-		<meta charset="UTF-8">
+		<meta charset='UTF-8'>
 		<!-- IE Edge Meta Tag--IE 8 and beyond--Equivalent to html5 doctype -->
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv='X-UA-Compatible' content='IE=edge'>
 		<!-- Mobile display adaption--No shrinkage--Breakpoint adaptable -->
-		<meta name="viewport" content="widith=device-width, initial-scale=1">
+		<meta name='viewport' content='widith=device-width, initial-scale=1'>
 		<!-- Latest compiled and minified CSS--Bootstrap CDN -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
 		
 		<!------------------------------------------------------------->
 		
 		<!-- My style sheet--Must be after bootstrap -->
-		<link rel="stylesheet" href="../stylesheet/calc_page.css"> 
+		<link rel='stylesheet' href='../stylesheet/calc_page.css'> 
 		
 		<!------------------------------------------------------------->
 		
 		<!-- Optional theme--Extra bootstrap CSS feature--Smoother Gradients-->
-		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"-->
+		<!-- <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css'-->
 		
 		<!-- Optional IE8 Support--Help with newer HTML5 tags and responsive breakpoints -->
 		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+			<script src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js'></script>
+			<script src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js'></script>
 		<![endif]-->
 	<!--------------------------------------------------------------------------------------------------->
 		<title>Larry Hastings--Calculator</title>
@@ -37,84 +37,80 @@
 
 
 		<!-- Contains everything between strap and push(above footer) -->
-		<section id="calc">
+		<section id='calc'>
 			
-			<section id="calc-window">
-				<section>
-					
-				</section>
-			</section>
+			<div id='calc-window'></div>
 			
 			<div><!-- Calculator button container -->
-				<section id="calc-operators">
-					<div id="multiplication" class="operator-button"><p>X</p></div>
-					<div id="divide" class="operator-button"><p>/</p></div>
-					<div id="plus" class="operator-button"><p>+</p></div>
-					<div id="minus" class="operator-button"><p>-</p></div>
-					<div id="equals" class="operator-button"><p>=</p></div>
-				</section>
+				<div id='calc-operators'>
+					<div id='multiplication' class='operator-button'><p>X</p></div>
+					<div id='divide' class='operator-button'><p>/</p></div>
+					<div id='plus' class='operator-button'><p>+</p></div>
+					<div id='minus' class='operator-button'><p>-</p></div>
+					<div id='equals' class='operator-button'><p>=</p></div>
+				</div>
 				
-				<section id="calc-numbers">
-					<div id="one" class="number-button"><p>1</p></div>
-					<div id="two" class="number-button"><p>2</p></div>
-					<div id="three" class="number-button"><p>3</p></div>
-					<div id="four" class="number-button"><p>4</p></div>
-					<div id="five" class="number-button"><p>5</p></div>
-					<div id="six" class="number-button"><p>6</p></div>
-					<div id="seven" class="number-button"><p>7</p></div>
-					<div id="eight" class="number-button"><p>8</p></div>
-					<div id="nine" class="number-button"><p>9</p></div>
-					<div id="zero" class="number-button"><p>0</p></div>
-				</section>
+				<div id='calc-numbers'>
+					<div id='one' class='number-button'><p>1</p></div>
+					<div id='two' class='number-button'><p>2</p></div>
+					<div id='three' class='number-button'><p>3</p></div>
+					<div id='four' class='number-button'><p>4</p></div>
+					<div id='five' class='number-button'><p>5</p></div>
+					<div id='six' class='number-button'><p>6</p></div>
+					<div id='seven' class='number-button'><p>7</p></div>
+					<div id='eight' class='number-button'><p>8</p></div>
+					<div id='nine' class='number-button'><p>9</p></div>
+					<div id='zero' class='number-button'><p>0</p></div>
+				</div>
 			</div>
-			<script>
-				const one = document.getElementById("one");
-				const two = document.getElementById("two");
-				const three = document.getElementById("three");
-				const four = document.getElementById("four");
-				const five = document.getElementById("five");
-				const six = document.getElementById("six");
-				const seven = document.getElementById("seven");
-				const eight = document.getElementById("eight");
-				const nine = document.getElementById("nine");
+<script>
+	const one = document.getElementById('one');
+	const two = document.getElementById('two');
+	const three = document.getElementById('three');
+	const four = document.getElementById('four');
+	const five = document.getElementById('five');
+	const six = document.getElementById('six');
+	const seven = document.getElementById('seven');
+	const eight = document.getElementById('eight');
+	const nine = document.getElementById('nine');
 
-				const mult = document.getElementById("multiplication");
-				const divide = document.getElementById("divide");
-				const plus = document.getElementById("plus");
-				const minus = document.getElementById("minus");
-				const equals = document.getElementById("equals");
-	
-				let display = "0";
+	const mult = document.getElementById('multiplication');
+	const divide = document.getElementById('divide');
+	const plus = document.getElementById('plus');
+	const minus = document.getElementById('minus');
+	const equals = document.getElementById('equals');
 
-				function addToDisplay(x){
-					if(display === "0"){
-						display = x;
-					}else{
-						display = display  + x;
-					};
-					document.getElementById("calc-window").innerHTML = display;
-				};
+	let display = '0';
 
-				document.getElementById("calc-window").innerHTML = display;
+	function addToDisplay(x){
+		if(display === '0'){
+			display = x;
+		}else{
+			display = display  + x;
+		};
+		document.getElementById('calc-window').innerHTML = display;
+	};
 
-				one.onclick = function(){addToDisplay("1")};
-				two.onclick = function(){addToDisplay("2")};
-				three.onclick = function(){addToDisplay("3")};
-				four.onclick = function(){addToDisplay("4")};
-				five.onclick = function(){addToDisplay("5")};
-				six.onclick = function(){addToDisplay("6")};
-				seven.onclick = function(){addToDisplay("7")};
-				eight.onclick = function(){addToDisplay("8")};
-				nine.onclick = function(){addToDisplay("9")};
+	document.getElementById('calc-window').innerHTML = display;
 
-				mult.onclick = function(){addToDisplay("*")};
-				divide.onclick = function(){addToDisplay("/")};
-				plus.onclick = function(){addToDisplay("+")};
-				minus.onclick = function(){addToDisplay("-")};
-				equals.onclick = function(){
-					document.getElementById("calc-window").innerHTML = math.eval(display);
-				};
-			</script>
+	one.onclick = function(){addToDisplay('1')};
+	two.onclick = function(){addToDisplay('2')};
+	three.onclick = function(){addToDisplay('3')};
+	four.onclick = function(){addToDisplay('4')};
+	five.onclick = function(){addToDisplay('5')};
+	six.onclick = function(){addToDisplay('6')};
+	seven.onclick = function(){addToDisplay('7')};
+	eight.onclick = function(){addToDisplay('8')};
+	nine.onclick = function(){addToDisplay('9')};
+
+	mult.onclick = function(){addToDisplay('*')};
+	divide.onclick = function(){addToDisplay('/')};
+	plus.onclick = function(){addToDisplay('+')};
+	minus.onclick = function(){addToDisplay('-')};
+	equals.onclick = function(){
+		document.getElementById('calc-window').innerHTML = math.eval(display);
+	};
+</script>
 
 		</section><!-- end mid-container -->
 
@@ -125,20 +121,20 @@
 
 	<!------------------------------------------------------------------------------------------->
 		<!-- Begin script insertions--jQuery, javascript, etc... -->
-		<script src="https://code.jquery.com/jquery-2.2.4.min.js"
-			  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-			  crossorigin="anonymous"></script>
+		<script src='https://code.jquery.com/jquery-2.2.4.min.js'
+			  integrity='sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44='
+			  crossorigin='anonymous'></script>
 		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" 
-			integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" 
-			crossorigin="anonymous"></script>
+		<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js' 
+			integrity='sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS' 
+			crossorigin='anonymous'></script>
 		<!--math.js minified -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.8.1/math.min.js" type="text/javascript"></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.8.1/math.min.js' type='text/javascript'></script>
 	
 	<!--------------------------------------------------------------------->
 	
 		<!-- My javascript file -->
-		<script src="dunno yet"></script>
+		<script src='dunno yet'></script>
 		
 	<!--------------------------------------------------------------------->
 	</body>
