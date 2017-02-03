@@ -60,7 +60,9 @@
 					<div id='seven' class='number-button'><p>7</p></div>
 					<div id='eight' class='number-button'><p>8</p></div>
 					<div id='nine' class='number-button'><p>9</p></div>
+					<div id='clear' class='number-button'><p>C</p></div>
 					<div id='zero' class='number-button'><p>0</p></div>
+					<div id='decimal' class='number-button'><p>.</p></div>
 				</div>
 			</div>
 <script>
@@ -73,6 +75,9 @@
 	const seven = document.getElementById('seven');
 	const eight = document.getElementById('eight');
 	const nine = document.getElementById('nine');
+	const zero = document.getElementById('zero');
+	const decimal = document.getElementById('decimal');
+	const clear = document.getElementById('clear');
 
 	const mult = document.getElementById('multiplication');
 	const divide = document.getElementById('divide');
@@ -93,23 +98,29 @@
 
 	document.getElementById('calc-window').innerHTML = display;
 
-	one.onclick = function(){addToDisplay('1')};
-	two.onclick = function(){addToDisplay('2')};
-	three.onclick = function(){addToDisplay('3')};
-	four.onclick = function(){addToDisplay('4')};
-	five.onclick = function(){addToDisplay('5')};
-	six.onclick = function(){addToDisplay('6')};
-	seven.onclick = function(){addToDisplay('7')};
-	eight.onclick = function(){addToDisplay('8')};
-	nine.onclick = function(){addToDisplay('9')};
+	one.onclick = function(){addToDisplay('1');};
+	two.onclick = function(){addToDisplay('2');};
+	three.onclick = function(){addToDisplay('3');};
+	four.onclick = function(){addToDisplay('4');};
+	five.onclick = function(){addToDisplay('5');};
+	six.onclick = function(){addToDisplay('6');};
+	seven.onclick = function(){addToDisplay('7');};
+	eight.onclick = function(){addToDisplay('8');};
+	nine.onclick = function(){addToDisplay('9');};
+	zero.onclick = function(){addToDisplay('0');};
+	decimal.onclick = function(){addToDisplay('.');};
 
-	mult.onclick = function(){addToDisplay('*')};
-	divide.onclick = function(){addToDisplay('/')};
-	plus.onclick = function(){addToDisplay('+')};
-	minus.onclick = function(){addToDisplay('-')};
+	mult.onclick = function(){addToDisplay('*');};
+	divide.onclick = function(){addToDisplay('/');};
+	plus.onclick = function(){addToDisplay('+');};
+	minus.onclick = function(){addToDisplay('-');};
 	equals.onclick = function(){
 		document.getElementById('calc-window').innerHTML = math.eval(display);
 	};
+	clear.onclick = function(){
+		document.getElementById('calc-window').innerHTML = '0';
+		display = '0';
+	}
 </script>
 
 		</section><!-- end mid-container -->
