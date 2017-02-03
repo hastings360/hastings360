@@ -15,7 +15,6 @@ import {HeroService} from './hero.service';
               </li>
             </ul>
             <my-hero-detail [hero]="selectedHero"></my-hero-detail>
-            
   `,
 })
 
