@@ -66,69 +66,54 @@
 				</div>
 			</div>
 <script>
-	var one = document.getElementById('one');
-	var two = document.getElementById('two');
-	var three = document.getElementById('three');
-	var four = document.getElementById('four');
-	var five = document.getElementById('five');
-	var six = document.getElementById('six');
-	var seven = document.getElementById('seven');
-	var eight = document.getElementById('eight');
-	var nine = document.getElementById('nine');
-	var zero = document.getElementById('zero');
-	var decimal = document.getElementById('decimal');
-	var clear = document.getElementById('clear');
-
-	var mult = document.getElementById('multiplication');
-	var divide = document.getElementById('divide');
-	var plus = document.getElementById('plus');
-	var minus = document.getElementById('minus');
-	var equals = document.getElementById('equals');
 
 	var display = '0';
-
-	function addToDisplay(x){
-									
-		var lastChar = display.slice(-1);
-	
+	//Adds and sorts values to the display variable
+	function addToDisplay(x){						
 		if(display === '0'){
 			display = x;
-		}else if((lastChar === '*' || lastChar === '/' || lastChar === '+' || lastChar === '-') && (x === '*' || x === '/' || x === '+' || x === '-')){//*probably shorten with regular expression
+		}else if((display + x).match(/[*\/\+-][*\/\+-]/)){
 			return;
 		}else{
 			display = display  + x;
 		};
-
 		document.getElementById('calc-window').innerHTML = display;
 	};
-
-	document.getElementById('calc-window').innerHTML = display;
-
-	one.onclick = function(){addToDisplay('1');};
-	two.onclick = function(){addToDisplay('2');};
-	three.onclick = function(){addToDisplay('3');};
-	four.onclick = function(){addToDisplay('4');};
-	five.onclick = function(){addToDisplay('5');};
-	six.onclick = function(){addToDisplay('6');};
-	seven.onclick = function(){addToDisplay('7');};
-	eight.onclick = function(){addToDisplay('8');};
-	nine.onclick = function(){addToDisplay('9');};
-	zero.onclick = function(){addToDisplay('0');};
-	decimal.onclick = function(){addToDisplay('.');};
-
-	mult.onclick = function(){addToDisplay('*');};
-	divide.onclick = function(){addToDisplay('/');};
-	plus.onclick = function(){addToDisplay('+');};
-	minus.onclick = function(){addToDisplay('-');};
-	equals.onclick = function(){
+	//Computes variables in display variable using the 'math' package
+	function equalCompute(){
+		if((display.slice(-1)).match(/[*\/\+-]/)){
+			display = display.slice(0,-1);
+		};
 		x = math.eval(display);
 		document.getElementById('calc-window').innerHTML =  x;//*Insert logic into unciton
 		display = x.toString();
 	};
-	clear.onclick = function(){
-		document.getElementById('calc-window').innerHTML = '0';
-		display = '0';
-	}
+	//Clears the window and sets the display variable to 0
+	function clearCompute(){
+			document.getElementById('calc-window').innerHTML = '0';
+			display = '0';
+	};
+	//Button click handlers
+	document.getElementById('one').onclick = function(){addToDisplay('1');};
+	document.getElementById('two').onclick = function(){addToDisplay('2');};
+	document.getElementById('three').onclick = function(){addToDisplay('3');};
+	document.getElementById('four').onclick = function(){addToDisplay('4');};
+	document.getElementById('five').onclick = function(){addToDisplay('5');};
+	document.getElementById('six').onclick = function(){addToDisplay('6');};
+	document.getElementById('seven').onclick = function(){addToDisplay('7');};
+	document.getElementById('eight').onclick = function(){addToDisplay('8');};
+	document.getElementById('nine').onclick = function(){addToDisplay('9');};
+	document.getElementById('zero').onclick = function(){addToDisplay('0');};
+	document.getElementById('decimal').onclick = function(){addToDisplay('.');};
+	document.getElementById('clear').onclick = function(){clearCompute();};
+
+	document.getElementById('multiplication').onclick = function(){addToDisplay('*');};
+	document.getElementById('divide').onclick = function(){addToDisplay('/');};
+	document.getElementById('plus').onclick = function(){addToDisplay('+');};
+	document.getElementById('minus').onclick = function(){addToDisplay('-');};
+	document.getElementById('equals').onclick = function(){equalCompute();};
+
+	document.getElementById('calc-window').innerHTML = display;//Initially sets window to display variable '0'
 </script>
 
 		</section><!-- end mid-container -->
