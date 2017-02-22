@@ -66,33 +66,39 @@
 				</div>
 			</div>
 <script>
-	const one = document.getElementById('one');
-	const two = document.getElementById('two');
-	const three = document.getElementById('three');
-	const four = document.getElementById('four');
-	const five = document.getElementById('five');
-	const six = document.getElementById('six');
-	const seven = document.getElementById('seven');
-	const eight = document.getElementById('eight');
-	const nine = document.getElementById('nine');
-	const zero = document.getElementById('zero');
-	const decimal = document.getElementById('decimal');
-	const clear = document.getElementById('clear');
+	var one = document.getElementById('one');
+	var two = document.getElementById('two');
+	var three = document.getElementById('three');
+	var four = document.getElementById('four');
+	var five = document.getElementById('five');
+	var six = document.getElementById('six');
+	var seven = document.getElementById('seven');
+	var eight = document.getElementById('eight');
+	var nine = document.getElementById('nine');
+	var zero = document.getElementById('zero');
+	var decimal = document.getElementById('decimal');
+	var clear = document.getElementById('clear');
 
-	const mult = document.getElementById('multiplication');
-	const divide = document.getElementById('divide');
-	const plus = document.getElementById('plus');
-	const minus = document.getElementById('minus');
-	const equals = document.getElementById('equals');
+	var mult = document.getElementById('multiplication');
+	var divide = document.getElementById('divide');
+	var plus = document.getElementById('plus');
+	var minus = document.getElementById('minus');
+	var equals = document.getElementById('equals');
 
-	let display = '0';
+	var display = '0';
 
 	function addToDisplay(x){
+									
+		var lastChar = display.slice(-1);
+	
 		if(display === '0'){
 			display = x;
+		}else if((lastChar === '*' || lastChar === '/' || lastChar === '+' || lastChar === '-') && (x === '*' || x === '/' || x === '+' || x === '-')){//*probably shorten with regular expression
+			return;
 		}else{
 			display = display  + x;
 		};
+
 		document.getElementById('calc-window').innerHTML = display;
 	};
 
@@ -115,7 +121,9 @@
 	plus.onclick = function(){addToDisplay('+');};
 	minus.onclick = function(){addToDisplay('-');};
 	equals.onclick = function(){
-		document.getElementById('calc-window').innerHTML = math.eval(display);
+		x = math.eval(display);
+		document.getElementById('calc-window').innerHTML =  x;//*Insert logic into unciton
+		display = x.toString();
 	};
 	clear.onclick = function(){
 		document.getElementById('calc-window').innerHTML = '0';
