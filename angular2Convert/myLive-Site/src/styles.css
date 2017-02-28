@@ -1,0 +1,111 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+	/*margin: 0;
+	padding: 0;	*/
+	font-family: sans-serif, Arial, Helvetica;
+	background-color: #f9f2ec;
+}
+
+/*all links on whole page*/
+body a,p{
+	text-decoration: none;
+	color: #99badd;
+}
+
+/*makes all links red when mouse hover over.  Doesn't apply to strap for some reason*/
+body a:hover{
+	color: red;
+	text-decoration: none;
+}
+
+/*all h1 headers on whole page*/
+h1{
+	text-align: center;
+}
+
+/*contains header, name, and contact-resume*/
+.jumbotron{
+	/*height: 470px;*/
+	background-image: url("assets/imgs/strap_pic.jpg");
+	background-color: gray;
+	background-repeat: no-repeat;
+	padding-top: 10px;
+	padding-bottom: 120px;
+	background-size: cover;
+	margin: 0;
+	/*overflow: hidden;*/
+}
+
+header {
+	text-align: center;
+}
+
+/* main navigation links*/
+.main-nav a{
+	margin-right: 35px;
+	margin-left: 35px;
+	font-size: 25px;
+}
+
+/*provisions, name, & second-nav(contact)*/
+#my-info{
+	text-align: center;
+	margin-top: 60px;
+}
+
+#my-job{
+	font-size: 25px;
+}
+
+/*name at top*/
+#my-name{
+	font-size: 60px;
+}
+
+/*contact*/
+#my-contact-link{
+	font-size: 25px;
+	border: solid;
+	border-color: #99badd;
+	border-radius: 15px 50px 15px 50px;
+	margin-right: 40%;
+	margin-left: 40%;
+}
+
+/*#push{
+	clear: both;
+	height: 100px;
+}*/
+
+.bottom-line{
+	border-top-style: groove;
+	margin-right: 20%;
+	margin-left: 20%;
+}
+
+footer{
+	padding-top: 15px;
+	height: 100px;
+	overflow: hidden;
+	clear: both;
+	font-size: 25px;
+	text-align: center;
+}
+
+footer p{
+	font-size: 12px;
+	color: black;
+}
+
+@media only screen and (max-width: 468px){
+	.jumbotron{
+		background-position: 58% 50%;
+	}
+	.main-nav a{
+		margin: 0 3% 0 3%;
+		font-size: 18px;
+	}
+	#my-contact-link{
+		margin: 0 30% 0 30%;
+	}
+}
