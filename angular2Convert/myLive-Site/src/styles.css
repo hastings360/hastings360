@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-	/*margin: 0;
-	padding: 0;	*/
+	margin: 0;
+	padding: 0;
 	font-family: sans-serif, Arial, Helvetica;
 	background-color: #f9f2ec;
 }
@@ -27,6 +27,7 @@ h1{
 .jumbotron{
 	/*height: 470px;*/
 	background-image: url("assets/imgs/strap_pic.jpg");
+	background-position: bottom;
 	background-color: gray;
 	background-repeat: no-repeat;
 	padding-top: 10px;
@@ -77,10 +78,11 @@ header {
 	height: 100px;
 }*/
 
-.bottom-line{
+.footer-top-line{
 	border-top-style: groove;
 	margin-right: 20%;
 	margin-left: 20%;
+	margin-bottom: 0;
 }
 
 footer{
@@ -97,10 +99,7 @@ footer p{
 	color: black;
 }
 
-@media only screen and (max-width: 468px){
-	.jumbotron{
-		background-position: 58% 50%;
-	}
+@media only screen and (max-width: 650px){
 	.main-nav a{
 		margin: 0 3% 0 3%;
 		font-size: 18px;
