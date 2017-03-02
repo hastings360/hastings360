@@ -1,12 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-	margin: 0;
-	padding: 0;
 	font-family: sans-serif, Arial, Helvetica;
 	background-color: #f9f2ec;
 }
 
-/*all links on whole page*/
+/*default links and paragraphs on whole page*/
 body a,p{
 	text-decoration: none;
 	color: #99badd;
@@ -24,8 +22,7 @@ h1{
 }
 
 /*contains header, name, and contact-resume*/
-.jumbotron{
-	/*height: 470px;*/
+.strap{
 	background-image: url("assets/imgs/strap_pic.jpg");
 	background-position: bottom;
 	background-color: gray;
@@ -33,7 +30,6 @@ h1{
 	padding-top: 10px;
 	padding-bottom: 120px;
 	background-size: cover;
-	margin: 0;
 	/*overflow: hidden;*/
 }
 
@@ -95,6 +91,7 @@ footer{
 }
 
 footer p{
+	margin-top: 10px;
 	font-size: 12px;
 	color: black;
 }
