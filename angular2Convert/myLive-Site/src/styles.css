@@ -4,21 +4,10 @@ body {
 	background-color: #f9f2ec;
 }
 
-/*default links and paragraphs on whole page*/
-body a,p{
-	text-decoration: none;
-	color: #99badd;
-}
 
 /*makes all links red when mouse hover over.  Doesn't apply to strap for some reason*/
 body a:hover{
 	color: red;
-	text-decoration: none;
-}
-
-/*all h1 headers on whole page*/
-h1{
-	text-align: center;
 }
 
 /*contains header, name, and contact-resume*/
@@ -30,11 +19,12 @@ h1{
 	padding-top: 10px;
 	padding-bottom: 120px;
 	background-size: cover;
-	/*overflow: hidden;*/
-}
-
-header {
 	text-align: center;
+	text-decoration: none;
+	color: #99badd;
+}
+.strap a{
+	color: #99badd;
 }
 
 /* main navigation links*/
@@ -42,9 +32,10 @@ header {
 	margin-right: 35px;
 	margin-left: 35px;
 	font-size: 25px;
+	color: #99badd;
 }
 
-/*provisions, name, & second-nav(contact)*/
+/*description, name, etc..*/
 #my-info{
 	text-align: center;
 	margin-top: 60px;
@@ -54,7 +45,6 @@ header {
 	font-size: 25px;
 }
 
-/*name at top*/
 #my-name{
 	font-size: 60px;
 }
@@ -83,8 +73,8 @@ header {
 
 footer{
 	padding-top: 15px;
-	height: 100px;
-	overflow: hidden;
+	/*height: 100px;    for push*/
+	/*overflow: hidden;  for push*/
 	clear: both;
 	font-size: 25px;
 	text-align: center;
@@ -101,7 +91,17 @@ footer p{
 		margin: 0 3% 0 3%;
 		font-size: 18px;
 	}
+	#my-job{
+		font-size: 20px;
+	}
+	#my-name{
+		font-size: 50px;
+	}
 	#my-contact-link{
 		margin: 0 30% 0 30%;
 	}
+	.strap{
+		height: 280px;
+	}
+	
 }
