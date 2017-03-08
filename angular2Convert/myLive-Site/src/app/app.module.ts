@@ -1,3 +1,4 @@
+import { RoutesModule } from './routes/routes.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -18,7 +19,8 @@ import { HomeComponent } from './home/home.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RoutesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
