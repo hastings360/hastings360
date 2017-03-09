@@ -7,8 +7,9 @@ import { HomeComponent } from '../home/home.component';
 import { ContactComponent } from '../contact/contact.component';
 
 const routes: Routes = [
-  {path: '/', component: HomeComponent, data: {title: 'Larry Hastings'}},
-  {path: 'contact', component: ContactComponent}
+  {path: '', pathMatch: 'full', redirectTo: 'home'},
+  {path: 'home', component: HomeComponent, data: {title: 'Larry Hastings'}},
+  {path: 'contact', component: ContactComponent, data: {title: 'Contact Info'}}
 ];
 
 @NgModule({
@@ -16,5 +17,7 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
-export class RoutesRoutingModule { }
+export class RoutesRoutingModule { 
+  
+}
 
