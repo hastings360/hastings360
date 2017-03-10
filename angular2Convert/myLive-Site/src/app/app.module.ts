@@ -1,8 +1,9 @@
-import { RoutesModule } from './routes/routes.module';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RoutesRoutingModule } from './routes/routes-routing.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -22,7 +23,7 @@ import { ContactComponent } from './contact/contact.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    RoutesModule
+    RoutesRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
