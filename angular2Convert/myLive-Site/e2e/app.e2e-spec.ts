@@ -1,6 +1,6 @@
 import { MyLiveSitePage } from './app.po';
 
-describe('my-live-site App', () => {
+describe('my-live-site App', function() {
   let page: MyLiveSitePage;
 
   beforeEach(() => {
