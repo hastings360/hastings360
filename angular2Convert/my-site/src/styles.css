@@ -22,6 +22,7 @@ body a:hover{
 	background-size: cover;
 	text-align: center;
 	color: #99badd;
+	border-radius: 0 !important;
 }
 .strap a{
 	color: #99badd;
@@ -68,11 +69,10 @@ body a:hover{
 	border-top-style: groove;
 	margin-right: 20%;
 	margin-left: 20%;
-	margin-bottom: 0;
+	margin-bottom: 10px;
 }
 
 footer{
-	padding-top: 15px;
 	/*height: 100px;    for push*/
 	/*overflow: hidden;  for push*/
 	clear: both;

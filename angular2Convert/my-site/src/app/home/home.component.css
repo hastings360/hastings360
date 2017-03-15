@@ -1,11 +1,12 @@
 /*Blog styling*/
-blog-side{
+aside{
     background-color: #99badd;
-    border-style: solid;
+    text-align: center;
+    border-radius: 25px;
+    padding-bottom: 13px;
+    color: white;
 }
-
-left-home{
-    border-style: solid;
-    border-color: black;
-    height: 100px;
+iframe{
+    width: 97%;
+    height: 400px;
 }
