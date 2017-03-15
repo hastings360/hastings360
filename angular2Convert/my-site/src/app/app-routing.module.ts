@@ -1,3 +1,4 @@
+import { PortfolioComponent } from './portfolio/portfolio.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -7,7 +8,8 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home'},
   { path: 'home', component: HomeComponent, data: {title: 'Larry Hastings'}},
-  { path: 'contact', component: ContactComponent, data: {title: 'Contact Info'}}
+  { path: 'contact', component: ContactComponent, data: {title: 'Contact Info'}},
+  { path: 'portfolio', component: PortfolioComponent, data: {title: 'PortfolioComponent'}}
 ];
 
 @NgModule({

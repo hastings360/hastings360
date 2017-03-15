@@ -30,8 +30,9 @@ body a:hover{
 
 /* main navigation links*/
 .main-nav a{
-	margin-right: 35px;
-	margin-left: 35px;
+	display: inline-block;
+	text-align: center;
+	width: 125px;
 	font-size: 25px;
 	color: #99badd;
 }
@@ -88,7 +89,7 @@ footer p{
 
 @media only screen and (max-width: 650px){
 	.main-nav a{
-		margin: 0 3% 0 3%;
+		width: 85px;
 		font-size: 18px;
 	}
 	#my-job{
