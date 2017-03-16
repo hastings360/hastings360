@@ -4,22 +4,17 @@
   </div>
 </div>
 <div class="row">
-  <div class="container">
-    <h1>Contact Me Here</h1>
-    <form novalidate>
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" required>
-      </div>
-      <div class="form-group">
-        <label for="info">Info</label>
-        <input type="text" class="form-control" id="info" required>
-      </div>
-      <button type="submit" class="btn btn-success">Submit</button>
-    </form>
-  </div>
+  <!--Demo Form1-->
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)" class="col-md-8 col-md-offset-2"><!-- Add class us form ???-->
+    <div class="field">
+      <label for="skuInput">SKU</label>
+      <input type="text" id="skuInput" placeholder="SKU" name="sku" ngModel>
+    </div>
+      
+  </form>
+
+
+
+
+
 </div>
