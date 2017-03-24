@@ -4,10 +4,31 @@
   </div>
 </div>
 <div class="row">
-  
+  <div class="col-md-8 col-md-offset-2">
 
+  Practice SKU Form
+  <div class="">
+    <h2 class="">Demo Form: Sku</h2>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f.value)" class="">
+      <div class="field">
+          <label for="skuInput">SKU</label>
+          <input type="text" id="skuInput" placeholder="SKU" name="sku" ngModel>
+      </div>
+      <button type="submit" class="">Submit</button>
+    </form>
+  </div>
 
+  <!--Advanced SKU using FormBuilder-->
+  <div class="">
+    <h2 class="">Demo Form: Sku with Builder</h2>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" class="">
+      <div class="field">
+          <label for="skuInput">SKU</label>
+          <input type="text" id="skuInput" placeholder="SKU" [formControl]="myForm.controls['sku']">
+      </div>
+      <button type="submit" class="">Submit</button>
+    </form>
+  </div>
 
-
-
+  </div>
 </div>

@@ -1,3 +1,4 @@
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,11 +6,18 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent {
 
-  constructor() { }
+  myForm: FormGroup;
 
-  ngOnInit() {
+  constructor(fb: FormBuilder) {
+    this.myForm = fb.group({
+      'sku': ['ABC123']
+    })
+   }
+
+  onSubmit(value: any): void{
+    console.log('you submitted value:', value);
   }
-
+  
 }
