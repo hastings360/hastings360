@@ -1,6 +1,45 @@
-.small-menu{
-    width: 100px;
-    height: 100px;
+header{
+    position: absolute;
+    z-index: 1;
+}
+nav{
+    margin-left: 20px;
+    padding: 10px 5px 0 5px;
+    
+}
+#nav-interactive-style{
+    border: thin solid black;
+    border-radius: 20px;
+
+}
+button{
+    width: 60px;
+    height: 60px;
     border-radius: 100%;
-    text-decoration: none;
+    background-color: #99badd;
+    outline: none;
+    padding: 3px;
+    margin: 0 8px 0 8px;
+}
+button:active{
+    background-color: white;
+}
+#inner-button{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border-style: solid #99badd;
+    background-color: white;
+    padding-top: 15px;
+    text-align: center;
+}
+#nav-list{
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin-top: 5px;
+}
+#nav-list a{
+    color: #99badd;
+    font-size: 20px;
 }
