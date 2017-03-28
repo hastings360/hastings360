@@ -3,23 +3,27 @@ header{
     z-index: 1;
 }
 nav{
-    margin-left: 20px;
+    margin: 10px 0 0 10px;
     padding: 10px 5px 0 5px;
     
 }
-#nav-interactive-style{
+.nav-pop-out{
     border: thin solid black;
     border-radius: 20px;
-
+    background-color: #99badd;
 }
-button{
+#menu-button{
     width: 60px;
     height: 60px;
     border-radius: 100%;
     background-color: #99badd;
     outline: none;
     padding: 3px;
-    margin: 0 8px 0 8px;
+    margin: 0 15px 0 15px;
+    z-index: 2;
+}
+#menu-button:active{
+    background-color: white;
 }
 button:active{
     background-color: white;
@@ -42,4 +46,8 @@ button:active{
 #nav-list a{
     color: #99badd;
     font-size: 20px;
+}
+#nav-list button{
+    width: 90px;
+    margin-bottom: 2px;
 }

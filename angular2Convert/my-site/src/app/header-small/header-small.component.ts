@@ -13,6 +13,7 @@ export class HeaderSmallComponent implements AfterViewInit {
   ngAfterViewInit() {
     $('#menu-button').click(function(){
       $('#nav-list').toggleClass('hide');
+      $('#nav-pop').toggleClass('nav-pop-out');
     });
   }
 
