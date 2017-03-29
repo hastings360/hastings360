@@ -9,7 +9,6 @@ nav{
 .nav-pop-out{
     border: thin solid black;
     border-radius: 20px;
-    background-color: #99badd;
 }
 button:active{
     background-color: white;

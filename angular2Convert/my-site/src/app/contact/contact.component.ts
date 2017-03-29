@@ -1,4 +1,4 @@
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,14 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class ContactComponent {
 
   myForm: FormGroup;
+  sku: AbstractControl;
 
   constructor(fb: FormBuilder) {
     this.myForm = fb.group({
-      'sku': ['ABC123']
-    })
+      'sku': ['', Validators.required]
+    });
+    this.sku = this.myForm.controls['sku'];
    }
 
-  onSubmit(value: any): void{
+  onSubmit(value: string): void{
     console.log('you submitted value:', value);
   }
   

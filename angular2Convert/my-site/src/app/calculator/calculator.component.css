@@ -2,11 +2,10 @@
 #calc{
 	border: solid;
 	border-color: #99badd;
-	height: 500px;
-	width: 400px;
+	height: 325px;
+	width: 320px;
 	border-radius: 10px;
-	margin: 20px auto 20px auto;
-	background-color: gray;
+	margin-bottom: 40px;
 }
 
 #calc-window{
@@ -14,7 +13,6 @@
 	margin: 5px;
 	padding-left: 5px;
 	padding-right: 5px;
-	background-color: black;
 	color: white;
 	height: 40px;
 	font-size: 30px;
@@ -44,22 +42,21 @@
 	margin: auto;
 	padding-top: 2%;
 	padding-bottom: 2%;
+	color: white;
 }
 
 #calc-numbers{
-	border: solid;
-	border-width: 1px;
-	border-color: #99badd;
 	width: 300px;
 	text-align: center;
+	color: white;
 }
 
 .number-button{
 	margin: 15px;
 	border: solid;
 	border-color: white;
-	width: 60px;
-	height: 60px;
+	width: 40px;
+	height: 40px;
 	text-align: center;
 	display: inline-block;
 }

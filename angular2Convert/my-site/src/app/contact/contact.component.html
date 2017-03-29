@@ -29,6 +29,7 @@
           <input type="text" id="skuInput" placeholder="SKU" [formControl]="myForm.controls['sku']">
       </div>
       <button type="submit" class="">Submit</button>
+      <div *ngIf="sku.touched" class="message">SKU is invalid</div>
     </form>
   </div>
 

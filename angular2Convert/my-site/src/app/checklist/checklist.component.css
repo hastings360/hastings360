@@ -1,17 +1,17 @@
 .checklist-container{
-	width: 700px;
-	margin: 20px auto 20px auto;
+	width: 100%;
+	margin: 20px auto auto 14px;
 }
 
 .checklist{
 	margin: 0;
 	padding: 10px;
-	width: 700px;
+	width: 100%;
 	height: auto;
 	text-align: center;
 	border-style: solid;
 	border-radius: 15px;
-	box-shadow: -5px -5px 5px #66ccff;
+	box-shadow: -5px -5px 5px #99badd;
 }
 
 .instruction{
@@ -19,16 +19,17 @@
 	margin-top: 20px;
 	margin-bottom: 0px;
 	padding: 0;
-	color: #66ccff;
+	color: #99badd;
 }
 
 .checklist-items{
 	margin-top: 40px;
 	text-align: left;
-	width: 600px;
+	width: 90%;
 	list-style-type: none;
 	padding-left: 0;
 	font-size: 20px;
+	color: white;
 }
 
 .list-items li{
@@ -42,16 +43,20 @@ li:before{
 }
 
 .limit-text{
-	color: black;
+	color: #99badd;
 	font-size: 11px;
 }
 
 .limit{
-	color: black;
+	color: white;
 }
 
 .input{
-	width: 335px;
+	width: 80%;
+}
+.add{
+	width: 17%;
+	height: 27px;
 }
 
 

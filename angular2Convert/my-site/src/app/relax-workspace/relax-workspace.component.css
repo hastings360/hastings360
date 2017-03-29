@@ -3,4 +3,18 @@
     background-size: cover;
     height: 100vh;
     width: 100%;
+    position: relative;
+}
+.gadget-container{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.left-gadget{
+    max-height: 350px;
+    overflow-y: scroll;
+    margin-bottom: 2px;
+}
+::-webkit-scrollbar{
+    width: 0px;
 }
