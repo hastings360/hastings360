@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -12,6 +12,9 @@ import { HeaderComponent } from './header/header.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { AboutComponent } from './about/about.component';
 import { HeaderSmallComponent } from './header-small/header-small.component';
+import { RelaxWorkspaceComponent } from './relax-workspace/relax-workspace.component';
+import { CalculatorComponent } from './calculator/calculator.component';
+import { ChecklistComponent } from './checklist/checklist.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { HeaderSmallComponent } from './header-small/header-small.component';
     HeaderComponent,
     PortfolioComponent,
     AboutComponent,
-    HeaderSmallComponent
+    HeaderSmallComponent,
+    RelaxWorkspaceComponent,
+    CalculatorComponent,
+    ChecklistComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +36,7 @@ import { HeaderSmallComponent } from './header-small/header-small.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ Title ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

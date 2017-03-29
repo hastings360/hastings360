@@ -3,14 +3,16 @@ header{
     z-index: 1;
 }
 nav{
-    margin: 10px 0 0 10px;
+    margin: 10px 0 0 30px;
     padding: 10px 5px 0 5px;
-    
 }
 .nav-pop-out{
     border: thin solid black;
     border-radius: 20px;
     background-color: #99badd;
+}
+button:active{
+    background-color: white;
 }
 #menu-button{
     width: 60px;
@@ -23,9 +25,6 @@ nav{
     z-index: 2;
 }
 #menu-button:active{
-    background-color: white;
-}
-button:active{
     background-color: white;
 }
 #inner-button{
@@ -46,8 +45,12 @@ button:active{
 #nav-list a{
     color: #99badd;
     font-size: 20px;
+    text-decoration: none;
+}
+#nav-list a:hover{
+    color: red;
 }
 #nav-list button{
     width: 90px;
-    margin-bottom: 2px;
+    margin-bottom: 3px;
 }
