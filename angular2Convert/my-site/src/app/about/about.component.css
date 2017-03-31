@@ -1,0 +1,34 @@
+/*"About page" styling*/
+#about-pic{
+	background: #ffffe6 url('../../assets/imgs/lh.jpg') no-repeat center;
+	height: 100vh;
+	padding-top: 50px;
+}
+#about-info h1{
+	font-weight: bold;
+	text-align: center;
+	color: #99badd;
+	text-shadow: 1px 1px 0 black,
+				-1px -1px 0 black,
+				1px -1px 0 black,
+				-1px 1px 0 black,
+				0px 1px 0 black,
+				1px 0px 0 black,
+				0px -1px 0 black,
+				-1px 0px 0 black;
+}
+#about-info p{
+	font-size: 23px;
+	color: white;
+	text-shadow: 1px 1px 0 black,
+				-1px -1px 0 black,
+				1px -1px 0 black,
+				-1px 1px 0 black,
+				0px 1px 0 black,
+				1px 0px 0 black,
+				0px -1px 0 black,
+				-1px 0px 0 black;
+}
+#about-info p:first-letter{
+	font-size: 40px;
+}
