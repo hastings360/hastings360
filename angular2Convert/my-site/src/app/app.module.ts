@@ -15,6 +15,7 @@ import { HeaderSmallComponent } from './header-small/header-small.component';
 import { RelaxWorkspaceComponent } from './relax-workspace/relax-workspace.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { ChecklistComponent } from './checklist/checklist.component';
+import { MusicComponent } from './music/music.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ChecklistComponent } from './checklist/checklist.component';
     HeaderSmallComponent,
     RelaxWorkspaceComponent,
     CalculatorComponent,
-    ChecklistComponent
+    ChecklistComponent,
+    MusicComponent
   ],
   imports: [
     BrowserModule,

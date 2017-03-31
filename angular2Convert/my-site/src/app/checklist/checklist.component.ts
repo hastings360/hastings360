@@ -1,10 +1,11 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { AfterViewInit, Component, ViewEncapsulation } from '@angular/core';
 declare var $:any
 
 @Component({
   selector: 'app-checklist',
   templateUrl: './checklist.component.html',
-  styleUrls: ['./checklist.component.css']
+  styleUrls: ['./checklist.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ChecklistComponent implements AfterViewInit {
 
@@ -22,10 +23,14 @@ export class ChecklistComponent implements AfterViewInit {
         
         $('.btn').click(function(){
           var input = $('.input').val();
-          $('<li>').text(input).appendTo('.checklist-items');
-          $('.input').val('');
-          $('.limit').text('40');
-          $('.btn').addClass('disabled');
+          if(input.length > 0 && input.length < 41){
+            $('<li>').text(input).appendTo('.checklist-items');
+            $('.input').val('');
+            $('.limit').text('40');
+            $('.btn').addClass('disabled');
+          }else{
+            return;
+          }
         });
         
         $('.input').keyup(function(){

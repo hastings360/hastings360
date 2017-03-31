@@ -15,7 +15,11 @@ export class CalculatorComponent implements AfterViewInit {
       var display = '0';
       //Adds and sorts values to the display variable
       function addToDisplay(x){						
-        if(display === '0'){
+        /*if(display.length > 13 && x.match(/[*\/\+-]/)){
+          display = display + x;
+        }else if(display.length > 13){
+          return;
+        }else */if(display === '0'){
           display = x;
         }else if((display + x).match(/[*\/\+-][*\/\+-]/)){
           return;
@@ -30,7 +34,8 @@ export class CalculatorComponent implements AfterViewInit {
           display = display.slice(0,-1);
         };
         var x = math.eval(display);
-        document.getElementById('calc-window').innerHTML =  x;//*Insert logic into function
+        document.getElementById('calc-window').innerHTML =  math.round(x,2);//*displays result
+        x = math.round(x,2);
         display = x.toString();
       };
       //Clears the window and sets the display variable to 0

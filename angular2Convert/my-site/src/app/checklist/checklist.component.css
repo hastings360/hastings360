@@ -1,8 +1,8 @@
 .checklist-container{
 	width: 100%;
-	margin: 20px auto auto 14px;
+	margin: 20px auto auto auto;
+	user-select: none;
 }
-
 .checklist{
 	margin: 0;
 	padding: 10px;
@@ -30,16 +30,12 @@
 	padding-left: 0;
 	font-size: 20px;
 	color: white;
+	cursor: pointer;
 }
-
-.list-items li{
-	margin-top: 10px;
-	border: 1px red solid;
-}
-
-li:before{
+.checklist-items li:before{
 	margin-right: 20px;
 	content: url('../../assets/imgs/check1.png');
+	height: 10px;
 }
 
 .limit-text{
@@ -57,6 +53,7 @@ li:before{
 .add{
 	width: 17%;
 	height: 27px;
+	padding-top: 2px; 
 }
 
 
