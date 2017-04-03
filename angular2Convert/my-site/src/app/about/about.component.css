@@ -1,6 +1,6 @@
 /*"About page" styling*/
 #about-pic{
-	background: #f9f2ec url('../../assets/imgs/lh.jpg') no-repeat center;
+	background: #f9f2ec url('../../assets/imgs/lh.jpg') no-repeat;
 	height: 100vh;
 	padding-top: 50px;
 }
@@ -33,12 +33,8 @@
 	font-size: 30px;
 }
 @media screen and(max-width: 992px){
-	#about-info{
-		position: absolute;
-		z-index: 1;
-		margin-top: -780px;
-	}
 	#about-info p{
 		font-size: 17px;
 	}
 }
+
