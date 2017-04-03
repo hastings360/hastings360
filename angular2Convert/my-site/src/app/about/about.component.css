@@ -1,25 +1,25 @@
 /*"About page" styling*/
 #about-pic{
-	background: #ffffe6 url('../../assets/imgs/lh.jpg') no-repeat center;
+	background: #f9f2ec url('../../assets/imgs/lh.jpg') no-repeat center;
 	height: 100vh;
 	padding-top: 50px;
 }
 #about-info h1{
 	font-weight: bold;
 	text-align: center;
-	color: #99badd;
-	text-shadow: 1px 1px 0 black,
-				-1px -1px 0 black,
-				1px -1px 0 black,
-				-1px 1px 0 black,
-				0px 1px 0 black,
-				1px 0px 0 black,
-				0px -1px 0 black,
-				-1px 0px 0 black;
+	text-shadow: 1px 1px 0 white,
+				-1px -1px 0 white,
+				1px -1px 0 white,
+				-1px 1px 0 white,
+				0px 1px 0 white,
+				1px 0px 0 white,
+				0px -1px 0 white,
+				-1px 0px 0 white;
 }
 #about-info p{
-	font-size: 23px;
-	color: white;
+	font-size: 18px;
+	color: #99badd;
+	font-weight: bold;
 	text-shadow: 1px 1px 0 black,
 				-1px -1px 0 black,
 				1px -1px 0 black,
@@ -30,5 +30,15 @@
 				-1px 0px 0 black;
 }
 #about-info p:first-letter{
-	font-size: 40px;
+	font-size: 30px;
+}
+@media screen and(max-width: 992px){
+	#about-info{
+		position: absolute;
+		z-index: 1;
+		margin-top: -780px;
+	}
+	#about-info p{
+		font-size: 17px;
+	}
 }
