@@ -10,3 +10,32 @@ iframe{
     width: 97%;
     height: 400px;
 }
+.floating-words{
+    text-align: center;
+}
+.floating-words button{
+    display: inline-block;
+    border: 1px black solid;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0px 0px 10px #aaff6d;
+    margin: 10px 8px 8px 10px;
+    padding: 4px;
+    background: none;
+    font-size: 24px;
+    outline: none;
+}
+.floating-words button:active{
+    box-shadow: 0px 0px 20px #aaff6d inset;
+}
+@media only screen and (max-width: 991px){
+    .floating-words button{
+        font-size: 20px;
+    }
+}
+@media only screen and (max-width: 650px){
+    .floating-words button{
+        font-size: 14px;
+        margin: 5px 3px 5px 3px;
+        padding: 2px;
+    }
+}
