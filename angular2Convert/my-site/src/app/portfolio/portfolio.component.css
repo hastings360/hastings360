@@ -1,9 +1,15 @@
 .items{
     padding-top: 100px;
-    height: 100vh;
 }
 .item{
-    border: thin solid black;
-    height: 100px;
-    padding: 1%;
+    height: 200px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.item a{
+    height: 100%;
+    width: 100%;
+    display: block;
+    border: thin black solid;
+    padding-top: 50px;
 }
