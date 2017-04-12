@@ -1,0 +1,9 @@
+.items{
+    padding-top: 100px;
+    height: 100vh;
+}
+.item{
+    border: thin solid black;
+    height: 100px;
+    padding: 1%;
+}

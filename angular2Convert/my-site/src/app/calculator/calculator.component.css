@@ -16,7 +16,8 @@
 	color: white;
 	height: 40px;
 	font-size: 30px;
-
+	overflow-x: auto;
+	text-align: right;
 }
 
 #calc-operators{
