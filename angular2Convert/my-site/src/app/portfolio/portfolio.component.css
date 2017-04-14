@@ -13,3 +13,9 @@
     border: thin black solid;
     padding-top: 50px;
 }
+.circle{
+    border-radius: 100%;
+}
+.semi{
+    border-radius: 0 0 100% 100%;
+}

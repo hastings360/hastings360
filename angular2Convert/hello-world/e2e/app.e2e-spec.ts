@@ -1,10 +1,10 @@
-import { Angualr2RedditPage } from './app.po';
+import { HelloWorldPage } from './app.po';
 
-describe('angualr2-reddit App', () => {
-  let page: Angualr2RedditPage;
+describe('hello-world App', () => {
+  let page: HelloWorldPage;
 
   beforeEach(() => {
-    page = new Angualr2RedditPage();
+    page = new HelloWorldPage();
   });
 
   it('should display message saying app works', () => {
