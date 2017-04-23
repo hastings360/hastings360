@@ -12,10 +12,14 @@
     display: block;
     border: thin black solid;
     padding-top: 50px;
+    opacity: 1;
 }
 .circle{
     border-radius: 100%;
 }
 .semi{
     border-radius: 0 0 100% 100%;
+}
+#one{
+    background-image: url("../../assets/imgs/curacao_beach.jpg");
 }
