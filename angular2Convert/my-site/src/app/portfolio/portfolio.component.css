@@ -11,8 +11,41 @@
     width: 100%;
     display: block;
     border: thin #99badd solid;
-    padding-top: 50px;
+    padding-top: 70px;
     opacity: 1;
+}
+.link-words{
+    color: black;
+    background: transparent;
+    padding: 1px;
+    border: thin gray solid;
+    outline: none;
+    font-size: 18px;
+}
+.link-words:hover{
+    color: white;
+    border-color: lightgray;
+}
+.link-words:active{
+    box-shadow: 0 0 0 1px white inset;
+    outline: none;
+}
+@media screen and (max-width: 575px){
+    .link-words{
+        font-size: 12px;
+    }
+}
+.circle-btn{
+    border-radius: 100%;
+    padding: 25px 2px 25px 2px;
+}
+.square-btn{
+    border-radius: 0;
+    padding: 25px 2px 25px 2px;
+}
+.semi-btn{
+    border-radius: 0 0 100% 100%;
+    padding: 25px 2px 25px 2px;
 }
 .circle{
     border-radius: 100%;
@@ -40,6 +73,7 @@
 }
 #seven{
     background-image: url("../../assets/imgs/oregon_garden.jpg");
+    background-repeat: no-repeat;
 }
 #eight{
     background-image: url("../../assets/imgs/thermometer.jpg");
