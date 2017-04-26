@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
- emailMe(name: HTMLInputElement, emil: HTMLInputElement, number: HTMLInputElement, message: HTMLInputElement):boolean{
+ emailMe(name: HTMLInputElement, email: HTMLInputElement, number: HTMLInputElement, message: HTMLInputElement):boolean{
       /*email myself*/
     return false;
  }

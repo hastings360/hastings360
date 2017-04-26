@@ -35,4 +35,17 @@
 }
 #contact-form{
     margin-bottom: 200px;
+    margin-top: 10px;
+}
+#contact-submit{
+    background: none;
+    border: 2px #99badd solid;
+    position: absolute;
+    width: 80px;
+    left: 50%;
+    margin-left: -40px;
+}
+#contact-submit:active{
+    border-color: white;
+    box-shadow: 0 0 2px 4px #99badd;
 }
