@@ -1,4 +1,3 @@
-import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,20 +5,17 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
 
-  myForm: FormGroup;
-  sku: AbstractControl;
+ emailMe(name: HTMLInputElement, emil: HTMLInputElement, number: HTMLInputElement, message: HTMLInputElement):boolean{
+      /*email myself*/
+    return false;
+ }
 
-  constructor(fb: FormBuilder) {
-    this.myForm = fb.group({
-      'sku': ['', Validators.required]
-    });
-    this.sku = this.myForm.controls['sku'];
-   }
 
-  onSubmit(value: string): void{
-    console.log('you submitted value:', value);
+  constructor(){}
+
+  ngOnInit() {
   }
   
 }
