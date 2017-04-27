@@ -1,12 +1,12 @@
 <title>Contact</title>
 <app-header-small></app-header-small>
 <div class="empty-vh-container">
-  <div class="row">
+  <section class="clearfix">
     <div id="contact-message" class="col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
       <p>Hello, thank you for visiting my site.  Please use the contact form below to get in touch with me.  Be assured, if you are legitimate in your inquiry, I will promptly make contact with you using the supplied email.  Have a wonderful day!</p>
     </div>
-  </div>
-  <div class="row">
+  </section>
+  <section class="clearfix">
     <div id="contact-bg"></div>
     <form id="contact-form" class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
         <div class="form-group">    
@@ -27,8 +27,7 @@
         </div>
         <button type="submit" id="contact-submit" class="btn" (click)="emailMe(newname, newemail, newphone, newmessage)"><strong>Send</strong></button>
     </form>
-    
-  </div>
+  </section>
 </div>
 
 
