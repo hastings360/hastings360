@@ -44,6 +44,7 @@
     width: 80px;
     left: 50%;
     margin-left: -40px;
+    outline: none;
 }
 #contact-submit:active{
     border-color: white;
