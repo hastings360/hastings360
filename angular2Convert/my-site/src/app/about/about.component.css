@@ -8,9 +8,6 @@
 	padding-top: 50px;
 	margin-bottom: 10px;
 }
-#about-info{
-	margin-bottom: 35px;
-}
 #about-info h1{
 	font-weight: bold;
 	text-align: center;
@@ -56,10 +53,6 @@
 		font-size: 15px;
 	}
 }
-@media screen and (max-width: 763px){
-	#about-info{
-		margin-bottom: 
-	}
-}
+
 
 
