@@ -1,11 +1,9 @@
 /*"About page" styling*/
-#about-container{
-	margin-bottom: 1px;
-}
 #about-pic{
 	background: #f9f2ec url('../../assets/imgs/lh.jpg') no-repeat;
-	height: 926px;
-	padding-top: 50px;
+	background-position: center left;
+	height: 960px;
+	padding-top: 80px;
 }
 #about-info h1{
 	font-weight: bold;
@@ -35,11 +33,6 @@
 	}
 	#about-info p{
 		color: white;
-	}
-}
-@media screen and (max-width: 991px) and (min-width: 885px){
-	#about-info{
-		width:  90%;
 	}
 }
 @media screen and (max-width: 1103px){
