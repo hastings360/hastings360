@@ -1,0 +1,35 @@
+.cont-margin{
+	margin-top: 20px;
+	margin-left: 0;
+	margin-right: 0;
+	margin-bottom: 20px;
+}
+
+.row-margin{
+	margin: 0;
+}
+
+
+.entity-circle{
+	border-radius: 50%;
+	border: solid;
+	width: 200px;
+	height: 200px;
+	
+}
+
+#mid-row{
+	text-align: center;
+	opacity: 0.8;
+	color: blue;
+}
+
+.center-circle{
+	border-radius: 50%;
+	border: solid;
+	width: 400px;
+	height: 400px;
+	position: absolute;
+	background-color: blue;
+	
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+	<!-------------------------------------------------------------------------------------------------->
+		<meta charset='UTF-8'>
+		<!-- IE Edge Meta Tag--IE 8 and beyond--Equivalent to html5 doctype -->
+		<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+		<!-- Mobile display adaption--No shrinkage--Breakpoint adaptable -->
+		<meta name='viewport' content='widith=device-width, initial-scale=1'>
+		<!-- Latest compiled and minified CSS--Bootstrap CDN -->
+		<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+		
+		<!------------------------------------------------------------->
+		
+		<!-- My style sheet--Must be after bootstrap -->
+		<link rel='stylesheet' href='../stylesheet/calc_page.css'> 
+		
+		<!------------------------------------------------------------->
+		
+		<!-- Optional theme--Extra bootstrap CSS feature--Smoother Gradients-->
+		<!-- <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css'-->
+		
+		<!-- Optional IE8 Support--Help with newer HTML5 tags and responsive breakpoints -->
+		<!--[if lt IE 9]>
+			<script src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js'></script>
+			<script src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js'></script>
+		<![endif]-->
+	<!--------------------------------------------------------------------------------------------------->
+		<title>Larry Hastings--Calculator</title>
+		
+
+	</head>
+
+	<!-- whole site container -->
+	<body>
+
+
+		<!-- Contains everything between strap and push(above footer) -->
+		<section id='calc'>
+			
+			<div id='calc-window'></div>
+			
+			<div><!-- Calculator button container -->
+				<div id='calc-operators'>
+					<div id='multiplication' class='operator-button'><p>X</p></div>
+					<div id='divide' class='operator-button'><p>/</p></div>
+					<div id='plus' class='operator-button'><p>+</p></div>
+					<div id='minus' class='operator-button'><p>-</p></div>
+					<div id='equals' class='operator-button'><p>=</p></div>
+				</div>
+				
+				<div id='calc-numbers'>
+					<div id='one' class='number-button'><p>1</p></div>
+					<div id='two' class='number-button'><p>2</p></div>
+					<div id='three' class='number-button'><p>3</p></div>
+					<div id='four' class='number-button'><p>4</p></div>
+					<div id='five' class='number-button'><p>5</p></div>
+					<div id='six' class='number-button'><p>6</p></div>
+					<div id='seven' class='number-button'><p>7</p></div>
+					<div id='eight' class='number-button'><p>8</p></div>
+					<div id='nine' class='number-button'><p>9</p></div>
+					<div id='clear' class='number-button'><p>C</p></div>
+					<div id='zero' class='number-button'><p>0</p></div>
+					<div id='decimal' class='number-button'><p>.</p></div>
+				</div>
+			</div>
+<script>
+
+	var display = '0';
+	//Adds and sorts values to the display variable
+	function addToDisplay(x){						
+		if(display === '0'){
+			display = x;
+		}else if((display + x).match(/[*\/\+-][*\/\+-]/)){
+			return;
+		}else{
+			display = display  + x;
+		};
+		document.getElementById('calc-window').innerHTML = display;
+	};
+	//Computes variables in display variable using the 'math' package
+	function equalCompute(){
+		if((display.slice(-1)).match(/[*\/\+-]/)){
+			display = display.slice(0,-1);
+		};
+		x = math.eval(display);
+		document.getElementById('calc-window').innerHTML =  x;//*Insert logic into unciton
+		display = x.toString();
+	};
+	//Clears the window and sets the display variable to 0
+	function clearCompute(){
+			document.getElementById('calc-window').innerHTML = '0';
+			display = '0';
+	};
+	//Button click handlers
+	document.getElementById('one').onclick = function(){addToDisplay('1');};
+	document.getElementById('two').onclick = function(){addToDisplay('2');};
+	document.getElementById('three').onclick = function(){addToDisplay('3');};
+	document.getElementById('four').onclick = function(){addToDisplay('4');};
+	document.getElementById('five').onclick = function(){addToDisplay('5');};
+	document.getElementById('six').onclick = function(){addToDisplay('6');};
+	document.getElementById('seven').onclick = function(){addToDisplay('7');};
+	document.getElementById('eight').onclick = function(){addToDisplay('8');};
+	document.getElementById('nine').onclick = function(){addToDisplay('9');};
+	document.getElementById('zero').onclick = function(){addToDisplay('0');};
+	document.getElementById('decimal').onclick = function(){addToDisplay('.');};
+	document.getElementById('clear').onclick = function(){clearCompute();};
+
+	document.getElementById('multiplication').onclick = function(){addToDisplay('*');};
+	document.getElementById('divide').onclick = function(){addToDisplay('/');};
+	document.getElementById('plus').onclick = function(){addToDisplay('+');};
+	document.getElementById('minus').onclick = function(){addToDisplay('-');};
+	document.getElementById('equals').onclick = function(){equalCompute();};
+
+	document.getElementById('calc-window').innerHTML = display;//Initially sets window to display variable '0'
+</script>
+
+		</section><!-- end mid-container -->
+
+		
+
+
+
+
+	<!------------------------------------------------------------------------------------------->
+		<!-- Begin script insertions--jQuery, javascript, etc... -->
+		<script src='https://code.jquery.com/jquery-2.2.4.min.js'
+			  integrity='sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44='
+			  crossorigin='anonymous'></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js' 
+			integrity='sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS' 
+			crossorigin='anonymous'></script>
+		<!--math.js minified -->
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.8.1/math.min.js' type='text/javascript'></script>
+	
+	<!--------------------------------------------------------------------->
+	
+		<!-- My javascript file -->
+		<script src='dunno yet'></script>
+		
+	<!--------------------------------------------------------------------->
+	</body>
+
+</html>
