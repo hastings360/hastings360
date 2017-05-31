@@ -1,6 +1,10 @@
-import { Component, EventEmitter, Input, Output} from '@angular/core';
-
-import { Product } from './../product.model';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output
+} from '@angular/core';
+import { Product } from '../product.model';
 
 /**
  * @ProductsList: A component for rendering all ProductRows and
@@ -8,34 +12,41 @@ import { Product } from './../product.model';
  */
 @Component({
   selector: 'app-products-list',
-  templateUrl: './products-list.component.html',
-  styleUrls: ['./products-list.component.css']
+  templateUrl: './products-list.component.html'
 })
 export class ProductsListComponent {
+  /**
+   * @input productList - the Product[] passed to us
+   */
+  @Input() productList: Product[];
 
+  /**
+   * @output onProductSelected - outputs the current
+   *          Product whenever a new Product is selected
+   */
+  @Output() onProductSelected: EventEmitter<Product>;
+
+  /**
+   * @property currentProduct - local state containing
+   *             the currently selected `Product`
+   */
   private currentProduct: Product;
 
-  //Sets currentProduct and emits product that was clicked on
-  clicked(product: Product): void{
+  constructor() {
+    this.onProductSelected = new EventEmitter();
+  }
+
+  clicked(product: Product): void {
     this.currentProduct = product;
     this.onProductSelected.emit(product);
   }
 
-  //Returns true if product sku matches currentProduct sku
-  isSelected(product: Product): boolean{
-    if(!product || !this.currentProduct){
+  isSelected(product: Product): boolean {
+    if (!product || !this.currentProduct) {
       return false;
     }
     return product.sku === this.currentProduct.sku;
   }
 
-  //@input productList - the Product[]
-  @Input() productList: Product[];
-
-  //@output onProductSelected - outputs current Product whenever selected
-  @Output() onProductSelected: EventEmitter<Product>;
-
-    constructor(){
-      this.onProductSelected = new EventEmitter();
-    }
 }
+
