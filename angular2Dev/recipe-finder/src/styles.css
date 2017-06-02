@@ -57,6 +57,9 @@ header a:hover{
     background: none;
     border-style: none;
 }
+.content-container{
+    max-width: 960px;
+}
 .navbar-nav{
     float: none;
     text-align: center;
