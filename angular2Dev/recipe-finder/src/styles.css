@@ -46,15 +46,24 @@ header a:hover{
     text-align: right;
 }
 .search-container input{
+    border: none;
     border-radius: 20px;
+    height: 30px;
     padding-left: 10px;
+    outline: none;
+
 }
 .search-container button{
-    border-radius: 20px;
     background: none;
     border-style: none;
 }
-.navbar-nav li{
+.navbar-nav{
+    float: none;
     text-align: center;
+}
+.nav li{
+    font: oblique 30px eurostile;
+    display: inline-block;
+    float: none;
 }
 
