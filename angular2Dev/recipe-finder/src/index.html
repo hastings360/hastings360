@@ -25,27 +25,26 @@
 </head>
 <body>
     <!--Global Header-->
-    <header>
-		<div class="clearfix">
-			<div class="col-sm-8"><h1 id="logoh1"><a class="logo" href="">Recipe<br>Finder</a></h1></div>
-			<form class="search-container col-sm-4">
-					<input type="text" placeholder="Search">
-					<button class="logo" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-			</form>
-		</div>
-    </header>
-		<div class="content-container">
-			<div class="container-fluid">
-    		<app-root>Loading...</app-root>
+    <header class="container-fluid">
+			<div class="clearfix">
+				<div class="col-sm-8"><h1 id="logoh1"><a class="logo" href="">Recipe<br>Finder</a></h1></div>
+				<form class="search-container col-sm-4">
+						<input type="text" placeholder="Search">
+						<button class="logo" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+				</form>
 			</div>
+    </header>
+		<div id="content-container" class="container">
+    	<app-root>Loading...</app-root>
 		</div>
     <!--Global Footer-->
-    <footer>
-			<nav class="navbar navbar-fixed-bottom">
-				<div class="container-fluid">
+    <footer class="container-fluid">
+			<nav class="navbar navbar-fixed-bottom clearfix">
+				<div>
 						<ul class="nav navbar-nav">
 								<li><a class="logo" href="">Home</a></li>
 								<li><a class="logo" href="">About</a></li>
+								<li><a class="logo" href="">Contribute</a></li>
 						</ul>
 				</div>
 			</nav>
