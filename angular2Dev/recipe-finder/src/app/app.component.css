@@ -1,3 +1,25 @@
-.main-meal-image{
-    height: 200px;
+.name{
+    color: rgba(149,160,20,1);
+}
+.meal-image{
+    height: 150px;
+    width: 100%;
+    border-radius: 20px;
+}
+.divider{
+    border-color: rgba(149,160,20,1);
+}
+.meal-left-column{
+    margin-top: 0;
+    color: rgba(149,160,20,1);
+}
+.meal-right-column{
+    font-size: 20px;
+    line-height: 1.5;
+    color: rgba(160, 183, 201,1);
+}
+@media screen and (max-width: 676px){
+    .meal-right-column{
+        font-size: 15px;
+    }
 }
