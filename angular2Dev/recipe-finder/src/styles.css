@@ -1,9 +1,12 @@
 /*Global styles*/
 body{
-   background-color: #663300;
+    background-color: #663300;
+}
+#main-wrapper{
+    min-height: 90vh;
 }
 header{
-    padding-left: 90px !important ;
+    padding-left: 90px !important;
 }
     #logoh1{
         text-indent: -90px;
@@ -50,7 +53,6 @@ header{
         height: 30px;
         padding-left: 10px;
         outline: none;
-
     }
     .search-container button{
         background: none;
@@ -59,8 +61,6 @@ header{
 #content-container{
     margin-top: 10px;
 }
-
-
 /*footer*/
 .navbar-nav{
     float: none;
@@ -71,4 +71,3 @@ header{
     display: inline-block;
     float: none;
 }
-
