@@ -16,7 +16,6 @@
 .meal-right-column{
     font-size: 20px;
     line-height: 1.5;
-    color: lightgray;
 }
 @media screen and (max-width: 676px){
     .meal-right-column{

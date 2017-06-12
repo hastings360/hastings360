@@ -12,6 +12,7 @@ export class Meal{
         public ingredients: string[],
         public contributionDate: DateFormatter,
         public estimatedCalories: number,
-        public directions: string
+        public directions: string,
+        category: string
     ){}
 }

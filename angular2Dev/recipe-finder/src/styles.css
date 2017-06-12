@@ -58,9 +58,25 @@ header{
         background: none;
         border-style: none;
     }
+
+/*main content*/    
 #content-container{
     margin-top: 10px;
 }
+h1{
+text-align: center;
+text-shadow:    -1px -1px 0 lightgray,
+                1px -1px 0 lightgray,
+                -1px 1px 0 lightgray,
+                1px 1px 0 lightgray;
+}
+h2{
+    color: rgba(160, 183, 201,1);
+}
+p{
+    color: lightgray;
+}
+
 /*footer*/
 .navbar-nav{
     float: none;

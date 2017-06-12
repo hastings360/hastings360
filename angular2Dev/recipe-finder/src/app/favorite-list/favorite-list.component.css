@@ -1,0 +1,12 @@
+.img-rounded{
+    margin-top: 10px;
+}
+h4{
+    color: burlywood;
+}
+a{
+    text-decoration: none;
+}
+h4:hover{
+    color: aquamarine;
+}
