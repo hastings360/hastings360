@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 
-import { Meal } from '../meal.model';
+import { Meal } from '../../meal.model';
 
 @Component({
-  selector: 'app-meal-view',
-  templateUrl: './meal-view.component.html',
-  styleUrls: ['./meal-view.component.css']
+  selector: 'app-single-full-view',
+  templateUrl: './single-full-view.component.html',
+  styleUrls: ['./single-full-view.component.css']
 })
-export class MealViewComponent {
+export class SingleFullViewComponent {
   bakedTurkeyWrap: Meal;
 
   constructor(){

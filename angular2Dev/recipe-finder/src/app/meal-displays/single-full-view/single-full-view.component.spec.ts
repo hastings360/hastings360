@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MealContainerComponent } from './meal-container.component';
+import { SingleFullViewComponent } from './single-full-view.component';
 
-describe('MealContainerComponent', () => {
-  let component: MealContainerComponent;
-  let fixture: ComponentFixture<MealContainerComponent>;
+describe('SingleFullViewComponent', () => {
+  let component: SingleFullViewComponent;
+  let fixture: ComponentFixture<SingleFullViewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MealContainerComponent ]
+      declarations: [ SingleFullViewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MealContainerComponent);
+    fixture = TestBed.createComponent(SingleFullViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
