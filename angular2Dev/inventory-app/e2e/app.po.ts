@@ -5,7 +5,11 @@ export class InventoryAppPage {
     return browser.get('/');
   }
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+  getHeaderText() {
+    return element(by.css('h1.header')).getText();
+  }
+
+  getItemName(i) {
+    return element.all(by.css('.item .content .header')).get(i).getText();
   }
 }

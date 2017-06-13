@@ -28,4 +28,3 @@ import { ProductsListComponent } from './products-list/products-list.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-

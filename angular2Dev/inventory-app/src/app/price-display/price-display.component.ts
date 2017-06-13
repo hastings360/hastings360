@@ -1,12 +1,18 @@
-import { Component,Input} from '@angular/core';
+import {
+  Component,
+  Input
+} from '@angular/core';
 
+/**
+ * @PriceDisplay: A component to show the price of a
+ * Product
+ */
 @Component({
-  selector: 'app-price-display',
-  templateUrl: './price-display.component.html',
-  styleUrls: ['./price-display.component.css']
+  selector: 'price-display',
+  template: `
+  <div class="price-display">\${{ price }}</div>
+  `
 })
-export class PriceDisplayComponent{
-  
+export class PriceDisplayComponent {
   @Input() price: number;
-
 }

@@ -11,7 +11,7 @@ import { Product } from '../product.model';
  * storing the currently selected Product
  */
 @Component({
-  selector: 'app-products-list',
+  selector: 'products-list',
   templateUrl: './products-list.component.html'
 })
 export class ProductsListComponent {
@@ -49,4 +49,3 @@ export class ProductsListComponent {
   }
 
 }
-

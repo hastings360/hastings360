@@ -7,8 +7,18 @@ describe('inventory-app App', () => {
     page = new InventoryAppPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should load the page', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getHeaderText()).toEqual(`Angular Inventory App`);
+  });
+
+  it('should have a blue jacket on the page', () => {
+    page.navigateTo();
+    expect(page.getItemName(1)).toEqual(`Blue Jacket`);
+  });
+
+  it('should have black shoes on the page', () => {
+    page.navigateTo();
+    expect(page.getItemName(0)).toEqual(`Black Running Shoes`);
   });
 });

@@ -9,7 +9,7 @@ import { Product } from '../product.model';
  * Product's department
  */
 @Component({
-  selector: 'app-product-department',
+  selector: 'product-department',
   templateUrl: './product-department.component.html'
 })
 export class ProductDepartmentComponent {
