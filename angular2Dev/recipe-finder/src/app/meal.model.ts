@@ -13,6 +13,7 @@ export class Meal{
         public contributionDate: DateFormatter,
         public estimatedCalories: number,
         public directions: string,
-        category: string
+        public category: string,
+        public likes: number
     ){}
 }

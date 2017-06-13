@@ -5,17 +5,16 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing-module';
 
 import { AppComponent } from './app.component';
-import { FavoritesComponent } from './favorites/favorite.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { SingleViewComponent } from './meal-displays/single-view/meal-view.component';
-import { BriefViewComponent } from './brief-view/brief-view.component';
+import { SingleFullViewComponent } from './meal-displays/single-full-view/single-full-view.component';
+import { BriefViewComponent } from './meal-displays/brief-view/brief-view.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    BriefViewComponent
+    BriefViewComponent,
   ],
   imports: [
     BrowserModule,
