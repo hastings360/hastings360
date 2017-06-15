@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -7,7 +7,8 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent{
+  
   public constructor(private titleService: Title){}
 
   public setTitle( newTitle: string ){

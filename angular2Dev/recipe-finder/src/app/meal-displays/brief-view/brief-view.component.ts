@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
+
+import { Meal } from '../../meal.model';
 
 @Component({
   selector: 'app-brief-view',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BriefViewComponent implements OnInit {
 
+  @Input() briefMeal: Meal[];
+
   constructor() { }
 
   ngOnInit() {
+    console.log(this.briefMeal);
   }
 
 }

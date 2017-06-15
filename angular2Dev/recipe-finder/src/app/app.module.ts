@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SingleFullViewComponent } from './meal-displays/single-full-view/single-full-view.component';
 import { BriefViewComponent } from './meal-displays/brief-view/brief-view.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { BriefViewComponent } from './meal-displays/brief-view/brief-view.compon
     AppComponent,
     WelcomeComponent,
     BriefViewComponent,
+    FavoritesComponent,
   ],
   imports: [
     BrowserModule,

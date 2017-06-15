@@ -63,6 +63,15 @@ header{
 #content-container{
     margin-top: 10px;
 }
+#content-container a:hover{
+    text-decoration: none;
+}
+#content-container h3:hover{
+    color: rgba(149,160,20,1);
+}
+#content-container img:hover{
+    border: thin solid rgba(149,160,20,1);
+}
 h1{
 text-align: center;
 text-shadow:    -1px -1px 0 lightgray,
@@ -72,6 +81,10 @@ text-shadow:    -1px -1px 0 lightgray,
 }
 h2{
     color: rgba(160, 183, 201,1);
+}
+h3{
+    color: burlywood;
+    margin-top: 0;
 }
 p{
     color: lightgray;
