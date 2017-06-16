@@ -7,25 +7,36 @@
   </section>
   <section class="clearfix">
     <div id="contact-bg"></div>
-    <form id="contact-form" class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+    <form id="contact-form" class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1" 
+          [formGroup]="contactForm" 
+          (ngSubmit)="onSubmit(contactForm.value)"
+          
+          >
+
+
         <div class="form-group">    
           <label for="name-input">Name:</label>
-          <input type="text" class="form-control" id="name-input" placeholder="Please enter your name" #newname>
+          <input type="text" class="form-control" [formControl]="contactForm.controls['name']">
+          <div class="form-error" *ngIf="!contactForm.controls['name'].valid">Please type your full name</div>
         </div>
         <div class="form-group">
           <label for="email-input">Email:</label>
-          <input type="email" class="form-control" id="email-input" placeholder="Please enter email address" #newemail>
+          <input type="email" class="form-control" [formControl]="contactForm.controls['email']">
         </div>
         <div class="form-group">
           <label for="phone-input">Phone:</label>
-          <input type="tel" class="form-control" id="phone-input" placeholder="Please enter your phone number" #newphone>
+          <input type="tel" class="form-control" [formControl]="contactForm.controls['phone']">
         </div>
         <div class="form-group">
           <label for="message">Message:</label>
-          <textarea type="text" class="form-control" id="message" placeholder="Please leave a message" rows="4" cols="50" #newmessage></textarea>
+          <textarea type="text" class="form-control" rows="4" cols="50" [formControl]="contactForm.controls['message']"></textarea>
         </div>
-        <button type="submit" id="contact-submit" class="btn" (click)="emailMe(newname, newemail, newphone, newmessage)"><strong>Send</strong></button>
+        <button type="submit" id="contact-submit" class="btn"><strong>Send</strong></button>
+        <div *ngIf="!contactForm.valid">Form not valid</div>
+
+        
     </form>
+    
   </section>
 
 

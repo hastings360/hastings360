@@ -50,3 +50,7 @@
     border-color: white;
     box-shadow: 0 0 2px 4px #99badd;
 }
+.form-error{
+    color: maroon;
+    font-size: 12px;
+}
