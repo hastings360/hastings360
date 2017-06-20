@@ -1,6 +1,6 @@
 import { Component, OnInit, } from '@angular/core';
 
-import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -13,10 +13,10 @@ export class ContactComponent implements OnInit {
 
   constructor(fb: FormBuilder){
     this.contactForm = fb.group({
-        'name': ['',Validators.required],
-        'email': ['Please enter email address',Validators.required],
-        'phone': ['Please enter your phone number',Validators.required],
-        'message': ['Please leave a message',Validators.required]
+        'name': ['',Validators.compose([Validators.required, Validators.minLength(4)])],
+        'email': ['',Validators.compose([Validators.required, Validators.pattern(/\w+@\w+/)])],
+        'phone': ['',Validators.compose([Validators.required, Validators.minLength(10),Validators.pattern(/[[\D]?\d[\D]?/)])],
+        'message': ['',Validators.compose([Validators.required, Validators.minLength(10)])],
     });
 
   }
@@ -27,4 +27,13 @@ export class ContactComponent implements OnInit {
   onSubmit(x: FormGroup):void{
     console.log(x);
   }
+
+  
+  /*optional custom validator
+  phoneValidator(control: AbstractControl): {[s: string]: boolean}{
+    if(control.value.match(/\d?\d/)){
+      
+      return {invalidPhone: true};
+    }
+  }*/
 }

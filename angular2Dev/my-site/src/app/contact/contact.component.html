@@ -12,29 +12,29 @@
           (ngSubmit)="onSubmit(contactForm.value)"
           
           >
-
-
         <div class="form-group">    
           <label for="name-input">Name:</label>
-          <input type="text" class="form-control" [formControl]="contactForm.controls['name']">
-          <div class="form-error" *ngIf="!contactForm.controls['name'].valid">Please type your full name</div>
+          <input type="text" class="form-control" [formControl]="contactForm.controls['name']" [class.error]="!contactForm.controls['name'].valid">
+          <div class="error-message" *ngIf="!contactForm.controls['name'].valid">Please type your full name</div>
         </div>
         <div class="form-group">
           <label for="email-input">Email:</label>
-          <input type="email" class="form-control" [formControl]="contactForm.controls['email']">
+          <input type="email" class="form-control" [formControl]="contactForm.controls['email']" [class.error]="!contactForm.controls['email'].valid">
+          <div class="error-message" *ngIf="!contactForm.controls['email'].valid">Please provide a valid email (email@something.com)</div>
         </div>
         <div class="form-group">
           <label for="phone-input">Phone:</label>
-          <input type="tel" class="form-control" [formControl]="contactForm.controls['phone']">
+          <input type="tel" class="form-control" [formControl]="contactForm.controls['phone']" [class.error]="!contactForm.controls['phone'].valid">
+          <div class="error-message" *ngIf="!contactForm.controls['phone'].valid">Please provide a valid phone number (111-222-3333)
+          </div>
         </div>
         <div class="form-group">
           <label for="message">Message:</label>
-          <textarea type="text" class="form-control" rows="4" cols="50" [formControl]="contactForm.controls['message']"></textarea>
+          <textarea type="text" class="form-control" rows="2" cols="50" [formControl]="contactForm.controls['message']" [class.error]="!contactForm.controls['message'].valid"></textarea>
+          <div class="error-message" *ngIf="!contactForm.controls['message'].valid">Tell me what you need</div>
         </div>
-        <button type="submit" id="contact-submit" class="btn"><strong>Send</strong></button>
-        <div *ngIf="!contactForm.valid">Form not valid</div>
 
-        
+        <button type="submit" id="contact-submit" class="btn" *ngIf="contactForm.valid"><strong>Send</strong></button>
     </form>
     
   </section>

@@ -17,13 +17,13 @@
     clip-path: polygon(0 0, 100% 0, 100% 63%, 92% 70%, 70% 70%, 82% 91%, 57% 70%, 8% 70%, 0 63%);
     border-radius: 10px 10px;
     background-image: url("../../assets/imgs/oregon_waves.jpg");
-    background-position: 30% 10%;
+    background-position: top;
     background-color: #99badd;
     position: absolute;
     left: 50%;
     width: 50%;
     margin-left: -25%;
-    height: 600px;
+    height: 650px;
     z-index: -1;
 }
 @media screen and (max-width: 768px){
@@ -34,7 +34,7 @@
     }
 }
 #contact-form{
-    margin-bottom: 182px;
+    margin-bottom: 250px;
     margin-top: 10px;
 }
 #contact-submit{
@@ -46,11 +46,19 @@
     margin-left: -40px;
     outline: none;
 }
-#contact-submit:active{
+#contact-submit:hover{
     border-color: white;
+}
+#contact-submit:active{
     box-shadow: 0 0 2px 4px #99badd;
 }
-.form-error{
+textarea{
+    resize: none;
+}
+.error-message{
     color: maroon;
-    font-size: 12px;
+    font-size: 14px;
+}
+.error{
+    border-color: maroon !important;
 }
