@@ -1,0 +1,55 @@
+header{
+    position: absolute;
+    z-index: 1;
+}
+nav{
+    margin: 10px 0 0 30px;
+    padding: 10px 5px 0 5px;
+}
+.nav-pop-out{
+    border: thin solid black;
+    border-radius: 20px;
+}
+button:active{
+    background-color: white;
+}
+#menu-button{
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background-color: #99badd;
+    outline: none;
+    padding: 3px;
+    margin: 0 15px 0 15px;
+    z-index: 2;
+}
+#menu-button:active{
+    background-color: white;
+}
+#inner-button{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border-style: solid #99badd;
+    background-color: white;
+    padding-top: 15px;
+    text-align: center;
+}
+#nav-list{
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin-top: 5px;
+}
+#nav-list a{
+    color: #99badd;
+    font-size: 20px;
+    text-decoration: none;
+}
+#nav-list a:hover{
+    color: red;
+}
+#nav-list button{
+    width: 90px;
+    margin-bottom: 3px;
+}

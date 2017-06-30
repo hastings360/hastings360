@@ -25,7 +25,8 @@ export class ContactComponent implements OnInit {
   }
   
   onSubmit(x: FormGroup):void{
-    console.log(x);
+    let formFilled = x;
+    
   }
 
   

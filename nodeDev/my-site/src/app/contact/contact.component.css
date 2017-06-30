@@ -1,0 +1,64 @@
+/*Need a background pic for page and possibly one for message*/
+#contact-message{
+    font-size: 25px;
+    border: thin solid black;
+    border-radius: 40px;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 6px 6px 5px #99badd;
+}
+@media screen and (max-width: 767px){
+    #contact-message{
+        font-size: 16px;
+    }
+}
+#contact-bg{
+    clip-path: polygon(0 0, 100% 0, 100% 63%, 92% 70%, 70% 70%, 82% 91%, 57% 70%, 8% 70%, 0 63%);
+    border-radius: 10px 10px;
+    background-image: url("../../assets/imgs/oregon_waves.jpg");
+    background-position: top;
+    background-color: #99badd;
+    position: absolute;
+    left: 50%;
+    width: 50%;
+    margin-left: -25%;
+    height: 650px;
+    z-index: -1;
+}
+@media screen and (max-width: 768px){
+    #contact-bg{
+        left: 50%;
+        width: 90%;
+        margin-left: -45%;
+    }
+}
+#contact-form{
+    margin-bottom: 250px;
+    margin-top: 10px;
+}
+#contact-submit{
+    background: none;
+    border: 2px #99badd solid;
+    position: absolute;
+    width: 80px;
+    left: 50%;
+    margin-left: -40px;
+    outline: none;
+}
+#contact-submit:hover{
+    border-color: white;
+}
+#contact-submit:active{
+    box-shadow: 0 0 2px 4px #99badd;
+}
+textarea{
+    resize: none;
+}
+.error-message{
+    color: maroon;
+    font-size: 14px;
+}
+.error{
+    border-color: maroon !important;
+}

@@ -1,0 +1,84 @@
+/*"Calculator page" styling*/
+#calc{
+	border: solid;
+	border-color: #99badd;
+	height: 293px;
+	width: 268px;
+	border-radius: 10px;
+	user-select: none;
+}
+
+#calc-window{
+	border-radius: 5px 5px 0 0;
+	margin: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	color: white;
+	height: 50px;
+	font-size: 30px;
+	overflow-x: auto;
+	overflow-y: hidden;
+	text-align: right;
+}
+
+#calc-operators{
+	float: right;
+	width: 30%;
+	height: 230px;
+	border: solid;
+	border-width: 1px;
+	border-color: #99badd;
+	border-radius: 0 0 10px 0;
+	text-align: center;
+}
+
+.operator-button{
+	margin: 12%;
+	border: solid;
+	border-color: white;
+	width: 40px;
+	height: 24px;
+	text-align: center;
+	display: inline-block;
+	cursor: pointer;
+}
+.operator-button:active{
+	box-shadow: 0 0 0 2px #99badd inset;
+}
+.operator-button p{
+	margin: auto;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	color: white;
+}
+.operator-button p:active{
+	color: red;
+}
+#calc-numbers{
+	width: 70%;
+	text-align: center;
+	color: white;
+}
+
+.number-button{
+	margin: 5%;
+	border: solid;
+	border-color: white;
+	width: 38px;
+	height: 38px;
+	text-align: center;
+	display: inline-block;
+	cursor: pointer;
+}
+.number-button:active{
+	box-shadow: 0 0 0 2px #99badd inset;
+}
+
+.number-button p{
+	margin: auto;
+	padding-top: 35%;
+	padding-bottom: 35%;
+}
+.number-button p:hover{
+	color: red;
+}

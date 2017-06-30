@@ -1,0 +1,59 @@
+.checklist-container{
+	width: 100%;
+	margin: 20px auto auto auto;
+	user-select: none;
+}
+.checklist{
+	margin: 0;
+	padding: 10px;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	border-style: solid;
+	border-radius: 15px;
+	box-shadow: -5px -5px 5px #99badd;
+}
+
+.instruction{
+	text-align: left;
+	margin-top: 20px;
+	margin-bottom: 0px;
+	padding: 0;
+	color: #99badd;
+}
+
+.checklist-items{
+	margin-top: 40px;
+	text-align: left;
+	width: 90%;
+	list-style-type: none;
+	padding-left: 0;
+	font-size: 20px;
+	color: white;
+	cursor: pointer;
+}
+.checklist-items li:before{
+	margin-right: 20px;
+	content: url('../../assets/imgs/check1.png');
+	height: 10px;
+}
+
+.limit-text{
+	color: #99badd;
+	font-size: 11px;
+}
+
+.limit{
+	color: white;
+}
+
+.input{
+	width: 80%;
+}
+.add{
+	width: 17%;
+	height: 27px;
+	padding-top: 2px; 
+}
+
+
