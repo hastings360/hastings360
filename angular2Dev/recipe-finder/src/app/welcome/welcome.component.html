@@ -7,18 +7,12 @@
 <div class="clearfix">
     <section id="favorites" class="col-md-5">
         <h2>Favorites</h2>
-        
-        
         <!--passes all meals to favorites for displaying top three-->
-        <app-favorites
-            [fullList]="meals"
-
-        
-        
-        >...Loading</app-favorites>
+        <app-favorites [fullList]="meals">...Loading</app-favorites>
     </section>
     <section id="categories"  class="col-md-6 col-md-offset-1">
         <h2>Categories</h2>
-        <!--<app-categories>...Loading</app-categories>  Need to crate component -->
+        <!--passes all meals to categories for displaying top 10-->
+        <app-top-ten-categories>...Loading</app-top-ten-categories>
     </section>
 </div>

@@ -13,8 +13,6 @@ export class BriefViewComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    console.log(this.briefMeal);
-  }
+  ngOnInit() { }
 
 }

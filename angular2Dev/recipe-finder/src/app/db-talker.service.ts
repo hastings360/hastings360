@@ -1,19 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Meal } from './meal.model';
 
-import { Meal } from '../../meal.model';
+import { Injectable } from '@angular/core';
 
-@Component({
-  selector: 'app-single-full-view',
-  templateUrl: './single-full-view.component.html',
-  styleUrls: ['./single-full-view.component.css']
-})
-export class SingleFullViewComponent implements OnInit {
 
-  meals: Meal[];
-    
+@Injectable()
+export class DbTalkerService {
 
-  constructor(){ 
-      this.meals = [
+  public dbMeals: Meal[] = [
         new Meal(
           'baked_turkey_wrap.jpg',
           'Baked Turkey Wrap',
@@ -50,7 +43,7 @@ export class SingleFullViewComponent implements OnInit {
           '06/06/2017',
           500,
           'Bake turkey in cast iron pan for about an hour and 15 minutes.  Remove turkey, and place pan over medium heat.  Add asparagus to left over contents to instill the flavors from the cooked turkey onto the asparagus.  This takes about 10 minutes.  While doing this, add a little mayonaise and chow chow to the wrap.  Cut off small pieces of the turkey and add them to the wrap as well.  Once asparagus is done, add it whole or cut it up for easier "mouth fiting." That\'s it, enjoy!     Bake turkey in cast iron pan for about an hour and 15 minutes.  Remove turkey, and place pan over medium heat.  Add asparagus to left over contents to instill the flavors from the cooked turkey onto the asparagus.  This takes about 10 minutes.  While doing this, add a little mayonaise and chow chow to the wrap.  Cut off small pieces of the turkey and add them to the wrap as well.  Once asparagus is done, add it whole or cut it up for easier "mouth fiting." That\'s it, enjoy!',
-          'misc',
+          'chicken',
           5
           ),
         new Meal(
@@ -63,15 +56,18 @@ export class SingleFullViewComponent implements OnInit {
           '06/06/2017',
           500,
           'Bake turkey in cast iron pan for about an hour and 15 minutes.  Remove turkey, and place pan over medium heat.  Add asparagus to left over contents to instill the flavors from the cooked turkey onto the asparagus.  This takes about 10 minutes.  While doing this, add a little mayonaise and chow chow to the wrap.  Cut off small pieces of the turkey and add them to the wrap as well.  Once asparagus is done, add it whole or cut it up for easier "mouth fiting." That\'s it, enjoy!     Bake turkey in cast iron pan for about an hour and 15 minutes.  Remove turkey, and place pan over medium heat.  Add asparagus to left over contents to instill the flavors from the cooked turkey onto the asparagus.  This takes about 10 minutes.  While doing this, add a little mayonaise and chow chow to the wrap.  Cut off small pieces of the turkey and add them to the wrap as well.  Once asparagus is done, add it whole or cut it up for easier "mouth fiting." That\'s it, enjoy!',
-          'misc',
+          'chicken',
           2
           )
       ];
-  }
-
-  ngOnInit(){
-    
-  }
-
   
+  
+  constructor(){ 
+     
+  }
+
+   
+
+  //future http services to talk to database, both in-going and outgoing.  For now, this just provides a development array of meals in constructor
+
 }

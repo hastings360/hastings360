@@ -9,6 +9,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { SingleFullViewComponent } from './meal-displays/single-full-view/single-full-view.component';
 import { BriefViewComponent } from './meal-displays/brief-view/brief-view.component';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { TopTenCategoriesComponent } from './top-ten-categories/top-ten-categories.component';
+import { CategoryViewComponent } from './meal-displays/category-view/category-view.component';
+import { DbTalkerService } from './db-talker.service';
 
 
 @NgModule({
@@ -17,6 +20,9 @@ import { FavoritesComponent } from './favorites/favorites.component';
     WelcomeComponent,
     BriefViewComponent,
     FavoritesComponent,
+    SingleFullViewComponent,
+    TopTenCategoriesComponent,
+    CategoryViewComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +30,7 @@ import { FavoritesComponent } from './favorites/favorites.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [Title],
+  providers: [Title, DbTalkerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
