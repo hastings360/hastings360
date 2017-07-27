@@ -1,4 +1,3 @@
 <div *ngFor="let category of this.categoryArray">
-    <a class="col-sm-6 cat-links" href="" ><h4>{{category}}</h4></a>
+    <a class="col-xs-6 cat-links" [routerLink]="['/category-view', category]" ><h4 >{{category}}</h4></a>
 </div>
-<a href=""

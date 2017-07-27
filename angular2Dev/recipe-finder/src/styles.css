@@ -82,6 +82,12 @@ text-shadow:    -1px -1px 0 lightgray,
                 -1px 1px 0 lightgray,
                 1px 1px 0 lightgray;
 }
+h1:first-letter{
+    text-transform: capitalize;
+}
+.non-welcome-h1{
+    margin-bottom: 30px;
+}
 h2{
     color: rgba(160, 183, 201,1);
 }
@@ -92,6 +98,9 @@ h3{
 h4{
     font-size: 180%;
     color: rgba(149,160,20,1);
+}
+h4:first-letter{
+    text-transform: capitalize;
 }
 p{
     color: lightgray;

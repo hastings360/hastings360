@@ -25,7 +25,7 @@ public favorites: Meal[];//top three favorites after extracted
           for(let y in x){
             likesArray.push(x[y].likes);
           }
-
+         
           likesArray.sort(function(a,b){return b-a});
           likesArray.splice(3);
           
@@ -34,17 +34,18 @@ public favorites: Meal[];//top three favorites after extracted
           for(let y in x){
             switch(x[y].likes){
               case likesArray[0]:
-                  break;
+                favoritesArray.push(x[y]);
+                break;
               case likesArray[1]:
-                  break;
+                favoritesArray.push(x[y]);  
+                break;
               case likesArray[2]:
-                  break;
+                favoritesArray.push(x[y]);
+                break;
               default:
                   x.splice(Number(y),1);
-                  favoritesArray = x;
             }
           }
-          
           return this.favorites = favoritesArray.sort(function(a,b){return b-a});//sorts and exports final top three favorties to public variable favorites
       };
 

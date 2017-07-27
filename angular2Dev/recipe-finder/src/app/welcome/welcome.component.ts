@@ -14,6 +14,7 @@ export class WelcomeComponent implements OnInit {
 
   constructor(private dbTalker: DbTalkerService){ 
       this.meals = this.dbTalker.dbMeals;
+      
   }
   
   ngOnInit() {

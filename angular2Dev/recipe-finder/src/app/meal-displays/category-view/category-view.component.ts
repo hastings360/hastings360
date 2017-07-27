@@ -1,8 +1,9 @@
 import { DbTalkerService } from './../../db-talker.service';
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
-import { Meal } from '../../meal.model';
+import { Meal } from './../../meal.model';
+import { BriefViewComponent } from './../brief-view/brief-view.component';
 
 @Component({
   selector: 'app-category-view',
@@ -11,15 +12,34 @@ import { Meal } from '../../meal.model';
 })
 export class CategoryViewComponent implements OnInit {
 
-  itemNumber: string;
-  meals: Meal[];
+  public category: string;
+  public meals: Meal[];
+  public allCategoryItems: Meal[];
 
   constructor(private route: ActivatedRoute, private dbTalker: DbTalkerService) { 
-    route.params.subscribe(params => { this.itemNumber = params['id']; })
-    this.dbTalker.dbMeals = this.meals;
+    
+    
+    this.meals = this.dbTalker.dbMeals;
+    route.params.subscribe(params => { this.category = params['category']; });
+    this.pullCategory(this.meals,this.category);  
+     
   }
 
-  ngOnInit() {
+  ngOnInit() { 
+    
+    
+  }
+
+  
+  pullCategory(x, y){
+    let parsedArray = [];
+    for(let i in x){
+      if(x[i].category === y){
+        parsedArray.push(x[i]);
+      }
+    }
+    console.log(parsedArray);
+    return this.allCategoryItems = parsedArray;
   }
 
 }

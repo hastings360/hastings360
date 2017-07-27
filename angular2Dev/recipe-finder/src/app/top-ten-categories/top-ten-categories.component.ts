@@ -9,18 +9,18 @@ import { Component, OnInit } from '@angular/core';
 export class TopTenCategoriesComponent implements OnInit {
 
   public categoryArray = [
-    'Turkey',
-    'Chicken',
-    'Goat',
-    'Pig',
-    'Vegetarian',
-    'Egg Related',
-    'Beef',
-    'Misc'
+    'turkey',
+    'chicken',
+    'goat',
+    'pig',
+    'vegetarian',
+    'egg',
+    'beef',
+    'misc'
   ];
 
   constructor() { }
 
-  ngOnInit() { console.log(this.categoryArray)}
+  ngOnInit() { }
 
 }
