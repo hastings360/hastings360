@@ -1,0 +1,53 @@
+<section class="clearfix">
+    <div id="contribute-message" class="col-sm-8 col-sm-offset-2">
+      <p>Fill out the form below to submit a new meal entry.  I will review your submittal and add it to the database if it is acceptable.</p>
+    </div>
+</section>
+<section class="clearfix">
+  
+  <form id="contribute-form" class="col-sm-6 col-sm-offset-3" 
+        [formGroup]="contributeForm" 
+        (ngSubmit)="onSubmit(contributeForm.value)"
+        >
+      <div class="form-group">    
+        <label for="name-input">Name:</label>
+        <input type="text" class="form-control" [formControl]="contributeForm.controls['name']" [class.error]="!contributeForm.controls['name'].valid">
+        <div class="error-message" *ngIf="!contributeForm.controls['name'].valid">Please type your full name</div>
+      </div>
+
+
+
+
+      
+      <div class="form-group">
+        <label for="email-input">Email:</label>
+        <input type="email" class="form-control" [formControl]="contributeForm.controls['email']" [class.error]="!contributeForm.controls['email'].valid">
+        <div class="error-message" *ngIf="!contributeForm.controls['email'].valid">Please provide a valid email (email@something.com)</div>
+      </div>
+      <div class="form-group">
+        <label for="phone-input">Phone:</label>
+        <input type="tel" class="form-control" [formControl]="contributeForm.controls['phone']" [class.error]="!contributeForm.controls['phone'].valid">
+        <div class="error-message" *ngIf="!contributeForm.controls['phone'].valid">Please provide a valid phone number (111-222-3333)
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea type="text" class="form-control" rows="2" cols="50" [formControl]="contributeForm.controls['message']" [class.error]="!contributeForm.controls['message'].valid"></textarea>
+        <div class="error-message" *ngIf="!contributeForm.controls['message'].valid">Tell me what you need</div>
+      </div>
+
+      <button type="submit" id="contribute-submit" class="btn" *ngIf="contributeForm.valid"><strong>Send</strong></button>
+  </form>
+
+  <!--splash page for email sent-->
+  <div *ngIf="received" class="mail-message img-responsive">
+    <p>Thank you for sending me your information.  <br>I will be in touch soon!</p>
+    <a href="/home">Back to home page</a>
+  </div>
+  <!--splash page for email sent-->
+  <div *ngIf="emailError" class="mail-message img-responsive">
+    <p>There seems to be an issue with the email server.  Please try again soon.</p>
+    <a href="/home">Back to home page</a>
+  </div>
+    
+</section>

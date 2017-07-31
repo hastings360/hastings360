@@ -12,6 +12,7 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import { TopTenCategoriesComponent } from './top-ten-categories/top-ten-categories.component';
 import { CategoryViewComponent } from './meal-displays/category-view/category-view.component';
 import { DbTalkerService } from './db-talker.service';
+import { ContributeComponent } from './contribute/contribute.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { DbTalkerService } from './db-talker.service';
     FavoritesComponent,
     SingleFullViewComponent,
     TopTenCategoriesComponent,
-    CategoryViewComponent
+    CategoryViewComponent,
+    ContributeComponent
   ],
   imports: [
     BrowserModule,

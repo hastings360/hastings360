@@ -1,3 +1,4 @@
+import { ContributeComponent } from './contribute/contribute.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AppComponent } from './app.component';
 import { SingleFullViewComponent } from './meal-displays/single-full-view/single-full-view.component';
@@ -10,7 +11,8 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'welcome'},
   { path: 'welcome', component: WelcomeComponent, data: {title: 'Recipe Finder: Welcome'}},
   { path: 'meal-view/:itemNumber', component: SingleFullViewComponent, data: {title: 'Recipe Finder: Meal View'}},
-  { path: 'category-view/:category', component: CategoryViewComponent, data: {title: 'Recipe Finder: Category View'}}
+  { path: 'category-view/:category', component: CategoryViewComponent, data: {title: 'Recipe Finder: Category View'}},
+  { path: 'contribute', component: ContributeComponent, data: {title: 'Recipe Finder: Contribute'}}
 ];
 
 @NgModule({

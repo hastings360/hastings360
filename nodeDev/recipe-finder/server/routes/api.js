@@ -8,9 +8,9 @@ router.get('/', (req, res) => {
   res.send('api works');
 });
 
-router.post('/contact-form', (req, res) =>{
-  res.send('contact-form api works');
-  console.log('contact-form accessed');
+router.post('/contribute', (req, res) =>{
+  res.send('contribute-form api works');
+  console.log('contribute-form accessed');
   postData = req.body;
   sendMyMail();
 });
