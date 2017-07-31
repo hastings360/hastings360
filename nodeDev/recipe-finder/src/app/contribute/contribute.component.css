@@ -1,0 +1,15 @@
+#contribute-message{
+    font-size: 130%;
+    margin-bottom: 20px;
+}
+#contribute-form{
+    border: 10px solid rgba(160, 183, 201,1);
+    border-radius: 80px;
+    box-shadow: 0 0 30px 10px rgba(149,160,20,1);
+    min-height: 500px;
+    opacity: 0.7;
+}
+#contribute-form:hover{
+    border-color: rgba(149,160,20,1);
+    box-shadow: 0 0 30px 10px rgba(160, 183, 201,1);
+}

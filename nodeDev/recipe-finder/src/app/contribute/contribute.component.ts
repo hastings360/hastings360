@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Http,Response } from '@angular/http';
+import { Component, OnInit} from '@angular/core';
+import { FormBuilder, FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
+
+import { DbTalkerService } from '../db-talker.service';
 
 @Component({
   selector: 'app-contribute',
@@ -7,9 +11,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContributeComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+    public contributeForm: FormGroup;
+  
+  
+  constructor(fb: FormBuilder, dbService: DbTalkerService){
+    this.contributeForm = fb.group({
+      'name': ['',Validators.compose([Validators.required, Validators.minLength(4)])],
+      'description': ['',Validators.compose([Validators.required, Validators.minLength(10)])],
+      'contributor': ['',Validators.compose([Validators.required, Validators.minLength(4)])],
+      'ingredients': ['',Validators.compose([Validators.required, Validators.minLength(4)])],
+      'contributionDate': ['',Validators.compose([Validators.required, Validators.pattern(/\d{2}[\\\/-]\d{2}[\\\/-]\d{2,4}/)])],
+      'estimatedCalories': ['',Validators.compose([Validators.required, Validators.minLength(2)])],
+      'directions': ['',Validators.compose([Validators.required, Validators.minLength(15)])],
+      'category': ['',Validators.compose([Validators.required, Validators.minLength(4)])]
+    })
+    
   }
 
+  ngOnInit() {
+
+  }
+  
+ 
 }
+
