@@ -1,8 +1,8 @@
-#contribute-message{
+#contact-message{
     font-size: 130%;
     margin-bottom: 20px;
 }
-#contribute-form-container{
+#contact-form-container{
     border: 10px solid rgba(160, 183, 201,1);
     border-radius: 80px;
     box-shadow: 0 0 20px 5px rgba(149,160,20,1);
@@ -11,7 +11,7 @@
     background-color: lightgray;
     padding: 30px;
 }
-#contribute-form-container:hover{
+#contact-form-container:hover{
     border-color: rgba(149,160,20,1);
     box-shadow: 0 0 20px 5px rgba(160, 183, 201,1);
 }
@@ -19,7 +19,7 @@
     color: red;
     
 }
-#contribute-submit{
+#contact-submit{
     background-color: white;
     
 }

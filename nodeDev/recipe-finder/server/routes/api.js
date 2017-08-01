@@ -8,9 +8,16 @@ router.get('/', (req, res) => {
   res.send('api works');
 });
 
-router.post('/contribute', (req, res) =>{
-  res.send('contribute-form api works');
-  console.log('contribute-form accessed');
+router.post('/recipe-contact', (req, res) =>{
+  res.send('recipe-contact api works');
+  console.log('recipe-contact accessed');
+  postData = req.body;
+  sendMyMail();
+});
+
+router.post('/recipe-contribute', (req, res) =>{
+  res.send('recipe-contribute api works');
+  console.log('recipe-contribute accessed');
   postData = req.body;
   sendMyMail();
 });
@@ -32,7 +39,7 @@ function sendMyMail(){
     from: postData.email,
     to: 'hastings360@gmail.com',
     subject: postData.name, 
-    html: '<h4>' + postData.name + '</h4><h5>' + postData.phone + '</h5><p>' + postData.message + '</p>'
+    html: postData
   };
   //sends
   transporter.sendMail(mailOptions,(error,info) =>{

@@ -1,7 +1,8 @@
 import { Meal } from './meal.model';
 
 import { Injectable } from '@angular/core';
-
+import { Http,Response } from '@angular/http';
+import { FormGroup } from '@angular/forms';
 
 @Injectable()
 export class DbTalkerService {
@@ -70,10 +71,14 @@ export class DbTalkerService {
       ];
   
   
-  constructor(){ 
-     this.pullInMeals();//pulls in meal data from database on initialization
+  constructor(private http: Http){ 
+     
   }
 
+  
+  
+  
+  
   pullInMeals(){};
 
   //future http services to talk to database, both in-going and outgoing.  For now, this just provides a development array of meals in constructor

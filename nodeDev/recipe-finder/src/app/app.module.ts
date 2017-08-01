@@ -1,6 +1,6 @@
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing-module';
 
@@ -12,7 +12,9 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import { TopTenCategoriesComponent } from './top-ten-categories/top-ten-categories.component';
 import { CategoryViewComponent } from './meal-displays/category-view/category-view.component';
 import { DbTalkerService } from './db-talker.service';
+import { EmailService } from './email.service';
 import { ContributeComponent } from './contribute/contribute.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -24,15 +26,18 @@ import { ContributeComponent } from './contribute/contribute.component';
     SingleFullViewComponent,
     TopTenCategoriesComponent,
     CategoryViewComponent,
-    ContributeComponent
+    ContributeComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [Title, DbTalkerService],
+  providers: [Title, DbTalkerService, EmailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
