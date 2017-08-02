@@ -33,7 +33,7 @@ export class ContributeComponent implements OnInit {
   }
   
   onSubmit(x:FormGroup):any{
-    this.email.sendMeal(x);
+    this.email.sendMail(x);
   }
  
 }

@@ -7,26 +7,11 @@ export class EmailService {
 
   constructor(private http: Http) { }
 
-  sendMeal(x: FormGroup):void{
-
-    this.http.post("/api/recipe-contribute", x).subscribe(
-      (res: Response) => {
-        console.log("contribution sent successfully");
-      },
-      (err: any) => {
-        console.log(err);
-      },
-      () => {
-        return null;
-      }
-    );
-  }
-
   sendMail(x: FormGroup):void{
 
-    this.http.post("/api/recipe-contact", x).subscribe(
+    this.http.post("/api/recipe-mail", x).subscribe(
       (res: Response) => {
-        console.log("contact sent successfully");
+        console.log("mail sent successfully");
       },
       (err: any) => {
         console.log(err);

@@ -1,27 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
-let postData;
 
 /* GET api listing. */
 router.get('/', (req, res) => {
   res.send('api works');
 });
 
-router.post('/recipe-contact', (req, res) =>{
-  res.send('recipe-contact api works');
-  console.log('recipe-contact accessed');
-  postData = req.body;
-  sendMyMail();
+router.post('/recipe-mail', (req, res) =>{
+  res.send('recipe-mail api works');
+  console.log('recipe-mail accessed');
+  let mailData = req.body;
+  sendMyMail(mailData);
 });
-
-router.post('/recipe-contribute', (req, res) =>{
-  res.send('recipe-contribute api works');
-  console.log('recipe-contribute accessed');
-  postData = req.body;
-  sendMyMail();
-});
-
 
 //reusable transporter object
 const transporter = nodemailer.createTransport({
@@ -32,21 +23,26 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-//send mail using the mailOptions object
-function sendMyMail(){
+//send mail using the object passed in
+function sendMyMail(x){
+  //iterates through contents and assigned string value to contents variable
+  let contents
+  for(let y in x){
+    contents += ("<p>" + x[y]+"</p>");
+  };
   //email data
   let mailOptions = {
-    from: postData.email,
+    from: contents.email,
     to: 'hastings360@gmail.com',
-    subject: postData.name, 
-    html: postData
+    subject: contents.name, 
+    html: '<h1>Recipe Finder Message</h1>' + contents
   };
   //sends
   transporter.sendMail(mailOptions,(error,info) =>{
     if(error){
       return console.log(error);
     }else{
-      console.log('Message Sent');
+      console.log('Email Sent');
     }
   });
 }
