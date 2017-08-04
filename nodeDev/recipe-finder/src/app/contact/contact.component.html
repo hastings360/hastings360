@@ -31,9 +31,19 @@
             <div class="error-message" *ngIf="!contactForm.controls['message'].valid">Leave a message</div>
           </div>
 
-          <div *ngIf="contactForm.valid">
-            <button type="submit" id="contact-submit" class="btn col-xs-2 col-xs-offset-5" ><strong>Send</strong></button>
-          </div>
+          <button type="submit" id="contact-submit" class="btn col-xs-2 col-xs-offset-5" *ngIf="contactForm.valid"><strong>Send</strong></button>
+          
   </form>
+ 
+    <!--splash page for email sent-->
+    <div *ngIf="received" class="mail-message img-responsive">
+      <p>Thank you for making an inquiry!</p>
+      <a routerLink="/welcome">Back to welcome page</a>
+    </div>
+    <!--splash page for email sent-->
+    <div *ngIf="error" class="mail-message img-responsive">
+      <p>There seems to be an issue with the email server.  Please try again soon.</p>
+      <a routerLink="/welcome">Back to home page</a>
+    </div>
 
 </section>

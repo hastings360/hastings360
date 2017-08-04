@@ -32,8 +32,15 @@ export class ContributeComponent implements OnInit {
 
   }
   
+  public received: boolean = false;
+  public error: boolean = false;
+  
   onSubmit(x:FormGroup):any{
-    this.email.sendMail(x);
+    let a = false;
+    let b = false;
+    this.email.sendMail(x,a,b);
+    console.log(a, b);
+    return this.received = a, this.error = b;
   }
  
 }
