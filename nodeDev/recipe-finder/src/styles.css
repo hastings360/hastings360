@@ -8,6 +8,11 @@ body{
 header{
     padding-left: 90px !important;
 }
+@media screen and (max-width: 667px){
+    header{
+        padding-left: 10px !important;
+    }
+}
     #logoh1{
         text-indent: -90px;
         margin: 0;

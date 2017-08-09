@@ -15,6 +15,7 @@ import { DbTalkerService } from './db-talker.service';
 import { EmailService } from './email.service';
 import { ContributeComponent } from './contribute/contribute.component';
 import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ContactComponent } from './contact/contact.component';
     TopTenCategoriesComponent,
     CategoryViewComponent,
     ContributeComponent,
-    ContactComponent
+    ContactComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

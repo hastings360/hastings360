@@ -31,14 +31,13 @@ export class ContactComponent implements OnInit {
   public received: boolean = false;
   public error: boolean = false;
   
-  onSubmit(x:FormGroup,a:boolean,b:boolean):any{
-    a = false;
-    b = false;
-
-    console.log(a,b);
-    this.email.sendMail(x,a,b);
-    console.log(a,b);
-    return this.received = a, this.error = b;
+  onSubmit(x:FormGroup):any{
+    this.email.sendMail(x);
+    if(this.email.emailVerify.hasError === true){
+      this.error = true;
+    }else{
+      this.received = true;
+    }
   }
   
  
