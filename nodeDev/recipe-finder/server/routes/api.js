@@ -2,11 +2,12 @@ const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
 
-/* GET api listing. */
+//root APi 
 router.get('/', (req, res) => {
   res.send('api works');
 });
 
+//mail API
 router.post('/recipe-mail', (req, res) =>{
   res.send('recipe-mail api works');
   console.log('recipe-mail accessed');
@@ -14,13 +15,14 @@ router.post('/recipe-mail', (req, res) =>{
   sendMyMail(mailData);
 });
 
+//favorites database query API
 router.get('/recipe-favorites', (req, res) =>{
   res.send(favortiesQueryResponse);
   console.log('recipe-favorties queried');
-  
+
 });
 
-//reusable transporter object
+//reusable transporter object for mail
 const transporter = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
