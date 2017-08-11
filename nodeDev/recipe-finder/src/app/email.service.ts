@@ -20,11 +20,10 @@ export class EmailService {
       (err: any) => {
         console.log(err);
         this.emailVerify.hasError = true;
-      },
+      }/*,
       () => {
         return null;
-      }
+      }*/  //Not sure this needs to be here
     );
-        
   }
 }

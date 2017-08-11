@@ -19,7 +19,7 @@ export class CategoryViewComponent implements OnInit {
   constructor(private route: ActivatedRoute, private dbTalker: DbTalkerService) { 
     
     
-    this.meals = this.dbTalker.dbMeals;
+    //this.meals = this.dbTalker.dbMeals;
     route.params.subscribe(params => { this.category = params['category']; });
     this.pullCategory(this.meals,this.category);  
      

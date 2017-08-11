@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
+import { DbTalkerService } from './../db-talker.service';
 
 import { Meal } from './../meal.model';
 
@@ -9,16 +10,26 @@ import { Meal } from './../meal.model';
 })
 export class FavoritesComponent {
 
-@Input() fullList: Meal[];
-
-public favorites: Meal[];//top three favorites after extracted
-
-  constructor(){ }
+public favorites: Meal[];
+  
+  constructor(private dbTalker: DbTalkerService){
+        //Pulles in favorites from database service and sets pulledFavorites
+        dbTalker.SearchTopThreeFavorites();
+        dbTalker.favMeals.subscribe(
+          res => {
+            console.log(res);
+            this.favorites = res;
+          },
+          err => {
+            console.log(err);
+          }
+        );
+  }
 
   ngOnInit(){
-      this.favoritesSelector(this.fullList);//calls the function to extract top three favorite meals   
+      //this.favoritesSelector(this.fullList);//calls the function to extract top three favorite meals   
   }
-      //extracts top three meals based on likes
+      /*extracts top three meals based on likes
       favoritesSelector(x: Meal[]): any{
           let likesArray = [];//holds highest three likes
 
@@ -47,6 +58,6 @@ public favorites: Meal[];//top three favorites after extracted
             }
           }
           return this.favorites = favoritesArray.sort(function(a,b){return b-a});//sorts and exports final top three favorties to public variable favorites
-      };
+      };*/
 
 }

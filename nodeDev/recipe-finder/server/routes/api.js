@@ -14,6 +14,12 @@ router.post('/recipe-mail', (req, res) =>{
   sendMyMail(mailData);
 });
 
+router.get('/recipe-favorites', (req, res) =>{
+  res.send(favortiesQueryResponse);
+  console.log('recipe-favorties queried');
+  
+});
+
 //reusable transporter object
 const transporter = nodemailer.createTransport({
   service: 'Gmail',
@@ -46,5 +52,7 @@ function sendMyMail(x){
     }
   });
 }
+
+
 
 module.exports = router;
