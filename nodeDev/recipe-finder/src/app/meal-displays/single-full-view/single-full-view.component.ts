@@ -9,7 +9,7 @@ import { Meal } from '../../meal.model';
 })
 export class SingleFullViewComponent implements OnInit {
 
-  meals: Meal[];
+  singleMeal: Meal;
     
 
   constructor(){ 

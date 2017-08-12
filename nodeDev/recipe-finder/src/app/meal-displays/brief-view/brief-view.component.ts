@@ -9,9 +9,10 @@ import { Meal } from '../../meal.model';
 })
 export class BriefViewComponent implements OnInit {
 
-  @Input() briefMeal: Meal[];
+  @Input() briefMeal: Meal;
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit() { }
 

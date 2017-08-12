@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
 
+let favoritesDbQuery;
+
 //root APi 
 router.get('/', (req, res) => {
   res.send('api works');
@@ -17,9 +19,9 @@ router.post('/recipe-mail', (req, res) =>{
 
 //favorites database query API
 router.get('/recipe-favorites', (req, res) =>{
-  res.send(favortiesQueryResponse);
   console.log('recipe-favorties queried');
-
+  //function to query database needs to go here
+  res.send(favoritesDbQuery);//assigns query results maybe??? or is this for sending text??
 });
 
 //reusable transporter object for mail

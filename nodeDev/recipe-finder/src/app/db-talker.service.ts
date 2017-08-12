@@ -80,6 +80,7 @@ export class DbTalkerService {
     this.http.get("/api/recipe-favorites").subscribe(
       (res: Response) => {
         console.log("query successful");
+        console.log(res);
       },
       (err: any) => {
         console.log(err);
