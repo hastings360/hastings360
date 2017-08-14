@@ -16,3 +16,80 @@ export class Meal{
         public likes: number
     ){}
 }
+
+/*db.meals.insert(
+[
+    {
+    imageName:"baked_turkey_wrap.jpg",
+    name: "Baked Turkey Wrap",
+    description: "hasdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf",
+    contributor: "Larry Hastings",
+    ingredients: ["salt","pepper","chives"],
+    contributionDate: "09/01/2017",
+    estimatedCalories: 400,
+    directions: "adsf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf",
+    category: "Turkey",
+    likes: 10
+},
+{
+    imageName:"baked_turkey_wrap.jpg",
+    name: "Tacos",
+    description: "hasdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf",
+    contributor: "Larry Hastings",
+    ingredients: ["salt","pepper","chives"],
+    contributionDate: "09/01/2017",
+    estimatedCalories: 400,
+    directions: "adsf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf",
+    category: "Turkey",
+    likes: 20
+},
+{
+    imageName:"baked_turkey_wrap.jpg",
+    name: "Pulled Pork",
+    description: "hasdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf",
+    contributor: "Larry Hastings",
+    ingredients: ["salt","pepper","chives"],
+    contributionDate: "09/01/2017",
+    estimatedCalories: 400,
+    directions: "adsf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf",
+    category: "Pork",
+    likes: 30
+},
+{
+    imageName:"baked_turkey_wrap.jpg",
+    name: "Chicken Wrap",
+    description: "hasdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf",
+    contributor: "Larry Hastings",
+    ingredients: ["salt","pepper","chives"],
+    contributionDate: "09/01/2017",
+    estimatedCalories: 400,
+    directions: "adsf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf",
+    category: "Turkey",
+    likes: 40
+},
+{
+    imageName:"baked_turkey_wrap.jpg",
+    name: "Goat Burger",
+    description: "hasdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf",
+    contributor: "Larry Hastings",
+    ingredients: ["salt","pepper","chives"],
+    contributionDate: "09/01/2017",
+    estimatedCalories: 400,
+    directions: "adsf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf",
+    category: "Chicken",
+    likes: 50
+},
+{
+    imageName:"baked_turkey_wrap.jpg",
+    name: "Swarma",
+    description: "hasdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf",
+    contributor: "Larry Hastings",
+    ingredients: ["salt","pepper","chives"],
+    contributionDate: "09/01/2017",
+    estimatedCalories: 400,
+    directions: "adsf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf",
+    category: "Chicken",
+    likes: 60
+},
+]
+)*/
