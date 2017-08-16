@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { DbTalkerService } from './../db-talker.service';
 
 @Component({
   selector: 'app-top-ten-categories',
@@ -8,18 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopTenCategoriesComponent implements OnInit {
 
-  public categoryArray = [
-    'turkey',
-    'chicken',
-    'goat',
-    'pig',
-    'vegetarian',
-    'egg',
-    'beef',
-    'misc'
-  ];
+  public topTenCategories = [];
+  public data;
 
-  constructor() { }
+  constructor(private dbTalker: DbTalkerService){
+    //Pulls in favorites from database service and sets favorites
+    dbTalker.SearchTopTenCategories(this.data,val =>{
+      console.log(val);
+      return this.topTenCategories = val;
+    });
+}
 
   ngOnInit() { }
 

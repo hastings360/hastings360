@@ -4,6 +4,7 @@ import { DateFormatter } from '@angular/common/src/pipes/intl';
  */
 export class Meal{
     constructor(
+        public _id: any,
         public imageName: string,
         public name: string,
         public description: string,
