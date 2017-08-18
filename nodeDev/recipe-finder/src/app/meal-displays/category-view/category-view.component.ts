@@ -12,16 +12,19 @@ import { BriefViewComponent } from './../brief-view/brief-view.component';
 })
 export class CategoryViewComponent implements OnInit {
 
-  public category: string;
-  public meals: Meal[];
-  public allCategoryItems: Meal[];
+  public categoryPassedInByUrl: string;
+  public specifiedCategoryMeals: Meal[];
+  public data: any;
+  
 
   constructor(private route: ActivatedRoute, private dbTalker: DbTalkerService) { 
-    
-    
-    //this.meals = this.dbTalker.dbMeals;
-    route.params.subscribe(params => { this.category = params['category']; });
-    this.pullCategory(this.meals,this.category);  
+    route.params.subscribe(params => { this.categoryPassedInByUrl = params['category']; });
+    console.log(this.categoryPassedInByUrl);
+    console.log(typeof this.categoryPassedInByUrl);
+    dbTalker.SearchMealsByCategory(this.categoryPassedInByUrl,this.data,val =>{
+      return this.specifiedCategoryMeals = val;
+    });
+
      
   }
 
@@ -31,15 +34,6 @@ export class CategoryViewComponent implements OnInit {
   }
 
   
-  pullCategory(x, y){
-    let parsedArray = [];
-    for(let i in x){
-      if(x[i].category === y){
-        parsedArray.push(x[i]);
-      }
-    }
-    console.log(parsedArray);
-    return this.allCategoryItems = parsedArray;
-  }
+  
 
 }

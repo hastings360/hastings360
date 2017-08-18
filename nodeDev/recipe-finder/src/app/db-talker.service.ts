@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http,Response } from '@angular/http';
+import { Http,Response,RequestOptions,URLSearchParams } from '@angular/http';
 import { FormGroup } from '@angular/forms';
 
 @Injectable()
@@ -8,14 +8,12 @@ public x;
 public y;
 
   constructor(private http: Http){ 
-    console.log("cat")
-    
-    console.log("etgories");
+
   }
   
   //calls the recipe-favorties api, which returns top three favorite meals
   public SearchTopThreeFavorites(out,callback):any{
-    out = out || "init fav value";
+    out = out || "init top three favorites";
     this.http.get("/api/recipe-favorites").subscribe(
       (res: Response) => {
         out = res.json();
@@ -27,8 +25,9 @@ public y;
       }) 
   };
 
+  //calls the recipe-top-ten-categories api, which returns top ten categories
   public SearchTopTenCategories(out,callback):any{
-    out = out || "init top ten cat value";
+    out = out || "init top ten categories";
     this.http.get("/api/recipe-top-ten-categories").subscribe(
       (res: Response) => {
         out = res.json();
@@ -40,15 +39,36 @@ public y;
       })
   };
 
+  //calls the recipe-categories api, which returns all categories
   public SearchAllCategories(out,callback):any{
-    out = out || "init cat value";
-    this.http.get("/api/recipe-categories").subscribe(
+    out = out || "init all categories";
+    this.http.get("/api/recipe-all-categories").subscribe(
       (res: Response) => {
         out = res.json();
         return callback(out);
       },
       (err: any) => {
         console.log("on db-talker component SearchAllCategories");
+        console.log(err);
+      })
+  };
+
+  //call the recipe-meals-by-category, which returns meals that have specific categories
+  public SearchMealsByCategory(categoryPassedInByUrl,out,callback):any{
+    out = out || "init meals by category";
+
+    let params: URLSearchParams = new URLSearchParams();
+      params.set('category', categoryPassedInByUrl);
+    let requestOptions = new RequestOptions();
+      requestOptions.search = params;
+
+    this.http.get("/api/recipe-meals-by-category", requestOptions).subscribe(
+      (res: Response) => {
+        out = res.json();
+        return callback(out);
+      },
+      (err: any) => {
+        console.log("on db-talker component SearchMealsByCategory");
         console.log(err);
       })
   };
