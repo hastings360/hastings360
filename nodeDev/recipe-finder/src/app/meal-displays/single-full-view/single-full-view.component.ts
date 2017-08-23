@@ -18,15 +18,20 @@ export class SingleFullViewComponent implements OnInit {
   public specifiedMeal: Meal;
   public data: any;
 
-  constructor(private route: ActivatedRoute, private dbTalker: DbTalkerService) { 
-    route.params.subscribe(params => { this.mealNamePassedInByUrl = params['name']; });
+  constructor(private route: ActivatedRoute, private dbTalker: DbTalkerService){
     
-    dbTalker.SearchMealByName(this.mealNamePassedInByUrl,this.data,val =>{
-      return this.specifiedMeal = val;
-    });
   }
-
-  ngOnInit(){
+  
+  ngOnInit() { 
+    this.route.params.subscribe(params => { this.mealNamePassedInByUrl = params['name']; });
+    
+    this.dbTalker.SearchMealByName(this.mealNamePassedInByUrl,this.data,val =>{     
+      return this.specifiedMeal = val[0];
+    });
+    
+    
+    
+    
     
   }
 

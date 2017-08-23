@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Meal } from './../../meal.model';
+
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'app-meal-image-view',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MealImageViewComponent implements OnInit {
 
-  constructor() { }
+@Input() specifiedMeal: Meal;
+
+  constructor() { 
+  }
 
   ngOnInit() {
   }

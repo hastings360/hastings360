@@ -3,19 +3,9 @@
         <h1 class="name text-center">{{mealNamePassedInByUrl}}</h1>
     </div>
 </div>
-<div class="clearfix">
-    <app-meal-image-view>...Loading</app-meal-image-view>
-    
-</div><!--
-<div class="container">
-    <div class="clearfix">
-                <div class="col-sm-3">
-                    <h3 class="meal-left-column">Description:</h3>
-                </div>
-                <div class="col-sm-9">
-                    <p class="meal-right-column">{{specifiedMeal.description}}</p>
-                </div>
-    </div>
-    
-    
-</div>-->
+<div *ngIf='specifiedMeal' class="clearfix">
+    <app-meal-image-view [specifiedMeal]='specifiedMeal'>...Loading</app-meal-image-view>
+</div>
+<div *ngIf='specifiedMeal' class="clearfix">
+    <app-meal-info-view [specifiedMeal]='specifiedMeal'>...Loading</app-meal-info-view>
+</div>

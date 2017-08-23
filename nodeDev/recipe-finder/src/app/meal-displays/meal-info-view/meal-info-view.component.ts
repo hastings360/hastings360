@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Meal } from './../../meal.model';
 
 @Component({
   selector: 'app-meal-info-view',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./meal-info-view.component.css']
 })
 export class MealInfoViewComponent implements OnInit {
+
+@Input() specifiedMeal: Meal;
 
   constructor() { }
 
