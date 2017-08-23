@@ -71,22 +71,13 @@ router.get('/recipe-top-ten-categories', (req, res) =>{
   MongoClient.connect(url, function(err, db){
     if(err) throw err;
     db.collection("meals").aggregate([
-      {$sort: {likes: -1}}
-      
-      {$group: {_id: null, unique: {$addToSet: "$category"}}}
-      
-      
-      
-
-    ])
-    
-    
-    /*.find({},{ category: 1,_id: 0}).sort({likes: 1}).limit(10)*/.toArray(function(err, categories){
+      {$sort: {likes: -1}},
+      {$group: {_id: "$category", unique: {$addToSet: "$category"}}},
+      {$limit:10}
+    ]).toArray(function(err, result){
         if(err) throw err;
         db.close();
-        
-        console.log(categories);
-        return res.send(categories);
+        return res.send(result);
     });
   });
 });
@@ -112,6 +103,20 @@ router.get('/recipe-meals-by-category',(req, res) =>{
   MongoClient.connect(url, function(err, db){
     if(err) throw err;
     db.collection("meals").find({category: req.query.category}).toArray(function(err, result){
+        if(err) throw err;
+        db.close();
+        return res.send(result);
+    });
+  });
+});
+
+//meal by name database query API
+router.get('/recipe-meal-by-name',(req, res) =>{
+  console.log('recipe-meal-by-name queried');
+  console.log(req.query.name);
+  MongoClient.connect(url, function(err, db){
+    if(err) throw err;
+    db.collection("meals").find({name: req.query.name}).toArray(function(err, result){
         if(err) throw err;
         db.close();
         return res.send(result);

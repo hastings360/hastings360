@@ -19,12 +19,10 @@ export class CategoryViewComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private dbTalker: DbTalkerService) { 
     route.params.subscribe(params => { this.categoryPassedInByUrl = params['category']; });
-    console.log(this.categoryPassedInByUrl);
-    console.log(typeof this.categoryPassedInByUrl);
+   
     dbTalker.SearchMealsByCategory(this.categoryPassedInByUrl,this.data,val =>{
       return this.specifiedCategoryMeals = val;
     });
-
      
   }
 

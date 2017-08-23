@@ -16,6 +16,8 @@ import { EmailService } from './email.service';
 import { ContributeComponent } from './contribute/contribute.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
+import { MealInfoViewComponent } from './meal-displays/meal-info-view/meal-info-view.component';
+import { MealImageViewComponent } from './meal-displays/meal-image-view/meal-image-view.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { AboutComponent } from './about/about.component';
     CategoryViewComponent,
     ContributeComponent,
     ContactComponent,
-    AboutComponent
+    AboutComponent,
+    MealInfoViewComponent,
+    MealImageViewComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,11 @@
+
+import { DbTalkerService } from './../../db-talker.service';
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
-import { Meal } from '../../meal.model';
+import { Meal } from './../../meal.model';
+import { MealImageViewComponent } from './../meal-image-view/meal-image-view.component';
+import { MealInfoViewComponent } from './../meal-info-view/meal-info-view.component';
 
 @Component({
   selector: 'app-single-full-view',
@@ -9,11 +14,16 @@ import { Meal } from '../../meal.model';
 })
 export class SingleFullViewComponent implements OnInit {
 
-  singleMeal: Meal;
-    
+  public mealNamePassedInByUrl: string;
+  public specifiedMeal: Meal;
+  public data: any;
 
-  constructor(){ 
-      
+  constructor(private route: ActivatedRoute, private dbTalker: DbTalkerService) { 
+    route.params.subscribe(params => { this.mealNamePassedInByUrl = params['name']; });
+    
+    dbTalker.SearchMealByName(this.mealNamePassedInByUrl,this.data,val =>{
+      return this.specifiedMeal = val;
+    });
   }
 
   ngOnInit(){

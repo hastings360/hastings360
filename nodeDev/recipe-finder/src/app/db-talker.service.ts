@@ -4,8 +4,6 @@ import { FormGroup } from '@angular/forms';
 
 @Injectable()
 export class DbTalkerService {
-public x;
-public y;
 
   constructor(private http: Http){ 
 
@@ -53,7 +51,7 @@ public y;
       })
   };
 
-  //call the recipe-meals-by-category, which returns meals that have specific categories
+  //calls the recipe-meals-by-category, which returns meals that have specific categories
   public SearchMealsByCategory(categoryPassedInByUrl,out,callback):any{
     out = out || "init meals by category";
 
@@ -69,6 +67,26 @@ public y;
       },
       (err: any) => {
         console.log("on db-talker component SearchMealsByCategory");
+        console.log(err);
+      })
+  };
+
+  //calls the recipe-meal-by-name, which returns a meal that matches the input name
+  public SearchMealByName(mealName,out,callback):any{
+    out = out || "init meal by name";
+
+    let params: URLSearchParams = new URLSearchParams();
+      params.set('name', mealName);
+    let requestOptions = new RequestOptions();
+      requestOptions.search = params;
+
+    this.http.get("/api/recipe-meal-by-name", requestOptions).subscribe(
+      (res: Response) => {
+        out = res.json();
+        return callback(out);
+      },
+      (err: any) => {
+        console.log("on db-talker component SearchMealByName");
         console.log(err);
       })
   };

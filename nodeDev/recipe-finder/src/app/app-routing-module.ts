@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent, data: {title: 'Recipe Finder: Welcome'}},
   { path: 'meal-view/:itemNumber', component: SingleFullViewComponent, data: {title: 'Recipe Finder: Meal View'}},
   { path: 'category-view/:category', component: CategoryViewComponent, data: {title: 'Recipe Finder: Category View'}},
+  { path: 'single-full-view/:name', component: SingleFullViewComponent, data: {title: 'Recipe Finder: Single Full View'}},
   { path: 'contribute', component: ContributeComponent, data: {title: 'Recipe Finder: Contribute'}},
   { path: 'contact', component: ContactComponent, data: {title: 'Recipe Finder: Contact'}},
   { path: 'about', component: AboutComponent, data: {title: 'Recipe Finder: About'}}
