@@ -1,0 +1,15 @@
+@media screen and (max-width: 400px){
+    img{
+        width: 150px;
+    }
+
+}
+.logo{
+    border-radius: 30%;
+}
+.nav-link{
+    color: #363119 !important;
+}
+.nav-link:hover{
+    color: #7f7959 !important;
+}

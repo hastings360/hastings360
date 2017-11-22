@@ -1,0 +1,13 @@
+.item-wheel-container{
+    height: 500px;
+    border-radius: 2%;
+    padding: 100px 20px;
+    background-image: url("../../assets/item-background.jpg");
+    background-color: #7f7959;
+    background-size: 100% 100%;
+}
+.wheel-container{
+    border: solid 1px #000000;
+    border-radius: 2%;
+    height: 300px;
+}

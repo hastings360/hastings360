@@ -1,0 +1,11 @@
+ul{
+    background-color: #ff7f50;
+    opacity: 0.8;
+    border-radius: 2%;
+}
+li{
+    font-size: 1.2em;
+}
+li:hover{
+    color: #000000;
+}

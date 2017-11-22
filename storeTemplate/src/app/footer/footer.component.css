@@ -1,0 +1,14 @@
+footer{
+    text-align: center;
+    font-size: 1em;
+}
+a{
+    color: #363119;
+    padding: 0.3em;
+}
+a:hover{
+    background-color: #7f7959;
+    text-decoration: none;
+    color: white;
+    border-radius: 3%;
+}

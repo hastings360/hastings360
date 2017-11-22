@@ -1,0 +1,98 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/larry/.nvm/versions/node/v7.3.0/bin/node',
+1 verbose cli   '/home/larry/.nvm/versions/node/v7.3.0/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'fsevents' ]
+2 info using npm@3.10.10
+3 info using node@v7.3.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData fsevents
+8 silly fetchNamedPackageData fsevents
+9 silly mapToRegistry name fsevents
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'fsevents',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'fsevents',
+12 silly mapToRegistry   name: 'fsevents',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/fsevents
+14 verbose request uri https://registry.npmjs.org/fsevents
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 12:01:42 AM
+17 verbose request id 8068bc972810167b
+18 verbose etag W/"5a0626da-e534"
+19 verbose lastModified Fri, 10 Nov 2017 22:23:22 GMT
+20 http request GET https://registry.npmjs.org/fsevents
+21 http 304 https://registry.npmjs.org/fsevents
+22 verbose headers { date: 'Sun, 12 Nov 2017 05:01:42 GMT',
+22 verbose headers   via: '1.1 varnish',
+22 verbose headers   'cache-control': 'max-age=300',
+22 verbose headers   etag: 'W/"5a0626da-e534"',
+22 verbose headers   age: '253',
+22 verbose headers   connection: 'keep-alive',
+22 verbose headers   'x-served-by': 'cache-pdk17838-PDK',
+22 verbose headers   'x-cache': 'HIT',
+22 verbose headers   'x-cache-hits': '1',
+22 verbose headers   'x-timer': 'S1510462902.406067,VS0,VE0',
+22 verbose headers   vary: 'Accept-Encoding, Accept' }
+23 silly get cb [ 304,
+23 silly get   { date: 'Sun, 12 Nov 2017 05:01:42 GMT',
+23 silly get     via: '1.1 varnish',
+23 silly get     'cache-control': 'max-age=300',
+23 silly get     etag: 'W/"5a0626da-e534"',
+23 silly get     age: '253',
+23 silly get     connection: 'keep-alive',
+23 silly get     'x-served-by': 'cache-pdk17838-PDK',
+23 silly get     'x-cache': 'HIT',
+23 silly get     'x-cache-hits': '1',
+23 silly get     'x-timer': 'S1510462902.406067,VS0,VE0',
+23 silly get     vary: 'Accept-Encoding, Accept' } ]
+24 verbose etag https://registry.npmjs.org/fsevents from cache
+25 verbose get saving fsevents to /home/larry/.npm/registry.npmjs.org/fsevents/.cache.json
+26 verbose correctMkdir /home/larry/.npm correctMkdir not in flight; initializing
+27 silly install normalizeTree
+28 silly loadCurrentTree Finishing
+29 silly loadIdealTree Starting
+30 silly install loadIdealTree
+31 silly cloneCurrentTree Starting
+32 silly install cloneCurrentTreeToIdealTree
+33 silly cloneCurrentTree Finishing
+34 silly loadShrinkwrap Starting
+35 silly install loadShrinkwrap
+36 silly loadShrinkwrap Finishing
+37 silly loadAllDepsIntoIdealTree Starting
+38 silly install loadAllDepsIntoIdealTree
+39 silly rollbackFailedOptional Starting
+40 silly rollbackFailedOptional Finishing
+41 silly runTopLevelLifecycles Finishing
+42 silly install printInstalled
+43 verbose stack Error: Unsupported platform for fsevents@1.1.3: wanted {"name":"fsevents","version":"1.1.3","description":"Native Access to Mac OS-X FSEvents","main":"fsevents.js","dependencies":{"nan":"^2.3.0","node-pre-gyp":"^0.6.39"},"os":["darwin"],"engines":{"node":">=0.8.0"},"scripts":{"install":"node install","prepublish":"if [ $(npm -v | head -c 1) -lt 3 ]; then exit 1; fi && npm dedupe","test":"tap ./test","node-pre-gyp":"node-pre-gyp"},"binary":{"module_name":"fse","module_path":"./lib/binding/{configuration}/{node_abi}-{platform}-{arch}/","remote_path":"./v{version}/","package_name":"{module_name}-v{version}-{node_abi}-{platform}-{arch}.tar.gz","host":"https://fsevents-binaries.s3-us-west-2.amazonaws.com"},"repository":{"type":"git","url":"git+https://github.com/strongloop/fsevents.git"},"keywords":["fsevents","mac"],"author":{"name":"Philipp Dunkel","email":"pip@pipobscure.com"},"license":"MIT","bugs":{"url":"https://github.com/strongloop/fsevents/issues"},"homepage":"https://github.com/strongloop/fsevents","devDependencies":{"tap":"~0.4.8"},"gitHead":"771928af74aee89801875d1158eb568562f30f16","bundleDependencies":["node-pre-gyp"],"_id":"fsevents@1.1.3","_npmVersion":"5.0.1","_nodeVersion":"6.10.2","_npmUser":{"name":"es128","email":"elan.shanker+npm@gmail.com"},"dist":{"integrity":"sha512-WIr7iDkdmdbxu/Gh6eKEZJL6KPE74/5MEsf2whTOFNxbIoIixogroLdKYqB6FDav4Wavh/lZdzzd3b2KxIXC5Q==","shasum":"11f82318f5fe7bb2cd22965a108e9306208216d8","tarball":"https://registry.npmjs.org/fsevents/-/fsevents-1.1.3.tgz"},"maintainers":[{"name":"es128","email":"elan.shanker+npm@gmail.com"},{"name":"bnoordhuis","email":"info@bnoordhuis.nl"},{"name":"pipobscure","email":"pip@pipobscure.com"},{"name":"strongloop","email":"strngops@us.ibm.com"},{"name":"bajtos","email":"mbajtoss@gmail.com"}],"_npmOperationalInternal":{"host":"s3://npm-registry-packages","tmp":"tmp/fsevents-1.1.3.tgz_1510352601952_0.36498259752988815"},"directories":{},"_from":"fsevents","_resolved":"https://registry.npmjs.org/fsevents/-/fsevents-1.1.3.tgz","_shasum":"11f82318f5fe7bb2cd22965a108e9306208216d8","_requested":{"raw":"fsevents","scope":null,"escapedName":"fsevents","name":"fsevents","rawSpec":"","spec":"latest","type":"tag"},"_spec":"fsevents","_where":"/home/larry/Documents/Web_Sites/hastings360","_args":[[{"raw":"fsevents","scope":null,"escapedName":"fsevents","name":"fsevents","rawSpec":"","spec":"latest","type":"tag"},"/home/larry/Documents/Web_Sites/hastings360"]],"readme":"ERROR: No README data found!"} (current: {"os":"linux","cpu":"x64"})
+43 verbose stack     at checkPlatform (/home/larry/.nvm/versions/node/v7.3.0/lib/node_modules/npm/node_modules/npm-install-checks/index.js:45:14)
+43 verbose stack     at thenWarnEngineIssues (/home/larry/.nvm/versions/node/v7.3.0/lib/node_modules/npm/lib/install/validate-args.js:41:5)
+43 verbose stack     at /home/larry/.nvm/versions/node/v7.3.0/lib/node_modules/npm/node_modules/iferr/index.js:13:50
+43 verbose stack     at checkEngine (/home/larry/.nvm/versions/node/v7.3.0/lib/node_modules/npm/node_modules/npm-install-checks/index.js:24:10)
+43 verbose stack     at module.exports.isInstallable (/home/larry/.nvm/versions/node/v7.3.0/lib/node_modules/npm/lib/install/validate-args.js:38:3)
+43 verbose stack     at Array.<anonymous> (/home/larry/.nvm/versions/node/v7.3.0/lib/node_modules/npm/node_modules/slide/lib/bind-actor.js:15:8)
+43 verbose stack     at LOOP (/home/larry/.nvm/versions/node/v7.3.0/lib/node_modules/npm/node_modules/slide/lib/chain.js:15:14)
+43 verbose stack     at /home/larry/.nvm/versions/node/v7.3.0/lib/node_modules/npm/node_modules/slide/lib/chain.js:18:7
+43 verbose stack     at checkSelf (/home/larry/.nvm/versions/node/v7.3.0/lib/node_modules/npm/lib/install/validate-args.js:46:72)
+43 verbose stack     at Array.<anonymous> (/home/larry/.nvm/versions/node/v7.3.0/lib/node_modules/npm/node_modules/slide/lib/bind-actor.js:15:8)
+44 verbose pkgid fsevents@1.1.3
+45 verbose cwd /home/larry/Documents/Web_Sites/hastings360
+46 error Linux 4.10.0-38-generic
+47 error argv "/home/larry/.nvm/versions/node/v7.3.0/bin/node" "/home/larry/.nvm/versions/node/v7.3.0/bin/npm" "install" "fsevents"
+48 error node v7.3.0
+49 error npm  v3.10.10
+50 error code EBADPLATFORM
+51 error notsup Unsupported platform for fsevents@1.1.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+52 error notsup Valid OS:    darwin
+52 error notsup Valid Arch:  any
+52 error notsup Actual OS:   linux
+52 error notsup Actual Arch: x64
+53 verbose exit [ 1, true ]

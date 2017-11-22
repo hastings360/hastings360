@@ -1,0 +1,20 @@
+.testimonial-container{
+    margin-top: 2em;
+}
+.quote{
+    color: #ff7f50;
+    font-size: 1.3em;
+    padding-left: 1.2em;
+    font-style: italic;
+    font-weight: bold;
+}
+.name{
+    color: #7f7959;
+    text-align: right;
+    font-size: 1em;
+}
+.title{
+    color: #363119;
+    text-align: right;
+    font-size: 0.8em;
+}

@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    font-size: 1rem;
+}
+@media screen and (max-width: 575px){
+    body{
+        font-size: 0.8rem;
+    }
+}
+
+h2{
+    font-size: 2em;
+    color: #7f7959;
+}
+li{
+    color: #363119;
+    list-style: none;
+}
+p{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ff7f50;
+}
