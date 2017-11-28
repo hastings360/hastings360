@@ -1,13 +1,19 @@
 .item-wheel-container{
     height: 500px;
     border-radius: 2%;
-    padding: 100px 20px;
-    background-image: url("../../assets/item-background.jpg");
-    background-color: #7f7959;
-    background-size: 100% 100%;
+    padding: 60px 20px;
+    background: #7f7959 url("../../assets/item-background.jpg") no-repeat center;
 }
 .wheel-container{
     border: solid 1px #000000;
     border-radius: 2%;
     height: 300px;
+}
+h3{
+    color: white;
+    text-shadow: 0.03em 0.03em #ff7f50;
+}
+p{
+    color: white;
+    text-shadow: 0.03em 0.03em #ff7f50;
 }
