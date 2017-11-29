@@ -11,31 +11,31 @@ export class ItemWheelComponent implements OnInit {
 
     public items: Item[] = [
       {
-          imageLocation: "../../assets/your-logo",
-          itemName: "Kitchen Appliance",
-          cost: 879.00
+          imageLocation: '../../assets/your-logo.png',
+          itemName: 'Kitchen Appliance',
+          cost: '879.00'
       },
       {
-        imageLocation: "../../assets/your-logo",
-        itemName: "Home Consultation",
-        cost: 50.00
+        imageLocation: '../../assets/your-logo.png',
+        itemName: 'Home Consultation',
+        cost: '50.00'
       },
       {
-        imageLocation: "../../assets/your-logo",
-        itemName: "5 Year Warranty",
-        cost: 299.00
+        imageLocation: '../../assets/your-logo.png',
+        itemName: '5 Year Warranty',
+        cost: '299.00'
       },
       {
-        imageLocation: "../../assets/your-logo",
-        itemName: "Remodel Planning",
-        cost: 149.00
+        imageLocation: '../../assets/your-logo.png',
+        itemName: 'Remodel Planning',
+        cost: '149.00'
       },
       {
-        imageLocation: "../../assets/your-logo",
-        itemName: "Installation Kit",
-        cost: 119.00
+        imageLocation: '../../assets/your-logo.png',
+        itemName: 'Installation Kit',
+        cost: '119.00'
       }
-    ]
+    ];
 
   constructor() { }
 

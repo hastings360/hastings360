@@ -2,7 +2,6 @@ export class Item {
     constructor(
         public imageLocation: string,
         public itemName: string,
-        public cost: number,
-        
-
+        public cost: string
+    ){};
 }

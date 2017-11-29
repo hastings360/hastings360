@@ -4,14 +4,34 @@
     padding: 60px 20px;
     background: #7f7959 url("../../assets/item-background.jpg") no-repeat center;
 }
+h3{
+    color: white;
+    text-shadow: 0.03em 0.03em #ff7f50;
+}
 .wheel-container{
     border: solid 1px #000000;
     border-radius: 2%;
     height: 300px;
+    overflow-x: scroll;
+    padding: 0.2em;
+    white-space: nowrap;
 }
-h3{
-    color: white;
-    text-shadow: 0.03em 0.03em #ff7f50;
+.items{
+    display: inline-block;
+    width: 300px;
+    height: 250px;
+    margin: 0.2em;
+    overflow: hidden;
+}
+.item-image{
+    height: 200px;
+    border-radius: 50px 0 0 50px;
+}
+.item-name{
+
+}
+.item-cost{
+
 }
 p{
     color: white;
