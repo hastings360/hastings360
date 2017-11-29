@@ -4,6 +4,5 @@ export class Item {
         public itemName: string,
         public cost: number,
         
-    ){}
 
 }
