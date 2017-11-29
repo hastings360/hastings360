@@ -3,11 +3,9 @@
     border-radius: 2%;
     padding: 60px 20px;
     background: #7f7959 url("../../assets/item-background.jpg") no-repeat center;
-}
-h3{
     color: white;
-    text-shadow: 0.03em 0.03em #ff7f50;
 }
+
 .wheel-container{
     border: solid 1px #000000;
     border-radius: 2%;
@@ -20,7 +18,7 @@ h3{
     display: inline-block;
     width: 300px;
     height: 250px;
-    margin: 0.2em;
+    margin: 0.4em;
     overflow: hidden;
 }
 .item-image{
@@ -28,12 +26,15 @@ h3{
     border-radius: 50px 0 0 50px;
 }
 .item-name{
-
+    background-color: #7f7959aa;
+    width: 160px;
+    text-align: center;
+    margin: auto;
+    border-radius: 50px 0 0 50px;
 }
 .item-cost{
-
+     color: black;
 }
 p{
     color: white;
-    text-shadow: 0.03em 0.03em #ff7f50;
 }

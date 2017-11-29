@@ -6,8 +6,8 @@
     <!-- Start item iterations -->
     <div class="items" *ngFor="let item of items">
         <img class="item-image" src="{{item.imageLocation}}" alt="{{item.itemName}}">
-        <p>{{item.itemName}}<br>
-           ${{item.cost}}</p>
+        <p class="item-name">{{item.itemName}}<br>
+           <span class="item-cost">${{item.cost}}</span></p>
     </div>
 
   </div>
