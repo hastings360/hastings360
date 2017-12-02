@@ -3,5 +3,5 @@ export class Item {
         public imageLocation: string,
         public itemName: string,
         public cost: string
-    ){};
+    ){}
 }

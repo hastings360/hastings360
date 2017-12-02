@@ -1,10 +1,13 @@
+h2{
+    font-size: 3em;
+}
 ul{
     background-color: #ff7f50;
     opacity: 0.8;
     border-radius: 2%;
 }
 li{
-    font-size: 1.2em;
+    font-size: 1.5em;
 }
 li:hover{
     color: #000000;
