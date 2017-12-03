@@ -24,6 +24,18 @@
     height: 200px;
     border-radius: 50%;
 }
+@media screen and (max-width: 575px){
+    .items{
+        width: 195px;
+        height: 180px;
+    }
+    .item-image{
+        height: 130px;
+    }
+    .wheel-container{
+        height: 250px;
+    }
+}
 .item-name{
     background-color: #7f7959aa;
     width: 160px;
