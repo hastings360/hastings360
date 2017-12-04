@@ -1,0 +1,54 @@
+.font-sizer{
+    font-size: 1rem;
+}
+.name{
+    text-align: center;
+    font: italic small-caps bold 4em cursive;
+    color: white;
+}
+.background{
+    background-color: #4B9CD3;
+    height: auto;
+    padding-bottom: 50px;
+}
+.placeholder{
+    margin-top: 20px;
+    height: 800px;
+    border: 2px solid white;
+}
+.left-half{
+    border: 2px solid white;
+    height: auto;
+}
+.right-half{
+    border: 2px solid white;
+    height: 800px;
+}
+.search{
+    border: 4px solid white;
+    height: 397px;
+}
+.search-results{
+    border: 4px solid white;
+    height: 397px;
+}
+.submit-pic{
+    margin-top: 50px;
+}
+@media screen and (max-width: 596px){
+    .placeholder{
+        height: 600px;
+    }
+    .search{
+        height: 100px;
+    }
+    .search-results{
+        height: 247px;
+    }
+    .right-half{
+        height: 247px;
+    }
+    .font-sizer{
+        font-size: 0.8rem;
+    }
+}
