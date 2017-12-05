@@ -1,3 +1,59 @@
-<p>
-  input-form works!
-</p>
+
+<form id="image-upload">
+      <input id="image" type="file" #file (change)="updateImageFile(file.files)" accept="image/jpg, image/gif, image/png">
+      <div class="error-message" *ngIf="!imageUploaded">Please choose an image</div>
+    <!--<div id="upload-container" class="col-sm-6">
+      <img class="img-responsive" id="uploaded" src="#" alt="Your image">
+      <div class="error-message" *ngIf="imageToLarge">That image is too large!<br>Limit: 200 kb</div>
+    </div>-->
+</form>
+<form   id="input-form"
+      [formGroup]="inputForm" 
+      (ngSubmit)="onSubmit(inputForm.value)">
+
+      <div class="form-group">                
+        <label for="name">Name:</label>
+        <input id="name" type="text" class="form-control" [formControl]="inputForm.controls['name']" [class.error]="!inputForm.controls['name'].valid">
+        <div class="error-message" *ngIf="!inputForm.controls['name'].valid">image name (no spaces, no capitalization)</div>
+        
+        <label for="description">Description:</label>
+        <input type="text" class="form-control" [formControl]="inputForm.controls['description']" [class.error]="!inputForm.controls['description'].valid">
+        <div class="error-message" *ngIf="!inputForm.controls['description'].valid">Brief description of image</div>
+        
+        <label for="contributor">Contributor:</label>
+        <input id="contributor" type="text" class="form-control" [formControl]="inputForm.controls['contributor']" [class.error]="!inputForm.controls['contributor'].valid">
+        <div class="error-message" *ngIf="!inputForm.controls['contributor'].valid">Your name</div>
+        
+        <!--automatic-->
+        <label for="date">Date:</label>
+        <input id="date" type="text" class="form-control" [formControl]="inputForm.controls['date']" [class.error]="!inputForm.controls['date'].valid" value='{{currentDate | date:"MM/dd/yyyy"}}' [readonly]="true">
+        
+        <label for="location">Location:</label>
+        <input id="location" type="text" class="form-control" [formControl]="inputForm.controls['location']" [class.error]="!inputForm.controls['location'].valid">
+        <div class="error-message" *ngIf="!inputForm.controls['location'].valid">Where photo was taken</div>
+        
+        <label for="category">Category:</label>
+        <input id="category" type="text" class="form-control" [formControl]="inputForm.controls['category']" [class.error]="!inputForm.controls['category'].valid">
+        <div class="error-message" *ngIf="!inputForm.controls['category'].valid">Category (ie: This will be used for searches, etc...)</div>
+      </div>
+
+      <div *ngIf="inputForm.valid">
+        <button type="submit" id="contribute-submit" class="btn col-sm-2 col-sm-offset-5 col-xs-4 col-xs-offset-4" ><strong>Send</strong></button>
+      </div>
+</form>
+
+
+
+
+  
+
+<!--splash page for email sent
+<div *ngIf="received" class="mail-message img-responsive">
+  <p>Thank you for making contribution!</p>
+  <a routerLink="/welcome">Back to welcome page</a>
+</div>
+    splash page for email sent
+<div *ngIf="error" class="mail-message img-responsive">
+  <p>There seems to be an issue with the email server.  Please try again soon.</p>
+  <a routerLink="/welcome">Back to home page</a>
+</div>-->
