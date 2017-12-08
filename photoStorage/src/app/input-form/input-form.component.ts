@@ -16,12 +16,10 @@ export class InputFormComponent implements OnInit {
 
   constructor(fb: FormBuilder){
     this.inputForm = fb.group({
-      'name': ['',Validators.compose([Validators.required, Validators.minLength(4)])],
+      'imageName': ['',Validators.compose([Validators.required, Validators.minLength(4)])],
       'description': ['',Validators.compose([Validators.required, Validators.minLength(10)])],
       'contributor': ['',Validators.compose([Validators.required, Validators.minLength(4)])],
-      
       'date': [''],
-
       'location': ['',Validators.compose([Validators.required, Validators.minLength(2)])],
       'category': ['',Validators.compose([Validators.required, Validators.minLength(4)])]
     })
@@ -30,19 +28,13 @@ export class InputFormComponent implements OnInit {
   ngOnInit() {
   }
 
-
-
-}
-
-
-
-  
-  /*public received: boolean = false;
   public error: boolean = false;
+  public received: boolean = false;
   public imageUploaded: boolean = false;
   public imageToLarge: boolean = false;
   public imageToAPI;
-  
+
+
   onSubmit(x:FormGroup):void{
     let data = JSON.stringify(x);//Converts FormGroup data into JSON string for http.post
     let mailObject = new FormData();
@@ -50,13 +42,14 @@ export class InputFormComponent implements OnInit {
     mailObject.append('data',data);//appends data to mailObject
     mailObject.append('image',this.imageToAPI);//appends data to mailObject
     
-    this.email.sendMail(mailObject);
+    /*this.email.sendMail(mailObject);
     if(this.email.emailVerify.hasError === true){
       this.error = true;
     }else{
       this.received = true;
-    }
+    }*/
   }
+  
   //excepts and reads the image file object
   updateImageFile(x:object):void{
     //sets uploaded image to view
@@ -77,10 +70,12 @@ export class InputFormComponent implements OnInit {
     //save image to imageToAPI
     this.imageToAPI = x[0];
   }
+
+
   //Loads image to the img element
   imageLoader(e:any):any{
     let imageTag = document.getElementById('uploaded');
     imageTag.setAttribute('src', e.target.result);
   }
-
-}*/
+  
+}

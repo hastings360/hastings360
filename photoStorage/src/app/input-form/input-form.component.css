@@ -1,3 +1,12 @@
-#input-form{
-    
+.error-message{
+    color: red;
+    font-size: 0.7em;
+}
+button{
+    background-color: #4B9CD3;
+}
+button:hover{
+    background-color: white;
+    border-color: #4B9CD3;
+    cursor: pointer;
 }
