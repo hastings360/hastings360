@@ -12,3 +12,6 @@ a:hover{
     color: white;
     border-radius: 3%;
 }
+ul{
+    -webkit-padding-start: 0 !important;
+}
