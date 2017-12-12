@@ -3,6 +3,7 @@ import { Event } from '@angular/router';
 import { Http, Response } from '@angular/http';
 import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
+import { DbTalkerService } from '../db-talker.service';
 
 @Component({
   selector: 'app-input-form',
@@ -19,7 +20,7 @@ export class InputFormComponent implements OnInit {
   public imageToLarge = false;
   public imageToAPI;
 
-  constructor(fb: FormBuilder) {
+  constructor(fb: FormBuilder, public dbTalker: DbTalkerService) {
     this.inputForm = fb.group({
       'imageName': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
       'description': ['', Validators.compose([Validators.required, Validators.minLength(10)])],
@@ -27,10 +28,6 @@ export class InputFormComponent implements OnInit {
       'location': ['', Validators.compose([Validators.required, Validators.minLength(2)])],
       'category': ['', Validators.compose([Validators.required, Validators.minLength(4)])]
     });
-
-    
-    
-
   }
 
   ngOnInit() {
@@ -39,20 +36,17 @@ export class InputFormComponent implements OnInit {
   onSubmit(x: FormGroup): void {
 
     const todaysDate = this.currentDate.getMonth()+1 + "/" + this.currentDate.getDate() + "/" + this.currentDate.getFullYear(); //Gets date in correct format
-    const dataObject = JSON.parse(JSON.stringify(x));
+    let dataObject = JSON.parse(JSON.stringify(x));
 
     dataObject.date = todaysDate;
     dataObject.image = this.imageToAPI;
+    let optionalData;
 
-    console.log(dataObject);
-    
-    
-    /*this.email.sendMail(mailObject);
-    if(this.email.emailVerify.hasError === true){
-      this.error = true;
-    }else{
-      this.received = true;
-    }*/
+    this.dbTalker.submitPhotoToDb(dataObject, optionalData)
+      .then(
+        (val) => this.received = true,
+        (err) => this.error = true
+      );
   }
 
   // excepts and reads the image file object
@@ -61,7 +55,7 @@ export class InputFormComponent implements OnInit {
     const reader = new FileReader;
     reader.onload = this.imageLoader;
 
-    if (x[0].size < 1000000000) {
+    if (x[0].size < 2000000001) {
       reader.readAsDataURL(x[0]);
       this.imageUploaded = true;
       this.imageToLarge = false;

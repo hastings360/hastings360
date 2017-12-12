@@ -1,3 +1,4 @@
+import { DbTalkerService } from './db-talker.service';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -22,7 +23,7 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     FormsModule, ReactiveFormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [DbTalkerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
