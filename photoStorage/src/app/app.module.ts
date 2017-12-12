@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { InputFormComponent } from './input-form/input-form.component';
 import { SearchComponent } from './search/search.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
-import { PreviewComponent } from './preview/preview.component';
 
 
 
@@ -16,8 +15,7 @@ import { PreviewComponent } from './preview/preview.component';
     AppComponent,
     InputFormComponent,
     SearchComponent,
-    SearchResultsComponent,
-    PreviewComponent
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,

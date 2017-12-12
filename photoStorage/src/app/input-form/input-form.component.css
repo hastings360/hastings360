@@ -1,3 +1,17 @@
+#upload-container{
+    background-color: #4B9CD332;
+    min-height: 200px;
+    color: #4B9CD3;
+    padding: 2em;
+}
+.small-divider{
+    width: 100%;
+    border: solid 0.3em #4B9CD3;
+}
+p{
+    font-size: 1em;
+    color: #4B9CD3;
+}
 .error-message{
     color: red;
     font-size: 0.7em;
@@ -10,3 +24,4 @@ button:hover{
     border-color: #4B9CD3;
     cursor: pointer;
 }
+
