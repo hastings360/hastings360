@@ -7,13 +7,11 @@ export class DbTalkerService {
   constructor(private http:Http) { }
 
   //Submit dataObject to API
-  submitPhotoToDb(dataToSend: object, y: any):Promise<any>{
-    const optionalData = y;
+  submitPhotoToDb(objectToSend: object):Promise<any>{
     return this.http
-      .post('/api/submit-pic', dataToSend, optionalData)
+      .post('/api/submit-pic', objectToSend)
       .toPromise()
       .catch(this.handleError);
-      
   }
   //Hande submit error
   private handleError(error: any): Promise<any>{

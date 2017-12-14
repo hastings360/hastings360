@@ -18,7 +18,7 @@ export class InputFormComponent implements OnInit {
   public received = false;
   public imageUploaded = false;
   public imageToLarge = false;
-  public imageToAPI;
+  public imageToApi;
 
   constructor(fb: FormBuilder, public dbTalker: DbTalkerService) {
     this.inputForm = fb.group({
@@ -34,15 +34,19 @@ export class InputFormComponent implements OnInit {
   }
 
   onSubmit(x: FormGroup): void {
-
+    let apiObject = new FormData();
+    
     const todaysDate = this.currentDate.getMonth()+1 + "/" + this.currentDate.getDate() + "/" + this.currentDate.getFullYear(); //Gets date in correct format
-    let dataObject = JSON.parse(JSON.stringify(x));
+    let formDataObject = JSON.parse(JSON.stringify(x)); //Convert FormGroup to regular object
+    formDataObject.date = todaysDate; //Set date to todays date with correct format
+    formDataObject.imageName = formDataObject.imageName + "." + this.imageToApi.type.match(/\w+$/); //Add image file type to imageName
 
-    dataObject.date = todaysDate;
-    dataObject.image = this.imageToAPI;
-    let optionalData;
+    apiObject.append('formInputData', JSON.stringify(formDataObject));
+    apiObject.append('image', this.imageToApi);
 
-    this.dbTalker.submitPhotoToDb(dataObject, optionalData)
+    
+
+    this.dbTalker.submitPhotoToDb(apiObject)
       .then(
         (val) => this.received = true,
         (err) => this.error = true
@@ -55,7 +59,7 @@ export class InputFormComponent implements OnInit {
     const reader = new FileReader;
     reader.onload = this.imageLoader;
 
-    if (x[0].size < 2000000001) {
+    if (x[0].size < 1000000001) {
       reader.readAsDataURL(x[0]);
       this.imageUploaded = true;
       this.imageToLarge = false;
@@ -67,7 +71,7 @@ export class InputFormComponent implements OnInit {
     }
 
     // save image to imageToAPI
-    this.imageToAPI = x[0];
+    this.imageToApi = x[0];
   }
 
 

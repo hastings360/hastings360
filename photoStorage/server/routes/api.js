@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const upload = multer({dest: '/tmp/'})
+
+
+const upload = multer({storage: storage});
+
 
 const nodemailer = require('nodemailer');//mail API
 const MongoClient = require('mongodb').MongoClient;//db API
@@ -14,11 +17,13 @@ router.get('/', (req, res) => {
   res.send('photoStorage api works');
 });
 
-//submit API
-router.post('/submit-pic', (req, res) =>{
+
+//submit photo API
+router.post('/submit-pic', upload.single('image'), (req, res) =>{
   res.send('submit photo accessed');
-  console.log(req.query);
+
   
+  fileName = JSON.parse(req.body.formInputData).imageName;
     /*return MongoClient.connect(url)
       .then((db) =>{
         db.collection("photos").insert(JSON.stringify(req.query))
