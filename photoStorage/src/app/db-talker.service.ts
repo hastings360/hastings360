@@ -12,6 +12,7 @@ export class DbTalkerService {
       .post('/api/submit-pic', objectToSend)
       .toPromise()
       .catch(this.handleError);
+      //.then(() => this.runDbQueryForNewData());    Reinitialize Observable hopfully???
   }
   //Hande submit error
   private handleError(error: any): Promise<any>{

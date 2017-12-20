@@ -48,8 +48,8 @@ export class InputFormComponent implements OnInit {
 
     this.dbTalker.submitPhotoToDb(apiObject)
       .then(
-        (val) => this.received = true,
-        (err) => this.error = true
+        (onResolve) => this.received = true,
+        (onRejected) => this.error = true
       );
   }
 

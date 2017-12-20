@@ -1,16 +1,22 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-
-
-const upload = multer({storage: storage});
-
-
-const nodemailer = require('nodemailer');//mail API
 const MongoClient = require('mongodb').MongoClient;//db API
-const url = "localhost:27017/photos";//db connection string
-const ObjectId = require('mongodb').ObjectId;
-let data;//db API
+const url = "mongodb://localhost:27017";//db connection string
+
+//renames incoming file submitted
+const storage = multer.diskStorage({
+  destination: './temp-photos',
+  filename: function(req, file, cb){
+    cb(null, JSON.parse(req.body.formInputData).imageName);
+  }
+})
+const upload = multer({ storage: storage});
+const sharp = require('sharp');
+
+//const nodemailer = require('nodemailer');//mail API
+//const ObjectId = require('mongodb').ObjectId;
+//let data;//db API
 
 //root API
 router.get('/', (req, res) => {
@@ -20,21 +26,32 @@ router.get('/', (req, res) => {
 
 //submit photo API
 router.post('/submit-pic', upload.single('image'), (req, res) =>{
-  res.send('submit photo accessed');
-
   
-  fileName = JSON.parse(req.body.formInputData).imageName;
-    /*return MongoClient.connect(url)
-      .then((db) =>{
-        db.collection("photos").insert(JSON.stringify(req.query))
-          .then(()=>{
-            db.close();
-          }).catch((error) =>{
-            console.log(error);
-          }).done();
-      }).catch((error) =>{
-        console.log(error);
-      });*/
+    //saves file as compress mini version
+    sharp('./temp-photos/' + JSON.parse(req.body.formInputData).imageName).resize(200)
+    .toFile('./temp-photos/temp-icons/mini-' + JSON.parse(req.body.formInputData).imageName)
+    .catch(error => {
+      return res.send(error);
+    });
+
+        //DB data submit
+    MongoClient.connect(url)
+    .then( client =>{
+        const db = client.db('photoStorage');
+        db.collection('photos').insertOne(JSON.parse(req.body.formInputData))
+        .then( () =>{  
+                  client.close();
+                  return res.send(req.body.formInputData.imageNname + " photo info added to database");
+        }).catch(error =>{
+                  client.close();        
+                  return res.send(error);   
+        });
+    })
+    .catch(error => {
+            client.close();    
+            return res.send(error);
+          
+    });   
 });
 
 
