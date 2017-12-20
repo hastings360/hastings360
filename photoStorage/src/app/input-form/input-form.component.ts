@@ -44,8 +44,6 @@ export class InputFormComponent implements OnInit {
     apiObject.append('formInputData', JSON.stringify(formDataObject));
     apiObject.append('image', this.imageToApi);
 
-    
-
     this.dbTalker.submitPhotoToDb(apiObject)
       .then(
         (onResolve) => this.received = true,
