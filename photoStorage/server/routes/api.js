@@ -18,47 +18,39 @@ const sharp = require('sharp');
 //const ObjectId = require('mongodb').ObjectId;
 //let data;//db API
 
-//root API
+/*root API
 router.get('/', (req, res) => {
   res.send('photoStorage api works');
-});
+});*/
 
 
 //submit photo API
 router.post('/submit-pic', upload.single('image'), (req, res) =>{
-  
     //saves file as compress mini version
-    sharp('./temp-photos/' + JSON.parse(req.body.formInputData).imageName).resize(200)
-    .toFile('./temp-photos/temp-icons/mini-' + JSON.parse(req.body.formInputData).imageName)
-    .catch(error => {
-      return res.send(error);
-    });
-
-        //DB data submit
+    sharp('./temp-photos/' + JSON.parse(req.body.formInputData).imageName).resize(200).toFile('./temp-photos/temp-icons/mini-' + JSON.parse
+    (req.body.formInputData).imageName).catch(error => {console.log("image shrink error"); return res.sendStatus(500);});
+    //DB data submit
     MongoClient.connect(url)
     .then( client =>{
         const db = client.db('photoStorage');
         db.collection('photos').insertOne(JSON.parse(req.body.formInputData))
-        .then( () =>{  
-                  client.close();
-                  return res.send(req.body.formInputData.imageNname + " photo info added to database");
-        }).catch(error =>{
-                  client.close();        
-                  return res.send(error);   
-        });
+        .then(result =>{  
+                  client.close(); return res.send(req.body.formInputData.imageNname + " photo info added to database");})
+        .catch(error =>{
+                  client.close(); console.log("coollection connect error"); return res.sendStatus(500);});
     })
     .catch(error => {
-            client.close();    
-            return res.send(error);
-          
+        console.log("mongo connect error"); return res.sendStatus(500);
     });   
 });
 
-
-
-
-
-
+router.get('/latest-pics', (req, res) =>{
+  MongoClient.connect(url).then(client =>{
+    const db = client.db('photoStorage');
+    db.collection('photos').find({}).sort({date: -1}).limit(30).toArray()
+      .then(result => {return res.send(result);}).catch(error => {console.log(error); return res.sendStatus(500);});
+  }).catch(error => {console.log(error);return res.sendStatus(500);});
+});
 /*
 //mail API
 router.post('/recipe-mail', upload.single('image'),(req, res) =>{

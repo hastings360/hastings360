@@ -1,7 +1,7 @@
 import { DateFormatter } from '@angular/common/src/pipes/deprecated/intl';
 import { Event } from '@angular/router';
 import { Http, Response } from '@angular/http';
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Output, Input, ViewChild} from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { DbTalkerService } from '../db-talker.service';
 
@@ -64,8 +64,7 @@ export class InputFormComponent implements OnInit {
     }else {
       this.imageToLarge = true;
       this.imageUploaded = false;
-      const imageTag = document.getElementById('uploaded');
-      imageTag.setAttribute('src', '');
+      document.getElementById('uploaded').setAttribute('src', '');
     }
 
     // save image to imageToAPI
@@ -75,8 +74,20 @@ export class InputFormComponent implements OnInit {
 
   // Loads image to the img element
   imageLoader(e: any): any {
-    const imageTag = document.getElementById('uploaded');
-    imageTag.setAttribute('src', e.target.result);
+    document.getElementById('uploaded').setAttribute('src', e.target.result);
+  }
+
+  // Message handling
+  @ViewChild('imageform') imageForm;
+
+  clearErrorMessage(){
+    this.error = false;
+  }
+  clearMessageAndForm(){
+    this.received = false;
+    this.inputForm.reset();
+    this.imageForm.nativeElement.reset();
+    document.getElementById('uploaded').setAttribute('src', '');
   }
 
 }

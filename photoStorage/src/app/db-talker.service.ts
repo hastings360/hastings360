@@ -8,8 +8,7 @@ export class DbTalkerService {
 
   //Submit dataObject to API
   submitPhotoToDb(objectToSend: object):Promise<any>{
-    return this.http
-      .post('/api/submit-pic', objectToSend)
+    return this.http.post('/api/submit-pic', objectToSend)
       .toPromise()
       .catch(this.handleError);
       //.then(() => this.runDbQueryForNewData());    Reinitialize Observable hopfully???
