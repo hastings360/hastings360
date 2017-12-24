@@ -1,3 +1,4 @@
-<p>
-  search-results works!
-</p>
+<div *ngFor="let photo of photos | async">
+  <p>{{photo.imageName}}</p>
+  <img src='{{photo.image}}'/>
+  </div>

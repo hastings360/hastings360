@@ -3,6 +3,8 @@ const router = express.Router();
 const multer = require('multer');
 const MongoClient = require('mongodb').MongoClient;//db API
 const url = "mongodb://localhost:27017";//db connection string
+const fs = require('fs');
+const rxjs = require('rxjs');
 
 //renames incoming file submitted
 const storage = multer.diskStorage({
@@ -23,6 +25,18 @@ router.get('/', (req, res) => {
   res.send('photoStorage api works');
 });*/
 
+//Adds mini-photo to photo objects
+function addMinis(x){
+  try{
+    for(let y in x){
+      x[y].image = fs.readFileSync("./temp-photos/temp-icons/mini-" + x[y].imageName);
+    }
+  }catch(err){
+    console.log("Error adding photos for" + x[y].imageName);
+    return res.sendStatus(500);
+  }
+  return x;
+}
 
 //submit photo API
 router.post('/submit-pic', upload.single('image'), (req, res) =>{
@@ -35,7 +49,7 @@ router.post('/submit-pic', upload.single('image'), (req, res) =>{
         const db = client.db('photoStorage');
         db.collection('photos').insertOne(JSON.parse(req.body.formInputData))
         .then(result =>{  
-                  client.close(); return res.send(req.body.formInputData.imageNname + " photo info added to database");})
+                  client.close(); return res.send(req.body.formInputData.imageName + " photo info added to database");})
         .catch(error =>{
                   client.close(); console.log("coollection connect error"); return res.sendStatus(500);});
     })
@@ -44,12 +58,14 @@ router.post('/submit-pic', upload.single('image'), (req, res) =>{
     });   
 });
 
-router.get('/latest-pics', (req, res) =>{
+router.get('/latest-photos', (req, res) =>{
   MongoClient.connect(url).then(client =>{
     const db = client.db('photoStorage');
     db.collection('photos').find({}).sort({date: -1}).limit(30).toArray()
-      .then(result => {return res.send(result);}).catch(error => {console.log(error); return res.sendStatus(500);});
+    .then(result => {return res.send(addMinis(result))}).catch(error => {console.log(error); return res.sendStatus(500);});
   }).catch(error => {console.log(error);return res.sendStatus(500);});
+
+  
 });
 /*
 //mail API
