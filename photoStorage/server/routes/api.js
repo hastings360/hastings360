@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
 function addMinis(x){
   try{
     for(let y in x){
-      x[y].image = fs.readFileSync("./temp-photos/temp-icons/mini-" + x[y].imageName);
+      x[y].image = fs.readFileSync("./temp-photos/temp-icons/mini-" + x[y].imageName).toString('base64');
     }
   }catch(err){
     console.log("Error adding photos for" + x[y].imageName);
@@ -40,7 +40,7 @@ function addMinis(x){
 
 //submit photo API
 router.post('/submit-pic', upload.single('image'), (req, res) =>{
-    //saves file as compress mini version
+    //saves file as compressed mini version
     sharp('./temp-photos/' + JSON.parse(req.body.formInputData).imageName).resize(200).toFile('./temp-photos/temp-icons/mini-' + JSON.parse
     (req.body.formInputData).imageName).catch(error => {console.log("image shrink error"); return res.sendStatus(500);});
     //DB data submit

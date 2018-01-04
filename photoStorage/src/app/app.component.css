@@ -11,27 +11,15 @@
     height: auto;
     padding-bottom: 50px;
 }
-.placeholder{
+.search-container{
     margin-top: 20px;
-    height: 800px;
-    border: 2px solid white;
 }
-.left-half{
-    border: 1px solid white;
-    height: auto;
+@media screen and (max-width: 596px){
+    .font-sizer{
+        font-size: 0.8rem;
+    }
 }
-.right-half{
-    border: 1px solid white;
-    height: auto;
-}
-.search{
-    
-    height: 397px;
-}
-.search-results{
-    
-    height: 397px;
-}
+/*submit-form*/
 h2{
     text-align: center;
     font: italic small-caps bold 3em cursive;
@@ -49,20 +37,4 @@ h2{
 .preview{
     padding: 2em;
 }
-@media screen and (max-width: 596px){
-    .placeholder{
-        height: 600px;
-    }
-    .search{
-        height: 100px;
-    }
-    .search-results{
-        height: 247px;
-    }
-    .right-half{
-        height: 247px;
-    }
-    .font-sizer{
-        font-size: 0.8rem;
-    }
-}
+

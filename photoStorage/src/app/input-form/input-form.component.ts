@@ -4,6 +4,7 @@ import { Http, Response } from '@angular/http';
 import { Component, OnInit, Output, Input, ViewChild} from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { DbTalkerService } from '../db-talker.service';
+import { SearchResultsComponent } from '../search-results/search-results.component';
 
 @Component({
   selector: 'app-input-form',
@@ -19,8 +20,10 @@ export class InputFormComponent implements OnInit {
   public imageUploaded = false;
   public imageToLarge = false;
   public imageToApi;
+  
+  ;
 
-  constructor(fb: FormBuilder, public dbTalker: DbTalkerService) {
+  constructor(fb: FormBuilder, private dbTalker: DbTalkerService, private searchResults: SearchResultsComponent) {
     this.inputForm = fb.group({
       'imageName': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
       'description': ['', Validators.compose([Validators.required, Validators.minLength(10)])],
@@ -44,11 +47,13 @@ export class InputFormComponent implements OnInit {
     apiObject.append('formInputData', JSON.stringify(formDataObject));
     apiObject.append('image', this.imageToApi);
 
-    this.dbTalker.submitPhotoToDb(apiObject)
-      .then(
-        (onResolve) => this.received = true,
-        (onRejected) => this.error = true
-      );
+    //need to minifi pic and send to searchResults
+    //this.searchResults.photos.unshift();
+
+    this.dbTalker.submitPhotoToDb(apiObject).then(
+      (onResolve) => {this.received = true; this.searchResults.reloadRecent30();},
+      (onError) => this.error = true
+    )
   }
 
   // excepts and reads the image file object

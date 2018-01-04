@@ -8,6 +8,9 @@ import { AppComponent } from './app.component';
 import { InputFormComponent } from './input-form/input-form.component';
 import { SearchComponent } from './search/search.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { SanitizerComponent } from './tools/sanitizer/sanitizer.component';
+import { Photo } from './photo.model';
+import { PhotoStr } from './photo-str.model';
 
 
 
@@ -16,14 +19,15 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     AppComponent,
     InputFormComponent,
     SearchComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    SanitizerComponent
   ],
   imports: [
     BrowserModule,
     FormsModule, ReactiveFormsModule,
     HttpModule
   ],
-  providers: [DbTalkerService],
+  providers: [DbTalkerService,Photo,PhotoStr,SearchResultsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
