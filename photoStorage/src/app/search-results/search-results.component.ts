@@ -1,7 +1,6 @@
-import { Component, OnInit, OnDestroy} from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
-import { DbTalkerService } from '../db-talker.service';
 import { PhotoStr } from '../photo-str.model';
 
 @Component({
@@ -11,17 +10,10 @@ import { PhotoStr } from '../photo-str.model';
 })
 export class SearchResultsComponent implements OnInit {
 
-  public photos = new BehaviorSubject<Array<PhotoStr>>([]);
+  @Input() photos = new BehaviorSubject<PhotoStr[]>([]);
 
-  constructor(private dbTalkerService: DbTalkerService) {}
+  constructor() {}
 
-  ngOnInit():void{
-    this.photos = this.dbTalkerService.loadRecent30();
-    this.photos.subscribe(data => console.log(data));
-  }
+  ngOnInit(){}
   
-  reloadRecent30(){
-    this.photos = this.dbTalkerService.loadRecent30();
-    this.photos.subscribe(data => console.log(data));
-  }
 }

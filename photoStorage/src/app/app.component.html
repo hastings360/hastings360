@@ -9,7 +9,7 @@
           </div>
           <div class="row">
             <div class="col-12">
-                  <app-search-results>...Loading</app-search-results>
+                  <app-search-results [photos]="photos">...Loading</app-search-results>
             </div>
           </div>
         </section>
@@ -17,7 +17,7 @@
       <h2>Contribute Photos</h2>
       <section class="container submit-pic">
           <div class="input-form">
-              <app-input-form>...Loading</app-input-form>
+              <app-input-form (newPicCreated)="newPicCreated($event)">...Loading</app-input-form>
           </div>    
       </section>
 </div>

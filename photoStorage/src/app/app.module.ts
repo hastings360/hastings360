@@ -27,7 +27,7 @@ import { PhotoStr } from './photo-str.model';
     FormsModule, ReactiveFormsModule,
     HttpModule
   ],
-  providers: [DbTalkerService,Photo,PhotoStr,SearchResultsComponent],
+  providers: [DbTalkerService,Photo,PhotoStr],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

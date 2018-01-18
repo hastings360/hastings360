@@ -1,10 +1,9 @@
 import { DateFormatter } from '@angular/common/src/pipes/deprecated/intl';
 import { Event } from '@angular/router';
 import { Http, Response } from '@angular/http';
-import { Component, OnInit, Output, Input, ViewChild} from '@angular/core';
+import { Component, OnInit, Output, Input, ViewChild, EventEmitter} from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { DbTalkerService } from '../db-talker.service';
-import { SearchResultsComponent } from '../search-results/search-results.component';
 
 @Component({
   selector: 'app-input-form',
@@ -21,9 +20,9 @@ export class InputFormComponent implements OnInit {
   public imageToLarge = false;
   public imageToApi;
   
-  ;
+  @Output() newPicCreated: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor(fb: FormBuilder, private dbTalker: DbTalkerService, private searchResults: SearchResultsComponent) {
+  constructor(fb: FormBuilder, private dbTalker: DbTalkerService) {
     this.inputForm = fb.group({
       'imageName': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
       'description': ['', Validators.compose([Validators.required, Validators.minLength(10)])],
@@ -51,7 +50,7 @@ export class InputFormComponent implements OnInit {
     //this.searchResults.photos.unshift();
 
     this.dbTalker.submitPhotoToDb(apiObject).then(
-      (onResolve) => {this.received = true; this.searchResults.reloadRecent30();},
+      (onResolve) => {this.received = true; this.newPicCreated.emit(true);},
       (onError) => this.error = true
     )
   }

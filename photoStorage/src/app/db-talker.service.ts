@@ -21,12 +21,8 @@ export class DbTalkerService {
   submitPhotoToDb(objectToSend: object):Promise<any>{
     return this.http.post('/api/submit-pic', objectToSend)
       .toPromise()
-      .catch(this.handleError);
+      .catch(error=> {
+        console.error('An error occured at DBTalkerService: submitPhotoToDb()');
+        return error.message;})
   }
-  //Handle submit error
-  private handleError(error: any): Promise<any>{
-    console.error('An error occured at DBTalkerService: submitPhotoToDb()');
-    return Promise.reject(error.message || error);
-  }
-
 }

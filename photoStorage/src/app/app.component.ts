@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
+import { DbTalkerService } from './db-talker.service';
+import { PhotoStr } from './photo-str.model';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +11,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+ 
+  public photos = new BehaviorSubject<PhotoStr[]>([]);
+
+  constructor(private dbTalker:DbTalkerService){
+    this.photos = this.dbTalker.loadRecent30();
+  }
+
+  newPicCreated(event:boolean):void{
+    if(event === true){
+      this.photos = this.dbTalker.loadRecent30();
+    }else{
+      console.log("Error: false showing on app-root.newPicCreated when it shouldn't")
+    }
+  }
+
 }
