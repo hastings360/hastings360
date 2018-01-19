@@ -25,47 +25,46 @@ router.get('/', (req, res) => {
   res.send('photoStorage api works');
 });*/
 
-//Adds mini-photo to photo objects
-function addMinis(x){
+//Adds mini-photo to photo objects outgoing--Not needed?????
+/*function addMinis(x){
   try{
     for(let y in x){
-      x[y].image = fs.readFileSync("./temp-photos/temp-icons/mini-" + x[y].imageName).toString('base64');
+      x[y].image = fs.readFileSync("./temp-photos/temp-icons/mini-" + x[y].imageName).toString('base64'); //Need Base64?????????
     }
   }catch(err){
     console.log("Error adding photos for" + x[y].imageName);
     return res.sendStatus(500);
   }
   return x;
-}
+}*/
 
 //submit photo API
 router.post('/submit-pic', upload.single('image'), (req, res) =>{
     //saves file as compressed mini version
     sharp('./temp-photos/' + JSON.parse(req.body.formInputData).imageName).resize(200).toFile('./temp-photos/temp-icons/mini-' + JSON.parse
-    (req.body.formInputData).imageName).catch(error => {console.log("image shrink error"); return res.sendStatus(500);});
-    //DB data submit
-    MongoClient.connect(url)
-    .then( client =>{
-        const db = client.db('photoStorage');
-        db.collection('photos').insertOne(JSON.parse(req.body.formInputData))
-        .then(result =>{  
-                  client.close(); return res.send(req.body.formInputData.imageName + " photo info added to database");})
-        .catch(error =>{
-                  client.close(); console.log("coollection connect error"); return res.sendStatus(500);});
-    })
-    .catch(error => {
-        console.log("mongo connect error"); return res.sendStatus(500);
-    });   
+    (req.body.formInputData).imageName).catch(error => {console.log("image shrink error"); return res.sendStatus(500);})
+    .then(()=>{
+              MongoClient.connect(url)
+              .then( client =>{
+                  const db = client.db('photoStorage');
+                  db.collection('photos').insertOne(JSON.parse(req.body.formInputData))
+                  .then(result =>{  
+                            client.close(); return res.send(req.body.formInputData.imageName + " photo info added to database");})
+                  .catch(error =>{
+                            client.close(); console.log("coollection connect error"); return res.sendStatus(500);});
+              })
+              .catch(error => {
+                  console.log("mongo connect error"); return res.sendStatus(500);
+              });   
+    });
 });
 
 router.get('/latest-photos', (req, res) =>{
   MongoClient.connect(url).then(client =>{
     const db = client.db('photoStorage');
     db.collection('photos').find({}).sort({date: -1}).limit(30).toArray()
-    .then(result => {return res.send(addMinis(result))}).catch(error => {console.log(error); return res.sendStatus(500);});
+    .then(result => {return res.send(result)}).catch(error => {console.log(error); return res.sendStatus(500);});
   }).catch(error => {console.log(error);return res.sendStatus(500);});
-
-  
 });
 /*
 //mail API

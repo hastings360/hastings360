@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { InputFormComponent } from './input-form/input-form.component';
 import { SearchComponent } from './search/search.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
-import { SanitizerComponent } from './tools/sanitizer/sanitizer.component';
+import { MiniSanitizerComponent } from './tools/mini-sanitizer/mini-sanitizer.component';
 import { Photo } from './photo.model';
 import { PhotoStr } from './photo-str.model';
 
@@ -20,7 +20,7 @@ import { PhotoStr } from './photo-str.model';
     InputFormComponent,
     SearchComponent,
     SearchResultsComponent,
-    SanitizerComponent
+    MiniSanitizerComponent
   ],
   imports: [
     BrowserModule,
