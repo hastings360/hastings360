@@ -1,0 +1,14 @@
+.photo:hover{
+   border: 0.1em solid #ffffff;
+   border-radius: 1em;
+   cursor: pointer;
+   z-index: 1;
+   width: 15em;
+   margin: 0.1em;
+}
+.photo-deets{
+    margin-top: -3em;
+    margin-left: 1em;
+    color: #ffffff;
+    font-size: 0.8em;
+}
