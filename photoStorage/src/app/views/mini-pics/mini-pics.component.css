@@ -1,0 +1,17 @@
+.img-holder{
+    position: relative;
+}
+.img-holder:hover{
+   box-shadow: 0 0 5em 5em #7c7575;
+   cursor: pointer;
+   z-index: 999;
+}
+.photo-deets{
+    color: #ffffff;
+    font-size: 0.7em;
+    background-color: #00000090;
+    z-index: 1;
+    position: absolute; left:0; bottom:0;
+    margin: 0;
+    padding: 0 0 0.3em 0.3em;
+}
