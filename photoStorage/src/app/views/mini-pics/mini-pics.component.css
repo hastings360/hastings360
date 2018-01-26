@@ -2,7 +2,7 @@
     position: relative;
 }
 .img-holder:hover{
-   box-shadow: 0 0 5em 5em #7c7575;
+   box-shadow: 0 0 2em 2em #7c7575;
    cursor: pointer;
    z-index: 999;
 }
@@ -13,5 +13,5 @@
     z-index: 1;
     position: absolute; left:0; bottom:0;
     margin: 0;
-    padding: 0 0 0.3em 0.3em;
+    padding: 0 0.3em 0.3em 0.3em;
 }

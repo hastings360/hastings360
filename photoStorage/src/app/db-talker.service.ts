@@ -19,10 +19,6 @@ export class DbTalkerService {
 
   //Submit dataObject to API
   submitPhotoToDb(objectToSend: object):Promise<any>{
-    return this.http.post('/api/submit-pic', objectToSend)
-      .toPromise()
-      .catch(error=> {
-        console.error('An error occured at DBTalkerService: submitPhotoToDb()');
-        return error.message;})
+    return this.http.post('/api/submit-pic', objectToSend).toPromise();
   }
 }

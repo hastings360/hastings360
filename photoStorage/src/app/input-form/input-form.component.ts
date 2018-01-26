@@ -49,10 +49,9 @@ export class InputFormComponent implements OnInit {
     //need to minifi pic and send to searchResults
     //this.searchResults.photos.unshift();
 
-    this.dbTalker.submitPhotoToDb(apiObject).then(
-      (onResolve) => {this.received = true; this.newPicCreated.emit(true);},
-      (onError) => this.error = true
-    )
+    this.dbTalker.submitPhotoToDb(apiObject)
+      .then((success) => {this.received = true; this.newPicCreated.emit(true);})
+      .catch((error) => {this.error = true;console.log(error + ": Error submitting pic to SubmitPhotoToDb()--DbTalkerService");});
   }
 
   // excepts and reads the image file object
