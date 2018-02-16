@@ -1,4 +1,7 @@
+
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
+import { DbTalkerService } from './../db-talker.service';
 
 @Component({
   selector: 'app-search',
@@ -9,8 +12,7 @@ export class SearchComponent implements OnInit {
 
 @Output() keyUP: EventEmitter<boolean> = new EventEmitter<boolean>();
 @Output() query: string;
-
-  constructor() { }
+  constructor(private _dbtalker: DbTalkerService) { }
 
   ngOnInit() {
   }

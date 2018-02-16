@@ -4,7 +4,7 @@
         <section class="container search-container">
           <div class="row">
             <div class="col-12">
-              <app-search>...Loading</app-search>
+              <app-search (keyUp)="newQueryData($event)">...Loading</app-search>
             </div>
           </div>
           <div class="row">
