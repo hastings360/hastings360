@@ -1,5 +1,11 @@
-
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ElementRef } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/fromEvent';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/switch';
 
 import { DbTalkerService } from './../db-talker.service';
 
@@ -10,33 +16,28 @@ import { DbTalkerService } from './../db-talker.service';
 })
 export class SearchComponent implements OnInit {
 
-@Output() keyUP: EventEmitter<boolean> = new EventEmitter<boolean>();
-@Output() query: string;
-  constructor(private _dbtalker: DbTalkerService) { }
+@Output() query: EventEmitter<string> = new EventEmitter<string>();
 
-  ngOnInit() {
+  constructor(private dbTalker: DbTalkerService, private el: ElementRef) { console.log(el);}
+
+  ngOnInit(): void { 
+    Observable.fromEvent(this.el.nativeElement, 'keyup')
+    .map((input:any) => input.target.value)
+    .filter((inputData: string) => inputData.length > 0)
+    .debounceTime(250)
+    .subscribe(
+      (inputData) => {this.query.emit(inputData)},
+      (error) => {console.log(error);console.log("Error coming from search.component, Not grabbing Input");}
+    )
   }
+  /*keyUp(event){
+   
+    this.query.emit(event.target.value);
+  }*/
 
 }
 
 /*
-import {
-  Component,
-  OnInit,
-  Output,
-  EventEmitter,
-  ElementRef
-} from '@angular/core';
-
-// By importing just the rxjs operators we need, We're theoretically able
-// to reduce our build size vs. importing all of them.
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/fromEvent';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/switch';
 
 import { YouTubeSearchService } from './you-tube-search.service';
 import { SearchResult } from './search-result.model';
@@ -45,15 +46,7 @@ import { SearchResult } from './search-result.model';
   selector: 'app-search-box',
   template: `
     <input type="text" class="form-control" placeholder="Search" autofocus>
-  `
-})
-export class SearchBoxComponent implements OnInit {
-  @Output() loading: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Output() results: EventEmitter<SearchResult[]> = new EventEmitter<SearchResult[]>();
 
-  constructor(private youtube: YouTubeSearchService,
-              private el: ElementRef) {
-  }
 
   ngOnInit(): void {
     // convert the `keyup` event into an observable stream

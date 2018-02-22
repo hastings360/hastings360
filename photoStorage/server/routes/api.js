@@ -66,6 +66,15 @@ router.get('/latest-photos', (req, res) =>{
     .then(result => {return res.send(result)}).catch(error => {console.log(error); return res.sendStatus(500);});
   }).catch(error => {console.log(error);return res.sendStatus(500);});
 });
+
+router.get('/photoSearch30', (req, res) =>{ 
+  let regexSearch = "/.*" + req.query.searchText + ".*/";
+  MongoClient.connect(url).then(client =>{
+    const db = client.db('photoStorage');
+  db.collection('photos').find({ $text: { $search: regexSearch }}).sort({date: -1}).limit(30).toArray()
+    .then(result => {return res.send(result)}).catch(error => {console.log(error); return res.sendStatus(500);});
+  }).catch(error => {console.log(error);return res.sendStatus(500);});
+});
 /*
 //mail API
 router.post('/recipe-mail', upload.single('image'),(req, res) =>{

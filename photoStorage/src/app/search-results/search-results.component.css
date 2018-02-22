@@ -1,3 +1,21 @@
+.error{
+    width: 300px;
+    color: #841212;
+    margin: 0 auto;
+    padding: 0.5em;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px #000000;
+}
+.no-results{
+    width: 300px;
+    color: #ffffff;
+    margin: 0 auto;
+    padding: 0.5em;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px #000000;
+}
 .img-div{
     display: inline-block;
     padding: 0;
