@@ -9,10 +9,7 @@ import { InputFormComponent } from './input-form/input-form.component';
 import { SearchComponent } from './search/search.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { MiniPicsComponent } from './views/mini-pics/mini-pics.component';
-import { Photo } from './photo.model';
 import { PhotoStr } from './photo-str.model';
-
-
 
 @NgModule({
   declarations: [
@@ -27,7 +24,7 @@ import { PhotoStr } from './photo-str.model';
     FormsModule, ReactiveFormsModule,
     HttpModule
   ],
-  providers: [DbTalkerService,Photo,PhotoStr],
+  providers: [DbTalkerService,PhotoStr],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

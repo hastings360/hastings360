@@ -1,11 +1,12 @@
 .error{
     width: 300px;
-    color: #841212;
+    color: #961919;
     margin: 0 auto;
     padding: 0.5em;
     border: 1px solid #ffffff;
     border-radius: 10px;
-    box-shadow: 5px 5px 5px 5px #000000;
+    box-shadow: 10px 10px 20px 10px #000000;
+    font-size: 1.5em;
 }
 .no-results{
     width: 300px;
@@ -14,7 +15,7 @@
     padding: 0.5em;
     border: 1px solid #ffffff;
     border-radius: 10px;
-    box-shadow: 5px 5px 5px 5px #000000;
+    box-shadow: 10px 10px 20px 10px #000000;
 }
 .img-div{
     display: inline-block;

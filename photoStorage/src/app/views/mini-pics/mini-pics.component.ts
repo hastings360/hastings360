@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
-import { Photo } from '../../photo.model';
+import { PhotoStr } from '../../photo-str.model';
 
 @Component({
   selector: 'app-mini-pics',
@@ -10,7 +10,7 @@ import { Photo } from '../../photo.model';
 })
 export class MiniPicsComponent implements OnInit {
 
-  @Input() photo: Photo;
+  @Input() photo: PhotoStr;
   
   public url: SafeResourceUrl;
 

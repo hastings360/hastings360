@@ -7,4 +7,5 @@ export class PhotoStr {
     category: string;
     date: string;
     image: string;
+    timeStamp: Date;
 }

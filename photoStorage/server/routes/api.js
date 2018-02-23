@@ -40,6 +40,7 @@ router.get('/', (req, res) => {
 
 //submit photo API
 router.post('/submit-pic', upload.single('image'), (req, res) =>{
+    let timeStamp = Date.now();
     //saves file as compressed mini version
     sharp('./temp-photos/' + JSON.parse(req.body.formInputData).imageName).resize(200).toFile('./temp-photos/temp-icons/mini-' + JSON.parse
     (req.body.formInputData).imageName).catch(error => {console.log("image shrink error"); return res.sendStatus(500);})
@@ -62,7 +63,7 @@ router.post('/submit-pic', upload.single('image'), (req, res) =>{
 router.get('/latest-photos', (req, res) =>{
   MongoClient.connect(url).then(client =>{
     const db = client.db('photoStorage');
-    db.collection('photos').find({}).sort({date: -1}).limit(30).toArray()
+    db.collection('photos').find({}).sort({timeStamp: -1}).limit(30).toArray()
     .then(result => {return res.send(result)}).catch(error => {console.log(error); return res.sendStatus(500);});
   }).catch(error => {console.log(error);return res.sendStatus(500);});
 });
@@ -71,7 +72,7 @@ router.get('/photoSearch30', (req, res) =>{
   let regexSearch = "/.*" + req.query.searchText + ".*/";
   MongoClient.connect(url).then(client =>{
     const db = client.db('photoStorage');
-  db.collection('photos').find({ $text: { $search: regexSearch }}).sort({date: -1}).limit(30).toArray()
+  db.collection('photos').find({ $text: { $search: regexSearch }}).sort({timeStamp: -1}).limit(30).toArray()
     .then(result => {return res.send(result)}).catch(error => {console.log(error); return res.sendStatus(500);});
   }).catch(error => {console.log(error);return res.sendStatus(500);});
 });
