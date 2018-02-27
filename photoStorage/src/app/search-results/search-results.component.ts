@@ -1,4 +1,4 @@
-import { Component, OnChanges, Input} from '@angular/core';
+import { Component, OnChanges, Input, Output, EventEmitter} from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { PhotoStr } from '../photo-str.model';
@@ -11,6 +11,9 @@ import { PhotoStr } from '../photo-str.model';
 export class SearchResultsComponent implements OnChanges {
 
   @Input() photos = new BehaviorSubject<PhotoStr[]>([]);
+
+  @Output() previewPhoto: EventEmitter<PhotoStr> = new EventEmitter<PhotoStr>();
+
   public noResults: boolean = false;
   public databaseError: boolean = false;
 
@@ -34,4 +37,9 @@ export class SearchResultsComponent implements OnChanges {
             this.databaseError = true;
       })
   }
+
+  sendPreview(x){
+    this.previewPhoto.emit(x);
+  }
+
 }

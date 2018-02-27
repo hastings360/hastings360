@@ -1,6 +1,9 @@
 <div class="font-sizer">
     <div class="background">
-        <h1 class="name">My Groovy picture library</h1>
+      <!--photo preview-->
+      <app-preview-pics [photo]="previewPhoto" [seePhoto]="seePhoto" (closePreview)="closePrev($event)"></app-preview-pics>
+      
+      <h1 class="name">My Groovy picture library</h1>
         <section class="container search-container">
           <div class="row">
             <div class="col-12">
@@ -8,8 +11,8 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-12">
-                  <app-search-results [photos]="photos">...Loading</app-search-results>
+            <div class="col-12 search-results-container">
+                  <app-search-results [photos]="photos" (previewPhoto)="seePreview($event)">...Loading</app-search-results>
             </div>
           </div>
         </section>
@@ -20,6 +23,8 @@
               <app-input-form (newPicCreated)="newPicCreated($event)">...Loading</app-input-form>
           </div>    
       </section>
+
+      
 </div>
 
 

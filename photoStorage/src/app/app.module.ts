@@ -10,6 +10,7 @@ import { SearchComponent } from './search/search.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { MiniPicsComponent } from './views/mini-pics/mini-pics.component';
 import { PhotoStr } from './photo-str.model';
+import { PreviewPicsComponent } from './views/preview-pics/preview-pics.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PhotoStr } from './photo-str.model';
     InputFormComponent,
     SearchComponent,
     SearchResultsComponent,
-    MiniPicsComponent
+    MiniPicsComponent,
+    PreviewPicsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 import { PhotoStr } from '../../photo-str.model';
@@ -12,12 +12,18 @@ export class MiniPicsComponent implements OnInit {
 
   @Input() photo: PhotoStr;
   
+  @Output() previewPhoto: EventEmitter<PhotoStr> = new EventEmitter<PhotoStr>();
+
   public url: SafeResourceUrl;
 
-  constructor(private _sanitizer: DomSanitizer) { }
+  constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-    this.url = this._sanitizer.bypassSecurityTrustResourceUrl('http://localhost:3000/temp-icons/mini-' + this.photo.imageName);
+    this.url = this.sanitizer.bypassSecurityTrustResourceUrl('http://localhost:3000/temp-icons/mini-' + this.photo.imageName);
+  }
+
+  sendPreview(x){
+    this.previewPhoto.emit(x);
   }
 
 }

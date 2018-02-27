@@ -6,6 +6,24 @@
    cursor: pointer;
    z-index: 999;
 }
+.preview-button{
+    position: absolute;
+    background-color: #00000099;
+    visibility: hidden;
+    top: 20px;
+    left: 10px;
+    color: #ffffff;
+    font-size: 0.8em;
+    border-radius: 5px;
+}
+.preview-button:hover{
+    color: #a6a6a6;
+    border-color: #a6a6a6;
+    cursor: pointer;
+}
+.img-holder:hover .preview-button{
+   visibility: visible;
+}
 .photo-deets{
     color: #ffffff;
     font-size: 0.7em;

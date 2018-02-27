@@ -11,14 +11,17 @@
     height: auto;
     padding-bottom: 50px;
 }
+
+/*search*/
 .search-container{
     margin-top: 20px;
 }
-@media screen and (max-width: 596px){
-    .font-sizer{
-        font-size: 0.8rem;
-    }
+
+/*search-results*/
+.search-results-container{
+    padding-left: 2.5em;
 }
+
 /*submit-form*/
 h2{
     text-align: center;
@@ -37,4 +40,8 @@ h2{
 .preview{
     padding: 2em;
 }
-
+@media screen and (max-width: 596px){
+    .font-sizer{
+        font-size: 0.8rem;
+    }
+}
