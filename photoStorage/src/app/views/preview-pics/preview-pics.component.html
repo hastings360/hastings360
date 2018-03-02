@@ -4,13 +4,26 @@
     <button class="preview-button" (click)="closePrev()">Close</button>
     <button class="preview-button"><a [href]="url" alt="Download image" download>Download</a></button>
   </div>
-  <div class="details">
-    <ul>
-      <li>Name: {{photo.imageName}}</li>
-      <li>Description: {{photo.description}}</li>
-      <li>Contributor: {{photo.contributor}}</li>
-      <li>Location: {{photo.location}}</li>
-      <li>Category: {{photo.category}}</li>
-    </ul>
-  </div>
+  <table class="details">
+    <tr>
+      <td class="align-top">Name: </td>
+      <td class="align-right">{{photo.imageName}}</td>
+    </tr>
+    <tr>
+      <td class="align-top">Description: </td>
+      <td class="align-right">{{photo.description}}</td>
+    </tr>
+    <tr>
+      <td class="align-top">Contributor: </td>
+      <td class="align-right">{{photo.contributor}}</td>
+    </tr>
+    <tr>
+      <td class="align-top">Location: </td>
+      <td class="align-right">{{photo.location}}</td>
+    </tr>
+    <tr>
+      <td class="align-top">Category: </td>
+      <td class="align-right">{{photo.category}}</td>
+    </tr>
+  </table>
 </div>

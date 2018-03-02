@@ -3,7 +3,7 @@
     top: 0;
     left: 50%;
     border-radius: 20px;
-    border: 300px solid #cecece99;
+    border: 200px solid #cecece99;
     border-top-width: 100px;
     z-index: 1000;
     margin-left: -40%;
@@ -11,6 +11,7 @@
 }
 .preview-pic{
     z-index: 1001;
+    min-width: 300px;
     width: 100%;
 }
 .preview-buttons{
@@ -47,16 +48,27 @@
 }
 .details{
     position: absolute;
-    top: 20px;
+    min-width: 200px;
+    top: 40px;
     left: 0;
-    border-radius: 5px;
+    border: 1px solid #e6e6e6;
+    padding: 0;
+    box-shadow: 0 0 2px 2px #b3b3b3;
+    background-color: #ffffff99;
+    font-size: 0.8em;
 }
-.details ul{
-    margin: 0;
-    padding: 20px;
+.align-right{
+    text-align: right;
+    max-width: 150px;
+    word-wrap: break-word;
 }
-.details li{
-    list-style: none;
-    color: #ffffff;
-    background-color: #000000df;
+@media screen and (max-width: 890px){
+    .pic-container{
+        width: 100%;
+        left: 0;
+        margin-left: 0;
+        border-width: 20px;
+        border-radius: 0;
+    }
+    
 }
