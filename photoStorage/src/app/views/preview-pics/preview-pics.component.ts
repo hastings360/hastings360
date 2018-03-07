@@ -21,7 +21,7 @@ export class PreviewPicsComponent implements OnChanges {
   constructor(private sanitizer: DomSanitizer) { }
 
   ngOnChanges() {
-    this.url = this.sanitizer.bypassSecurityTrustResourceUrl('http://localhost:3000/temp-icons/mini-' + this.photo.imageName);
+    this.url = this.sanitizer.bypassSecurityTrustResourceUrl('http://localhost:3000/previews/med-' + this.photo.imageName);
   }
 
   closePrev(){

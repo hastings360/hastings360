@@ -41,9 +41,13 @@ router.get('/', (req, res) => {
 //submit photo API
 router.post('/submit-pic', upload.single('image'), (req, res) =>{
     let timeStamp = Date.now();
+    
+    //saves file as compressed med version
+    sharp('./temp-photos/' + JSON.parse(req.body.formInputData).imageName).resize(600).toFile('./temp-photos/previews/med-' + JSON.parse
+    (req.body.formInputData).imageName).catch(error => {console.log("med shrink error"); return res.sendStatus(500);});
     //saves file as compressed mini version
     sharp('./temp-photos/' + JSON.parse(req.body.formInputData).imageName).resize(200).toFile('./temp-photos/temp-icons/mini-' + JSON.parse
-    (req.body.formInputData).imageName).catch(error => {console.log("image shrink error"); return res.sendStatus(500);})
+    (req.body.formInputData).imageName).catch(error => {console.log("mini shrink error"); return res.sendStatus(500);})
     .then(()=>{
               MongoClient.connect(url)
               .then( client =>{
