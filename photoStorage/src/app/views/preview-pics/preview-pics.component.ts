@@ -17,11 +17,13 @@ export class PreviewPicsComponent implements OnChanges {
   @Output() closePreview: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   public url: SafeResourceUrl;
+  public urlFull: SafeResourceUrl;
 
   constructor(private sanitizer: DomSanitizer) { }
 
   ngOnChanges() {
     this.url = this.sanitizer.bypassSecurityTrustResourceUrl('http://localhost:3000/previews/med-' + this.photo.imageName);
+    this.urlFull = this.sanitizer.bypassSecurityTrustResourceUrl('http://localhost:3000/' + this.photo.imageName);
   }
 
   closePrev(){

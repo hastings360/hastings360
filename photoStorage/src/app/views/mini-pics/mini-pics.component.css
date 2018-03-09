@@ -6,6 +6,9 @@
    cursor: pointer;
    z-index: 999;
 }
+.photo{
+    width: 100%;
+}
 .preview-button{
     position: absolute;
     background-color: #00000099;
@@ -33,3 +36,4 @@
     margin: 0;
     padding: 0 0.3em 0.3em 0.3em;
 }
+

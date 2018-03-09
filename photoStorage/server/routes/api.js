@@ -68,7 +68,7 @@ router.get('/latest-photos', (req, res) =>{
   MongoClient.connect(url).then(client =>{
     const db = client.db('photoStorage');
     db.collection('photos').find({}).sort({timeStamp: -1}).limit(30).toArray()
-    .then(result => {return res.send(result)}).catch(error => {console.log(error); return res.sendStatus(500);});
+    .then(result => {client.close(); return res.send(result)}).catch(error => {client.close(); console.log(error); return res.sendStatus(500);});
   }).catch(error => {console.log(error);return res.sendStatus(500);});
 });
 
@@ -77,7 +77,7 @@ router.get('/photoSearch30', (req, res) =>{
   MongoClient.connect(url).then(client =>{
     const db = client.db('photoStorage');
   db.collection('photos').find({ $text: { $search: regexSearch }}).sort({timeStamp: -1}).limit(30).toArray()
-    .then(result => {return res.send(result)}).catch(error => {console.log(error); return res.sendStatus(500);});
+    .then(result => {client.close();return res.send(result)}).catch(error => {client.close(); console.log(error); return res.sendStatus(500);});
   }).catch(error => {console.log(error);return res.sendStatus(500);});
 });
 /*

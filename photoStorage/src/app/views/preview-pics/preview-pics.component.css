@@ -67,8 +67,14 @@
         width: 100%;
         left: 0;
         margin-left: 0;
-        border-width: 20px;
+        border-width: 20px 20px 150px 20px;
         border-radius: 0;
+    }
+    
+}
+@media screen and (max-width: 600px){
+    .pic-container{
+       border-top-width: 150px;
     }
     
 }
