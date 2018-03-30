@@ -1,18 +1,17 @@
 .pic-container{
     position: absolute;
     top: 0;
-    left: 50%;
-    border-radius: 20px;
-    border: 200px solid #cecece99;
-    border-top-width: 100px;
+    left: 0;
     z-index: 1000;
-    margin-left: -35%;
-    width: 70%;
+    padding: 10% 35% 10% 35%;
+    background-color: #cecece99;
+}
+.preview-contents{
+    position: relative;
 }
 .preview-pic{
     z-index: 1001;
-    min-width: 300px;
-    width: 100%;
+    max-height: 800px;
 }
 .preview-buttons{
     position: absolute;
@@ -62,19 +61,23 @@
     max-width: 150px;
     word-wrap: break-word;
 }
-@media screen and (max-width: 890px){
+@media screen and (max-width: 1300px){
     .pic-container{
-        width: 100%;
-        left: 0;
-        margin-left: 0;
-        border-width: 20px 20px 150px 20px;
-        border-radius: 0;
+        padding: 10% 32% 10% 32%;
     }
-    
 }
-@media screen and (max-width: 600px){
+@media screen and (max-width: 1000px){
     .pic-container{
-       border-top-width: 150px;
+        padding: 10% 30% 10% 30%;
     }
-    
+}
+@media screen and (max-width: 700px){
+    .pic-container{
+        padding: 8% 25% 8% 25%;
+    }
+}
+@media screen and (max-width: 500px){
+    .pic-container{
+        padding: 5% 10% 5% 10%;
+    }
 }

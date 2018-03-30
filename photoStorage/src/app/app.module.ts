@@ -11,6 +11,7 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { MiniPicsComponent } from './views/mini-pics/mini-pics.component';
 import { PhotoStr } from './photo-str.model';
 import { PreviewPicsComponent } from './views/preview-pics/preview-pics.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PreviewPicsComponent } from './views/preview-pics/preview-pics.componen
     SearchComponent,
     SearchResultsComponent,
     MiniPicsComponent,
-    PreviewPicsComponent
+    PreviewPicsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

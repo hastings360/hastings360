@@ -1,6 +1,11 @@
 .font-sizer{
     font-size: 1rem;
 }
+#login{
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
 .name{
     text-align: center;
     font: italic small-caps bold 4em cursive;

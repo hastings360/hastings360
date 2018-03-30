@@ -1,0 +1,33 @@
+#login-container{
+    position: relative;
+    text-align: right;
+    z-index: 1000;
+}
+.login.btn{
+    margin-bottom: 5px;
+}
+.login-btn:hover{
+    color: #a6a6a6;
+    border-color: #a6a6a6;
+    cursor: pointer;
+}
+#login-popout{
+    height: auto;
+    width: 200px;
+    background-color: #00000099;
+    border: 1px solid #ffffff;
+    padding: 10px;
+}
+#login-popout label{
+    color: #ffffff;
+}
+#login-popout button{
+    background-color: #00000099;
+    color: #ffffff;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+.error-message{
+    color: red;
+    font-size: 0.7em;
+}
