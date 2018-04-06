@@ -42,4 +42,8 @@ export class AppComponent {
   closePrev(x){
     this.seePhoto = x;
   }
+
+  //testForToken(){
+  //      if(localStorage.user = this.currentUser)
+  //}
 }

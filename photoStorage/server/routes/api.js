@@ -5,6 +5,7 @@ const MongoClient = require('mongodb').MongoClient;//db API
 const url = "mongodb://localhost:27017";//db connection string
 const fs = require('fs');
 const rxjs = require('rxjs');
+const jwt = require('jsonwebtoken');
 
 //renames incoming file submitted
 const storage = multer.diskStorage({
@@ -37,6 +38,18 @@ router.get('/', (req, res) => {
   }
   return x;
 }*/
+
+//login API
+router.post('/login-submit', (req, res) => {
+    console.log(req.body);
+    
+    MongoClient.connect(url).then(client =>{
+      const db = client.db('photoStorage');
+      db.collection('photoUsers').find({}).sort({timeStamp: -1}).limit(30).toArray()
+      .then(result => {client.close(); return res.send(result)}).catch(error => {client.close(); console.log(error); return res.sendStatus(500);});
+    }).catch(error => {console.log(error);return res.sendStatus(500);});
+  
+});
 
 //submit photo API
 router.post('/submit-pic', upload.single('image'), (req, res) =>{
@@ -72,7 +85,7 @@ router.get('/latest-photos', (req, res) =>{
   }).catch(error => {console.log(error);return res.sendStatus(500);});
 });
 
-router.get('/photoSearch30', (req, res) =>{ 
+router.get('/photo-search30', (req, res) =>{ 
   let regexSearch = "/.*" + req.query.searchText + ".*/";
   MongoClient.connect(url).then(client =>{
     const db = client.db('photoStorage');

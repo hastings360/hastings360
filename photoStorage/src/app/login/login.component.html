@@ -1,18 +1,19 @@
 <div id="login-container">
+  <span>{{currentUser}}</span>
   <button class="login-btn" (click)="loginClick()">Login</button>
 
-  <form     id="login-popout" *ngIf="loginActive"
+  <form     id="login-popout" *ngIf="loginWindow"
   [formGroup]="loginForm" 
   (ngSubmit)="loginSubmit(loginForm.value)">
 
     <div class="form-group"> 
 
         <label for="userName">username</label>
-        <input type="text" class="form-control" [formControl]="loginForm.controls['userName']" [class.error]="!loginForm.controls['userName'].valid">
+        <input type="text" class="form-control" [formControl]="loginForm.controls['userName']" [class.error]="!loginForm.controls['userName'].valid" autocomplete="on">
         <div class="error-message" *ngIf="!loginForm.controls['userName'].valid">Must insert a username</div>
         
         <label for="password">password</label>
-        <input type="password" class="form-control" [formControl]="loginForm.controls['password']" [class.error]="!loginForm.controls['password'].valid">
+        <input type="password" class="form-control" [formControl]="loginForm.controls['password']" [class.error]="!loginForm.controls['password'].valid" autocomplete="off">
         <div class="error-message" *ngIf="!loginForm.controls['password'].valid">Must insert a password</div>
         
         <button type="submit">Submit</button>

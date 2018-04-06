@@ -1,6 +1,12 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DbTalkerService } from './../db-talker.service';
 import { Component, OnInit } from '@angular/core';
+//import 'rxjs/add/observable/fromEvent';
+import 'rxjs/add/operator/map';
+//import 'rxjs/add/operator/filter';
+//import 'rxjs/add/operator/debounceTime';
+//import 'rxjs/add/operator/do';
+//import 'rxjs/add/operator/switch';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +15,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  public loginError: boolean = false;
   public loginForm: FormGroup;
-  public loginActive: boolean = false;
-  public loginSuccess: boolean;
+  public loginWindow: boolean = false;
+  public loginApproved: boolean = false;
+  public loginSubmitting; boolean = false;
 
   constructor(fb: FormBuilder, private dbTalker: DbTalkerService) {
     this.loginForm = fb.group({
@@ -24,21 +32,19 @@ export class LoginComponent implements OnInit {
   }
 
   loginClick(){
-    this.loginActive = !this.loginActive;
+    this.loginWindow = !this.loginWindow;
   }
 
-  loginSubmit(x:FormGroup):boolean{
-    let y = JSON.parse(JSON.stringify(x));
-    let userName = y.userName;
-    let pwd = y.password;
+  loginSubmit(x:FormGroup):void{
+    let loginData = JSON.parse(JSON.stringify(x));
+    let userName = loginData.userName;
+    let pwd = loginData.password;
     
-    
-    
-    
-    
-    
-    this.loginForm.reset();//resets input field
-
-    return this.loginSuccess = true;
+    this.loginSubmitting = true;  //Need to create spinnning element when true
+    console.log(loginData);
+    this.dbTalker.loginSubmit(loginData)  //Need to return username
+      .then( res => console.log(res))
+      .catch( error => console.log(error));
   }
+
 }

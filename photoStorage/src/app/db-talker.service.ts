@@ -25,7 +25,7 @@ export class DbTalkerService {
     let requestOptions = new RequestOptions();
       requestOptions.search = params;
       
-    return this.http.get('/api/photoSearch30', requestOptions)
+    return this.http.get('/api/photo-search30', requestOptions)
       .map(res => res.json())
       .catch(error => {console.log(error); return error});
   }
@@ -33,5 +33,13 @@ export class DbTalkerService {
   //Submit dataObject to API
   submitPhotoToDb(objectToSend: object):Promise<any>{
     return this.http.post('/api/submit-pic', objectToSend).toPromise();
+  }
+
+  loginSubmit(loginData: object):Promise<any>{
+    console.log('dbTalker loginData' + " " + loginData)
+    
+    return this.http.post('/api/login-submit', loginData).toPromise()
+      .then(res => console.log(res))
+      .catch();
   }
 }
