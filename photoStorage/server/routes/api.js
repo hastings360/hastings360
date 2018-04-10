@@ -7,6 +7,8 @@ const fs = require('fs');
 const rxjs = require('rxjs');
 const jwt = require('jsonwebtoken');
 
+const User = require('../models/login-schema');
+
 //renames incoming file submitted
 const storage = multer.diskStorage({
   destination: './temp-photos',
@@ -41,7 +43,7 @@ router.get('/', (req, res) => {
 
 //login API
 router.post('/login-submit', (req, res) => {
-    console.log(req.body);
+    let credentials = new User(req.body.userName,req.body.password);
     
     MongoClient.connect(url).then(client =>{
       const db = client.db('photoStorage');
