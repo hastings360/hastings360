@@ -46,14 +46,26 @@ router.post('/login-submit', (req, res) => {
     
     let login = new Login(req.body);
     
-      MongoClient.connect(url).then(client =>{
+      MongoClient.connect(url)
+      .then(client =>{
         const db = client.db('photoStorage');
         db.collection('photoUsers').find( {userName: login.userName },{password: login.password}).toArray()
-          .then(results => console.log(results))
+          .then(results => {
+            if(results.length === 1){
+              client.close();
+              console.log(results);
+              //return web token
+            }else{
+              client.close();
+              console.log("Username and/or password not found");
+              return res.sendStatus(500);
+            }
+          })
           .catch(error => console.log(error));
           //.catch(error => {console.log("Could not find name");return res.sendStatus(500)});
         //.then(result => {client.close(); return res.send(result)}).catch(error => {client.close(); console.log(error); return res.sendStatus(500);});
-      }).catch(error => {console.log(error);return res.sendStatus(500);});
+      })
+      .catch(error => {console.log(error);return res.sendStatus(500);});
    
     
     
