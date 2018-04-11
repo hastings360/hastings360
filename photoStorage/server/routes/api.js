@@ -7,7 +7,7 @@ const fs = require('fs');
 const rxjs = require('rxjs');
 const jwt = require('jsonwebtoken');
 
-const User = require('../models/login-schema');
+const Login = require('../models/login');
 
 //renames incoming file submitted
 const storage = multer.diskStorage({
@@ -43,13 +43,21 @@ router.get('/', (req, res) => {
 
 //login API
 router.post('/login-submit', (req, res) => {
-    let credentials = new User(req.body.userName,req.body.password);
     
-    MongoClient.connect(url).then(client =>{
-      const db = client.db('photoStorage');
-      db.collection('photoUsers').find({}).sort({timeStamp: -1}).limit(30).toArray()
-      .then(result => {client.close(); return res.send(result)}).catch(error => {client.close(); console.log(error); return res.sendStatus(500);});
-    }).catch(error => {console.log(error);return res.sendStatus(500);});
+    let login = new Login(req.body);
+    
+      MongoClient.connect(url).then(client =>{
+        const db = client.db('photoStorage');
+        db.collection('photoUsers').find( {userName: login.userName },{password: login.password}).toArray()
+          .then(results => console.log(results))
+          .catch(error => console.log(error));
+          //.catch(error => {console.log("Could not find name");return res.sendStatus(500)});
+        //.then(result => {client.close(); return res.send(result)}).catch(error => {client.close(); console.log(error); return res.sendStatus(500);});
+      }).catch(error => {console.log(error);return res.sendStatus(500);});
+   
+    
+    
+    
   
 });
 
