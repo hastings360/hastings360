@@ -5,8 +5,13 @@ const MongoClient = require('mongodb').MongoClient;//db API
 const url = "mongodb://localhost:27017";//db connection string
 const fs = require('fs');
 const rxjs = require('rxjs');
-const jwt = require('jsonwebtoken');
 
+//tokenizing
+const jwt = require('jsonwebtoken');
+//const cert = fs.readFileSync('./../test-secret/jsTokenSigning','utf8');
+//const token = jwt.sign();
+
+//login model
 const Login = require('../models/login');
 
 //renames incoming file submitted
@@ -58,10 +63,10 @@ router.post('/login-submit', (req, res) => {
             }else{
               client.close();
               console.log("Username and/or password not found");
-              return res.sendStatus(500);
+              return res.send("Login Failed!");
             }
           })
-          .catch(error => console.log(error));
+          .catch(error => {console.log(error);client.close();});
           //.catch(error => {console.log("Could not find name");return res.sendStatus(500)});
         //.then(result => {client.close(); return res.send(result)}).catch(error => {client.close(); console.log(error); return res.sendStatus(500);});
       })
