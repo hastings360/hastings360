@@ -35,11 +35,8 @@ export class DbTalkerService {
     return this.http.post('/api/submit-pic', objectToSend).toPromise();
   }
 
+  //Submit login request
   loginSubmit(loginData: object):Promise<any>{
-    console.log('dbTalker loginData' + " " + loginData)
-    
-    return this.http.post('/api/login-submit', loginData).toPromise()
-      .then(res => console.log(res))
-      .catch();
+    return this.http.post('/api/login-submit', loginData).toPromise();
   }
 }

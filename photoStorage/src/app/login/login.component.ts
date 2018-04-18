@@ -41,10 +41,14 @@ export class LoginComponent implements OnInit {
     let pwd = loginData.password;
     
     this.loginSubmitting = true;  //Need to create spinnning element when true
-    console.log(loginData);
-    this.dbTalker.loginSubmit(loginData)  //Need to return username
-      .then( res => console.log(res))
-      .catch( error => console.log(error));
+    
+    this.dbTalker.loginSubmit(loginData)
+      .then(results => {
+        this.loginSubmitting = false; 
+        localStorage.setItem('token',results._body);
+      })
+      .catch(error => console.log(error + "login.component"));
+      
   }
 
 }

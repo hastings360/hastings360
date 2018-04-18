@@ -8,8 +8,8 @@ const rxjs = require('rxjs');
 
 //tokenizing
 const jwt = require('jsonwebtoken');
-//const cert = fs.readFileSync('./../test-secret/jsTokenSigning','utf8');
-//const token = jwt.sign();
+const cert = fs.readFileSync(__dirname + '/../test-secret/jsonWebCert','utf8');
+
 
 //login model
 const Login = require('../models/login');
@@ -57,20 +57,19 @@ router.post('/login-submit', (req, res) => {
         db.collection('photoUsers').find( {userName: login.userName },{password: login.password}).toArray()
           .then(results => {
             if(results.length === 1){
-              client.close();
-              console.log(results);
-              //return web token
+              
+              client.close();            
+              const token = jwt.sign({auth: 'granted'}, cert,{algorithm: 'ES512'},{expiresIn: '1h'});
+              return res.send(token);
             }else{
               client.close();
               console.log("Username and/or password not found");
               return res.send("Login Failed!");
             }
           })
-          .catch(error => {console.log(error);client.close();});
-          //.catch(error => {console.log("Could not find name");return res.sendStatus(500)});
-        //.then(result => {client.close(); return res.send(result)}).catch(error => {client.close(); console.log(error); return res.sendStatus(500);});
+          .catch(error => {console.log(error);client.close();res.sendStatus(500);});
       })
-      .catch(error => {console.log(error);return res.sendStatus(500);});
+      .catch(error => {console.log(error);res.sendStatus(500);});
    
     
     
