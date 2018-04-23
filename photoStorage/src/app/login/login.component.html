@@ -1,8 +1,8 @@
 <div id="login-container">
-  <span>{{currentUser}}</span>
-  <button class="login-btn" (click)="loginClick()">Login</button>
+  <span *ngIf="loggedIn">{{localStorage.userName}} logged in</span>
+  <button class="login-btn" (click)="loginClick()" *ngIf="!loggedIn">Login</button>
 
-  <form     id="login-popout" *ngIf="loginWindow"
+  <form     id="login-popout" *ngIf="loginPopOut"
   [formGroup]="loginForm" 
   (ngSubmit)="loginSubmit(loginForm.value)">
 
@@ -21,5 +21,3 @@
     </div>
   </form>
 </div>
-
-

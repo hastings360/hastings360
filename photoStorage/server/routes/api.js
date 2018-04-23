@@ -9,7 +9,7 @@ const rxjs = require('rxjs');
 //tokenizing
 const jwt = require('jsonwebtoken');
 const cert = fs.readFileSync(__dirname + '/../test-secret/jsonWebCert','utf8');
-
+const publicCert = fs.readFileSync(__dirname + '/../test-secret/jsonWebCert.pub','utf8');
 
 //login model
 const Login = require('../models/login');
@@ -47,41 +47,40 @@ router.get('/', (req, res) => {
 }*/
 
 //login API
-router.post('/login-submit', (req, res) => {
-    
-    let login = new Login(req.body);
-    
-      MongoClient.connect(url)
-      .then(client =>{
-        const db = client.db('photoStorage');
-        db.collection('photoUsers').find( {userName: login.userName },{password: login.password}).toArray()
-          .then(results => {
-            if(results.length === 1){
-              
-              client.close();            
-              const token = jwt.sign({auth: 'granted'}, cert,{algorithm: 'ES512'},{expiresIn: '1h'});
-              return res.send(token);
-            }else{
-              client.close();
-              console.log("Username and/or password not found");
-              return res.send("Login Failed!");
-            }
-          })
-          .catch(error => {console.log(error);client.close();res.sendStatus(500);});
-      })
-      .catch(error => {console.log(error);res.sendStatus(500);});
-   
-    
-    
-    
+router.post('/login-verify', (req, res) => { 
+  console.log(req.body.token);
   
+  jwt.verify(req.body.token, publicCert);
+  //res.send(false);
+});
+
+//login API
+router.post('/login-submit', (req, res) => { 
+    let login = new Login(req.body);
+    MongoClient.connect(url)
+    .then(client =>{
+      const db = client.db('photoStorage');
+      db.collection('photoUsers').find( {userName: login.userName },{password: login.password}).toArray()
+        .then(results => {
+          if(results.length === 1){
+            client.close();            
+            let token = jwt.sign({auth: 'granted'}, cert,{algorithm: 'ES512'},{expiresIn: '1h'});
+            return res.send(token);
+          }else{
+            client.close();
+            console.log("Username and/or password not found");
+            return res.send("Login Failed!");
+          }
+        })
+        .catch(error => {console.log(error);client.close();res.sendStatus(500);});
+    })
+    .catch(error => {console.log(error);res.sendStatus(500);});
 });
 
 //submit photo API
 router.post('/submit-pic', upload.single('image'), (req, res) =>{
     let timeStamp = Date.now();
-    
-    //saves file as compressed med version
+    //saves file as compressed med version - Can be ran asynchrously, return value not related
     sharp('./temp-photos/' + JSON.parse(req.body.formInputData).imageName).resize(600).toFile('./temp-photos/previews/med-' + JSON.parse
     (req.body.formInputData).imageName).catch(error => {console.log("med shrink error"); return res.sendStatus(500);});
     //saves file as compressed mini version
@@ -98,26 +97,34 @@ router.post('/submit-pic', upload.single('image'), (req, res) =>{
                             client.close(); console.log("coollection connect error"); return res.sendStatus(500);});
               })
               .catch(error => {
-                  console.log("mongo connect error"); return res.sendStatus(500);
+                  console.log("mongo connect error");client.close();return res.sendStatus(500);
               });   
     });
 });
 
+//latest photos API - Called when new photo added
 router.get('/latest-photos', (req, res) =>{
-  MongoClient.connect(url).then(client =>{
+  MongoClient.connect(url)
+  .then(client =>{
     const db = client.db('photoStorage');
     db.collection('photos').find({}).sort({timeStamp: -1}).limit(30).toArray()
-    .then(result => {client.close(); return res.send(result)}).catch(error => {client.close(); console.log(error); return res.sendStatus(500);});
-  }).catch(error => {console.log(error);return res.sendStatus(500);});
+      .then(result => {client.close(); return res.send(result)})
+      .catch(error => {client.close(); console.log(error); return res.sendStatus(500);});
+  })
+  .catch(error => {console.log(error);client.close();return res.sendStatus(500);});
 });
 
+//photo-search30 - Called on page load to retrieved 30 most recent
 router.get('/photo-search30', (req, res) =>{ 
   let regexSearch = "/.*" + req.query.searchText + ".*/";
-  MongoClient.connect(url).then(client =>{
+  MongoClient.connect(url)
+  .then(client =>{
     const db = client.db('photoStorage');
-  db.collection('photos').find({ $text: { $search: regexSearch }}).sort({timeStamp: -1}).limit(30).toArray()
-    .then(result => {client.close();return res.send(result)}).catch(error => {client.close(); console.log(error); return res.sendStatus(500);});
-  }).catch(error => {console.log(error);return res.sendStatus(500);});
+    db.collection('photos').find({ $text: { $search: regexSearch }}).sort({timeStamp: -1}).limit(30).toArray()
+      .then(result => {client.close();return res.send(result)})
+      .catch(error => {client.close(); console.log(error); return res.sendStatus(500);});
+  })
+  .catch(error => {console.log(error);client.close();return res.sendStatus(500);});
 });
 /*
 //mail API
@@ -168,110 +175,5 @@ router.post('/recipe-mail', upload.single('image'),(req, res) =>{
                   }
                 });
               }
-
-//favorites database query API
-router.get('/recipe-favorites', (req, res) =>{
-  console.log('recipe-favorties queried');
-
-  MongoClient.connect(url, function(err, db){
-    if(err) throw err;
-    db.collection("meals").find({}).sort({likes: -1}).limit(3).toArray(function(err, result){
-        if(err) throw err;
-        db.close();
-        return res.send(result);
-    });
-  });
-});
-
-//top ten categories database query API
-router.get('/recipe-top-ten-categories', (req, res) =>{
-  console.log('recipe-top-ten-categories queried');
-  
-  MongoClient.connect(url, function(err, db){
-    if(err) throw err;
-    db.collection("meals").aggregate([
-      {$sort: {likes: -1}},
-      {$group: {_id: "$category", unique: {$addToSet: "$category"}}},
-      {$limit:10}
-    ]).toArray(function(err, result){
-        if(err) throw err;
-        db.close();
-        return res.send(result);
-    });
-  });
-});
-
-//all categories database query API
-router.get('/recipe-all-categories', (req, res) =>{
-  console.log('recipe-all-categories queried');
-  
-  MongoClient.connect(url, function(err, db){
-    if(err) throw err;
-    db.collection("meals").find({},{ category: 1,_id: 0}).sort({category: 1}).toArray(function(err, result){
-        if(err) throw err;
-        db.close();
-        return res.send(result);
-    });
-  });
-});
-
-//meals by category database query API
-router.get('/recipe-meals-by-category',(req, res) =>{
-  console.log('recipe-meals-by-category queried');
-
-  MongoClient.connect(url, function(err, db){
-    if(err) throw err;
-    db.collection("meals").find({category: req.query.category}).toArray(function(err, result){
-        if(err) throw err;
-        db.close();
-        return res.send(result);
-    });
-  });
-});
-
-//meal by name database query API
-router.get('/recipe-meal-by-name',(req, res) =>{
-  console.log('recipe-meal-by-name queried');
-
-  MongoClient.connect(url, function(err, db){
-    if(err) throw err;
-    db.collection("meals").find({name: req.query.name}).toArray(function(err, result){
-        if(err) throw err;
-        db.close();
-        return res.send(result);
-    });
-  });
-});
-
-//search query database API
-router.get('/query-search-by-input',(req, res) =>{
-  console.log('query-search-by-input queried');
-  
-  MongoClient.connect(url, function(err, db){
-    if(err) throw err;
-    db.collection("meals").find({ $text: { $search: req.query.searchText}}).toArray(function(err, result){
-        if(err) throw err;
-        db.close();
-        return res.send(result);
-    });
-  });
-});
-
-//increase likes by mealID
-router.post('/increase-likes',(req, res) =>{
-  console.log('increase-likes accessed');
-
-  let objectId = new ObjectId(req.body._id);
-
-  MongoClient.connect(url, function(err, db){
-    if(err) throw err;
-    db.collection("meals").update({"_id": objectId},{$inc:{"likes": 1}}, (err, result) =>{
-      if(err) throw err;
-      db.close();
-      console.log(req.body.name + " increased by 1");
-      return res.send(result);
-    });
-  });
-});*/
-            
+*/     
 module.exports = router;

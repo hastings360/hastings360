@@ -36,7 +36,12 @@ export class DbTalkerService {
   }
 
   //Submit login request
-  loginSubmit(loginData: object):Promise<any>{
+  loginSubmit(loginData: object):Promise<Response>{
     return this.http.post('/api/login-submit', loginData).toPromise();
+  }
+
+  //Verify token and return true or false
+  loginVerify(data: object):Promise<any>{
+    return this.http.post('/api/login-verify', data).toPromise();
   }
 }

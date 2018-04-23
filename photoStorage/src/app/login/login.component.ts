@@ -15,11 +15,15 @@ import 'rxjs/add/operator/map';
 })
 export class LoginComponent implements OnInit {
 
-  public loginError: boolean = false;
+  
   public loginForm: FormGroup;
-  public loginWindow: boolean = false;
-  public loginApproved: boolean = false;
-  public loginSubmitting; boolean = false;
+  public loginPopOut: boolean = false;
+
+  public loginSubmitting: boolean = false;
+
+  public loggedIn: boolean = false;
+  public loginError: boolean = false;
+  
 
   constructor(fb: FormBuilder, private dbTalker: DbTalkerService) {
     this.loginForm = fb.group({
@@ -29,10 +33,11 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loginVerify(localStorage.token);
   }
 
   loginClick(){
-    this.loginWindow = !this.loginWindow;
+    this.loginPopOut = !this.loginPopOut;
   }
 
   loginSubmit(x:FormGroup):void{
@@ -40,15 +45,25 @@ export class LoginComponent implements OnInit {
     let userName = loginData.userName;
     let pwd = loginData.password;
     
-    this.loginSubmitting = true;  //Need to create spinnning element when true
+    this.loginSubmitting = true;  //login submit notifier
     
     this.dbTalker.loginSubmit(loginData)
       .then(results => {
         this.loginSubmitting = false; 
-        localStorage.setItem('token',results._body);
+        localStorage.setItem('token',results.text());
+        
+        this.loginVerify(localStorage.token);
       })
-      .catch(error => console.log(error + "login.component"));
-      
+      .catch(error => console.log(error + "loginSubmit()"));  
+  }
+
+  loginVerify(token:string):void{
+    let data = {token:token};
+    this.dbTalker.loginVerify(data)
+      .then(results => {
+        //this.loggedIn = results._body;
+      })
+      .catch(error => console.log(error = "loginVerify()"))
   }
 
 }
