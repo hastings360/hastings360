@@ -41,7 +41,7 @@ export class DbTalkerService {
   }
 
   //Verify token and return true or false
-  loginVerify(data: object):Promise<any>{
-    return this.http.post('/api/login-verify', data).toPromise();
+  tokenVerify(data: object):Promise<Response>{
+    return this.http.post('/api/token-verify', data).toPromise();
   }
 }

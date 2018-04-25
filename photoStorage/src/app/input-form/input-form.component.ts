@@ -49,8 +49,8 @@ export class InputFormComponent implements OnInit {
     apiObject.append('image', this.imageToApi);
 
     this.dbTalker.submitPhotoToDb(apiObject)
-      .then((success) => {this.received = true; this.newPicCreated.emit(true);})
-      .catch((error) => {this.error = true;console.log(error + ": Error submitting pic to SubmitPhotoToDb()--DbTalkerService");});
+      .then(success => {this.received = true; this.newPicCreated.emit(true);})
+      .catch(error => {this.error = true;console.log(error + ": Error submitting pic to SubmitPhotoToDb()--DbTalkerService");});
   }
 
   // excepts and reads the image file object
