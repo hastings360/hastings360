@@ -41,7 +41,23 @@ export class DbTalkerService {
   }
 
   //Verify token and return true or false
-  tokenVerify(data: object):Promise<Response>{
-    return this.http.post('/api/token-verify', data).toPromise();
+  tokenVerify(x:string):Promise<boolean>{
+    let data = {token:x};
+        
+    return this.http.post('/api/token-verify', data).toPromise()
+      .then(results => {
+        if(results.text() === 'yes'){
+          console.log("Token verification Successful");
+          return true;
+        };
+        if(results.text() === 'no'){
+          return false;
+        };
+      })
+      .catch(error => {
+        console.log(error + " tokenVerify() on dbTalker");
+        return false;
+      });
   }
+
 }
