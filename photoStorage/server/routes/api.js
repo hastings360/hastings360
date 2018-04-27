@@ -50,11 +50,16 @@ router.get('/', (req, res) => {
 router.post('/token-verify', (req, res) => { 
   try{
         let x = jwt.decode(req.body.token,'aodkdkDDajIldieja9321', error => res.send('no'));
-  
-        if(Date.now() - (x.exp*1000) <= 0){
-          res.send('yes');
+        let returnObject = {};
+        let timeLeft = Date.now() - (x.exp*1000);
+
+        if(timeLeft >= 0){
+          returnObject.answer = "yes";
+          returnObject.timeLeft = timeLeft;
+          res.send(returnObject);
         }else{
-          res.send('no');
+          returnObject.answer = "no";
+          res.send(returnObject);
         }
   }catch(err){
     res.send('no');

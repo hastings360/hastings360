@@ -41,17 +41,19 @@ export class DbTalkerService {
   }
 
   //Verify token and return true or false
-  tokenVerify(x:string):Promise<boolean>{
+  tokenVerify(x:string):Promise<any>{
     let data = {token:x};
         
     return this.http.post('/api/token-verify', data).toPromise()
       .then(results => {
-        if(results.text() === 'yes'){
+        let body = results.json();
+
+        if(body.answer === 'yes'){
           console.log("Token verification Successful");
-          return true;
+          return body;
         };
-        if(results.text() === 'no'){
-          return false;
+        if(body.answer === 'no'){
+          return body;
         };
       })
       .catch(error => {

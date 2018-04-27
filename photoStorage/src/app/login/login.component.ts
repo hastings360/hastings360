@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   public loginError: boolean = false;
 
   public loginMessage: string;
-  public minutesLeft: number = 30;
+  public minutesLeft;
 
   constructor(fb: FormBuilder, private dbTalker: DbTalkerService) {
     this.loginForm = fb.group({
@@ -68,14 +68,15 @@ export class LoginComponent implements OnInit {
   tokenCheck(token):void{
     if(token !== null){
             this.dbTalker.tokenVerify(token)
-              .then(verify => {
-                if(verify){
+              .then(results => {
+                if(results.answer === "yes"){
                       this.loginSubmitting = false;
                       localStorage.setItem('token', token);
-                      this.loginMessage = "Access: " + this.minutesLeft;
+                      this.loginMessage = "Access Granted";
                       this.loginError = false;
                       this.loggedIn = true;
                       console.log(this.loginMessage);
+                      this.minutesLeft = results.timeLeft;
                     }else{
                       this.loginSubmitting = false;
                       localStorage.removeItem('token');
@@ -83,6 +84,7 @@ export class LoginComponent implements OnInit {
                       this.loginError = true;
                       this.loggedIn = false;
                       console.log(this.loginMessage);
+                      this.minutesLeft = results.timeLeft;
                     }
               })
               .catch(error => console.log(error));
