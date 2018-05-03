@@ -1,6 +1,6 @@
 <div id="login-container">
-  <timer>{{minutesLeft}}</timer>
-  <span id="login-message" *ngIf="loggedIn">{{loginMessage}}</span>
+  
+  <span id="login-message" *ngIf="loggedIn">{{loginMessage}} {{timeLeft.minutes}}:{{timeLeft.seconds}}</span>
   <span id="login-error-message" *ngIf="loginError">{{loginMessage}}</span>
 
   <div id="submit-login" *ngIf="!loggedIn">

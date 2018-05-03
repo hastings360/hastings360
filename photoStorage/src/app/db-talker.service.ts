@@ -53,6 +53,7 @@ export class DbTalkerService {
           return body;
         };
         if(body.answer === 'no'){
+          console.log("Token verification: out of time")
           return body;
         };
       })

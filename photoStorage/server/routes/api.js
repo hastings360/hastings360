@@ -53,7 +53,7 @@ router.post('/token-verify', (req, res) => {
         let returnObject = {};
         let timeLeft = Date.now() - (x.exp*1000);
 
-        if(timeLeft >= 0){
+        if(timeLeft <= 0){
           returnObject.answer = "yes";
           returnObject.timeLeft = timeLeft;
           res.send(returnObject);
@@ -85,7 +85,7 @@ router.post('/login-submit', (req, res) => {
         .then(results => {
           if(results.length === 1){
             client.close();            
-            let token = jwt.sign({auth: 'granted'}, 'aodkdkDDajIldieja9321',{expiresIn: '5m'});
+            let token = jwt.sign({auth: 'granted'}, 'aodkdkDDajIldieja9321',{expiresIn: '1m'});
             return res.send(token);
           }else{
             client.close();

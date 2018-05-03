@@ -26,7 +26,8 @@ export class LoginComponent implements OnInit {
   public loginError: boolean = false;
 
   public loginMessage: string;
-  public minutesLeft;
+  public milliSecondsLeft: number;
+  public timeLeft = {minutes: '00',seconds:'00'};
 
   constructor(fb: FormBuilder, private dbTalker: DbTalkerService) {
     this.loginForm = fb.group({
@@ -42,6 +43,7 @@ export class LoginComponent implements OnInit {
 
   loginClick(){
     this.loginPopOut = !this.loginPopOut;
+    this.countdown(this.milliSecondsLeft);
   }
 
   //Login Verification
@@ -76,7 +78,8 @@ export class LoginComponent implements OnInit {
                       this.loginError = false;
                       this.loggedIn = true;
                       console.log(this.loginMessage);
-                      this.minutesLeft = results.timeLeft;
+                      this.milliSecondsLeft = -results.timeLeft;
+                      this.countdown(this.milliSecondsLeft);
                     }else{
                       this.loginSubmitting = false;
                       localStorage.removeItem('token');
@@ -84,7 +87,7 @@ export class LoginComponent implements OnInit {
                       this.loginError = true;
                       this.loggedIn = false;
                       console.log(this.loginMessage);
-                      this.minutesLeft = results.timeLeft;
+                      this.milliSecondsLeft = results.timeLeft;
                     }
               })
               .catch(error => console.log(error));
@@ -92,6 +95,27 @@ export class LoginComponent implements OnInit {
       this.loginMessage = "Log in for access";
       console.log(this.loginMessage);
     }
+  }
+
+  async countdown(timeInMilliSeconds){
+    this.milliSecondsLeft = timeInMilliSeconds;
+
+    
+      while(this.milliSecondsLeft > 0){
+        
+        setTimeout (() =>{
+          this.timeLeft.minutes = Math.floor(this.milliSecondsLeft/100000).toString();
+                    if(this.timeLeft.minutes.length === 1){
+                      this.timeLeft.minutes = "0" + this.timeLeft.minutes;
+                    }
+          this.timeLeft.seconds = Math.round((this.milliSecondsLeft%100000)/(1000)).toString();
+                    if(this.timeLeft.seconds.length === 1){
+                      this.timeLeft.seconds = "0" + this.timeLeft.seconds;
+                    }
+          this.milliSecondsLeft--;
+          //console.log(this.countDownMinutes + " " + this.countDownSeconds + " " + this.milliSecondsLeft);
+        },1000)
+      }
   }
 
   
