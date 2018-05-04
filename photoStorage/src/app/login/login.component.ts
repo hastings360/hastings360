@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
 
   public loginSubmitting: boolean = false;
 
+  public tokenNotPresent: boolean = false;
   public loggedIn: boolean = false;
   public loginError: boolean = false;
 
@@ -43,7 +44,7 @@ export class LoginComponent implements OnInit {
 
   loginClick(){
     this.loginPopOut = !this.loginPopOut;
-    this.countdown(this.milliSecondsLeft);
+    this.countdown();
   }
 
   //Login Verification
@@ -69,6 +70,7 @@ export class LoginComponent implements OnInit {
   //Used to check both locally stored on startup and when submiting login
   tokenCheck(token):void{
     if(token !== null){
+            this.tokenNotPresent = false;
             this.dbTalker.tokenVerify(token)
               .then(results => {
                 if(results.answer === "yes"){
@@ -79,7 +81,7 @@ export class LoginComponent implements OnInit {
                       this.loggedIn = true;
                       console.log(this.loginMessage);
                       this.milliSecondsLeft = -results.timeLeft;
-                      this.countdown(this.milliSecondsLeft);
+                      this.countdown();
                     }else{
                       this.loginSubmitting = false;
                       localStorage.removeItem('token');
@@ -92,29 +94,31 @@ export class LoginComponent implements OnInit {
               })
               .catch(error => console.log(error));
     }else{
+      this.tokenNotPresent = true;
       this.loginMessage = "Log in for access";
       console.log(this.loginMessage);
     }
   }
 
-  async countdown(timeInMilliSeconds){
-    this.milliSecondsLeft = timeInMilliSeconds;
+  countdown():void{
+    let self = this;
 
     
-      while(this.milliSecondsLeft > 0){
+      while(self.milliSecondsLeft > 0){
         
         setTimeout (() =>{
-          this.timeLeft.minutes = Math.floor(this.milliSecondsLeft/100000).toString();
-                    if(this.timeLeft.minutes.length === 1){
-                      this.timeLeft.minutes = "0" + this.timeLeft.minutes;
+          self.timeLeft.minutes = Math.floor(self.milliSecondsLeft/100000).toString();
+                    if(self.timeLeft.minutes.length === 1){
+                      self.timeLeft.minutes = "0" + self.timeLeft.minutes;
                     }
-          this.timeLeft.seconds = Math.round((this.milliSecondsLeft%100000)/(1000)).toString();
-                    if(this.timeLeft.seconds.length === 1){
-                      this.timeLeft.seconds = "0" + this.timeLeft.seconds;
+          self.timeLeft.seconds = Math.round((self.milliSecondsLeft%100000)/(1000)).toString();
+                    if(self.timeLeft.seconds.length === 1){
+                      self.timeLeft.seconds = "0" + self.timeLeft.seconds;
+                      console.log(self.timeLeft.seconds);
                     }
-          this.milliSecondsLeft--;
+          self.milliSecondsLeft--;
           //console.log(this.countDownMinutes + " " + this.countDownSeconds + " " + this.milliSecondsLeft);
-        },1000)
+        },1)
       }
   }
 
