@@ -8,6 +8,7 @@ import { Time } from '@angular/common';
 //import 'rxjs/add/operator/debounceTime';
 //import 'rxjs/add/operator/do';
 //import 'rxjs/add/operator/switch';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-login',
@@ -44,7 +45,6 @@ export class LoginComponent implements OnInit {
 
   loginClick(){
     this.loginPopOut = !this.loginPopOut;
-    this.countdown();
   }
 
   //Login Verification
@@ -60,6 +60,7 @@ export class LoginComponent implements OnInit {
           this.loginError = true;
           this.loggedIn = false;
           this.loginSubmitting = false;
+          this.tokenNotPresent = false;
         }else{
           this.tokenCheck(results.text());
         }
@@ -81,6 +82,7 @@ export class LoginComponent implements OnInit {
                       this.loggedIn = true;
                       console.log(this.loginMessage);
                       this.milliSecondsLeft = -results.timeLeft;
+                     // this.loginPopOut = !this.loginPopOut;
                       this.countdown();
                     }else{
                       this.loginSubmitting = false;
@@ -101,25 +103,39 @@ export class LoginComponent implements OnInit {
   }
 
   countdown():void{
-    let self = this;
+    
+      let timer = Observable.timer(1000,1000).subscribe(
+        count =>{
+
+          this.timeLeft.minutes = Math.floor(this.milliSecondsLeft/60000).toString();        
+          if(this.timeLeft.minutes.length === 1){
+            this.timeLeft.minutes = "0" + this.timeLeft.minutes;
+          }
+          
+          this.timeLeft.seconds = Math.round((this.milliSecondsLeft%60000)/(1000)).toString();
+          if(this.timeLeft.seconds.length === 1){
+            this.timeLeft.seconds = "0" + this.timeLeft.seconds;
+          }
+          
+          if(this.milliSecondsLeft <= 0){
+            timer.unsubscribe;
+            this.tokenCheck(localStorage.getItem('token'));
+          }else{
+            this.milliSecondsLeft -= 1000;
+          }
+          
+        }
+      )
+    
+      
+        
+        
+          
 
     
-      while(self.milliSecondsLeft > 0){
-        
-        setTimeout (() =>{
-          self.timeLeft.minutes = Math.floor(self.milliSecondsLeft/100000).toString();
-                    if(self.timeLeft.minutes.length === 1){
-                      self.timeLeft.minutes = "0" + self.timeLeft.minutes;
-                    }
-          self.timeLeft.seconds = Math.round((self.milliSecondsLeft%100000)/(1000)).toString();
-                    if(self.timeLeft.seconds.length === 1){
-                      self.timeLeft.seconds = "0" + self.timeLeft.seconds;
-                      console.log(self.timeLeft.seconds);
-                    }
-          self.milliSecondsLeft--;
-          //console.log(this.countDownMinutes + " " + this.countDownSeconds + " " + this.milliSecondsLeft);
-        },1)
-      }
+         
+ 
+ 
   }
 
   

@@ -85,7 +85,7 @@ router.post('/login-submit', (req, res) => {
         .then(results => {
           if(results.length === 1){
             client.close();            
-            let token = jwt.sign({auth: 'granted'}, 'aodkdkDDajIldieja9321',{expiresIn: '1m'});
+            let token = jwt.sign({auth: 'granted'}, 'aodkdkDDajIldieja9321',{expiresIn: '5m'});
             return res.send(token);
           }else{
             client.close();
