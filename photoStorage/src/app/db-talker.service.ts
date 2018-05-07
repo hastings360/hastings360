@@ -32,7 +32,14 @@ export class DbTalkerService {
 
   //Submit dataObject to API
   submitPhotoToDb(objectToSend: object):Promise<any>{
-    return this.http.post('/api/submit-pic', objectToSend).toPromise();
+    this.tokenVerify(localStorage.getItem('token'))
+      .then(results =>{
+          //if(results.answer === "yes"){
+            return this.http.post('/api/submit-pic', objectToSend).toPromise();
+          //}
+      })
+
+    
   }
 
   //Submit login request
