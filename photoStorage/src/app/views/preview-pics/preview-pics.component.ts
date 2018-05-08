@@ -30,7 +30,5 @@ export class PreviewPicsComponent implements OnChanges {
     this.closePreview.emit(false);
   }
 
-  download(){
-    
-  }
+
 }

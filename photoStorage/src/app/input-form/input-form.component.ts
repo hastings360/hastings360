@@ -36,21 +36,31 @@ export class InputFormComponent implements OnInit {
   }
 
   onSubmit(x: FormGroup): void {
-    let apiObject = new FormData();
-    let timeStamp = Date.now();
-    
-    const todaysDate = this.currentDate.getMonth()+1 + "/" + this.currentDate.getDate() + "/" + this.currentDate.getFullYear(); //Gets date in correct format
-    let formDataObject = JSON.parse(JSON.stringify(x)); //Convert FormGroup to regular object
-    formDataObject.date = todaysDate; //Set date to todays date with correct format
-    formDataObject.timeStamp = timeStamp; //append actual timeStamp for sorting
-    formDataObject.imageName = formDataObject.imageName + "." + this.imageToApi.type.match(/\w+$/); //Add image file type to imageName
+            
+    this.dbTalker.tokenVerify(localStorage.getItem('token'))
+      .then(results =>{
+        if(results.answer === "yes"){
+            let apiObject = new FormData();
+            let timeStamp = Date.now();
+            
+            const todaysDate = this.currentDate.getMonth()+1 + "/" + this.currentDate.getDate() + "/" + this.currentDate.getFullYear(); //Gets date in correct format
+            let formDataObject = JSON.parse(JSON.stringify(x)); //Convert FormGroup to regular object
+            formDataObject.date = todaysDate; //Set date to todays date with correct format
+            formDataObject.timeStamp = timeStamp; //append actual timeStamp for sorting
+            formDataObject.imageName = formDataObject.imageName + "." + this.imageToApi.type.match(/\w+$/); //Add image file type to imageName
 
-    apiObject.append('formInputData', JSON.stringify(formDataObject));
-    apiObject.append('image', this.imageToApi);
+            apiObject.append('formInputData', JSON.stringify(formDataObject));
+            apiObject.append('image', this.imageToApi);
 
-    this.dbTalker.submitPhotoToDb(apiObject)
-      .then(success => {this.received = true; this.newPicCreated.emit(true);})
-      .catch(error => {this.error = true;console.log(error + ": Error submitting pic to SubmitPhotoToDb()--DbTalkerService");});
+            this.dbTalker.submitPhotoToDb(apiObject)
+              .then(success => {this.received = true; this.newPicCreated.emit(true);})
+              .catch(error => {this.error = true;console.log(error + ": Error submitting pic to SubmitPhotoToDb()--DbTalkerService");});
+        }else{
+          this.error = true;
+          console.log("Token invalid or expired");
+        }
+      })
+      .catch(error => {this.error = true;console.log(error + ": Error verifying token--DbTalkerService")});
   }
 
   // excepts and reads the image file object

@@ -17,18 +17,21 @@
     border-radius: 10px;
     box-shadow: 10px 10px 20px 10px #000000;
 }
-.grid-item{
+.pics{
+    margin-bottom: 10px;
+}
+/*.grid-item{
     float: left;
     width: 20%;
 }
 
 @media screen and (max-width: 793px){
     .grid-item{
-        width: 33.33333%
+        width: 33.33333%;
     }
 }
 @media screen and (max-width: 575px){
     .grid-item{
         width: 50%;
     }
-}
+}*/

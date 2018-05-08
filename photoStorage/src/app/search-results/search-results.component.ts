@@ -21,6 +21,17 @@ export class SearchResultsComponent implements OnChanges {
     
   }
 
+  /*AfterViewInit(){
+    let container = document.querySelector('.grid');
+
+    let masonry = new Masonry(container,{
+      columnWidth: 50,
+      itemSelector: '.grid-item'
+    })
+  }*/
+
+  
+
   ngOnChanges(){
     this.photos.subscribe(
       (photoArray) => {
