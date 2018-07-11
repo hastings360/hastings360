@@ -6,10 +6,30 @@
     top: 2px;
     right: 2px;
 }
+.message{
+    text-align: center;
+    color: #000;
+    margin-top: 10px;
+}
+.message a{
+    text-decoration: none;
+    color: #fff;
+    background-color: #4B9CD3;
+    padding: 2px;
+    border-radius: 2px;
+    margin-left: 2px;
+}
+.message a:hover{
+    color: #000;
+}
+.message a:active{
+    background-color: #fff;
+    box-shadow: 0 0 0 2px #4B9CD3;
+}
 .name{
     text-align: center;
     font: italic small-caps bold 4em cursive;
-    color: white;
+    color: fff;
 }
 .background{
     background-color: #4B9CD3;

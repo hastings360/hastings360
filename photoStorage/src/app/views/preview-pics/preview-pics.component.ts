@@ -1,3 +1,4 @@
+import { DbTalkerService } from './../../db-talker.service';
 import { Component, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
@@ -19,16 +20,25 @@ export class PreviewPicsComponent implements OnChanges {
   public url: SafeResourceUrl;
   public urlFull: SafeResourceUrl;
 
-  constructor(private sanitizer: DomSanitizer) { }
+  public downloadable: boolean = false;
+
+  constructor(private sanitizer: DomSanitizer,private dbTalker: DbTalkerService) { }
 
   ngOnChanges() {
     this.url = this.sanitizer.bypassSecurityTrustResourceUrl('http://localhost:3000/previews/med-' + this.photo.imageName);
     this.urlFull = this.sanitizer.bypassSecurityTrustResourceUrl('http://localhost:3000/' + this.photo.imageName);
+    this.dbTalker.tokenVerify(localStorage.getItem('token'))
+      .then(results =>{
+        if(results.answer === "yes"){
+         this.downloadable = true;
+        }else{
+          this.downloadable = false;
+        }
+      })
+      .catch(error => console.log(error + ": Error verifying token--DbTalkerService"));
   }
 
   closePrev(){
     this.closePreview.emit(false);
   }
-
-
 }
