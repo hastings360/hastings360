@@ -28,7 +28,7 @@ import { LoginComponent } from './login/login.component';
     FormsModule, ReactiveFormsModule,
     HttpModule
   ],
-  providers: [DbTalkerService,PhotoStr],
+  providers: [PhotoStr],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

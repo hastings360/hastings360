@@ -6,7 +6,9 @@ import "rxjs/Rx";
 
 import { PhotoStr } from './photo-str.model';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class DbTalkerService {
 
 
