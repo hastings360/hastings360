@@ -1,0 +1,44 @@
+<h2>Existing Plan Coverage</h2>
+<table>
+  <tr>
+    <th>Begin Date</th>
+    <th>End Date</th>
+    <th>Plan Description</th>
+    <th>Rate</th>
+    <th>Number of Months</th>
+    <th>Amount Billed</th>
+    <th>System HI Premium Amount Paid</th>
+    <th>Actual HI Premium Amount Paid</th>
+    <th>Direct Billed</th>
+  </tr>
+  <tr *ngFor="let coverage of coverages">
+    <td>{{coverage.bd}}</td>
+    <td>{{coverage.ed}}</td>
+    <td>{{coverage.pd}}</td>
+    <td class="currency-data"><input [ngModel]="coverage.r | currency" name="coverage.r" (ngModelChange)="coverage.r=$event"></td>
+    <td class="two-values-max">{{coverage.nm}}</td>
+    <td class="currency-data"><input [ngModel]="coverage.ab | currency" name="coverage.ab" (ngModelChange)="coverage.ab=$event.substring(1)"></td>
+    <td class="currency-data"><input [ngModel]="coverage.shpap | currency" name="coverage.shpap" (ngModelChange)="coverage.shpap=$event"></td>
+    <td class="currency-data"><input [ngModel]="coverage.ahpap | currency" name="coverage.ahpap" (ngModelChange)="coverage.ahpap=$event"></td>
+    <td class="two-values-max">{{coverage.db}}</td>
+  </tr>
+  <tr>
+    <td colspan="4" style="border: none;"></td>
+    <th>Total Amounts</th>
+    <td>{{returnTotal('ab') | currency}}</td>
+    <td>{{returnTotal('shpap') | currency}}</td>
+    <td>{{returnTotal('ahpap') | currency}}</td>
+  </tr>
+  <tr>
+    <br>
+  </tr>
+  <tr>
+    <th colspan="5" style="border: none;">Amount to Refund or Collect (Actual HI Premium Amount Paid - Amount Billed = +ve(Refund) -ve(Collection)</th>
+    <td>{{returnTotal('ab') - returnTotal('ahpap') | currency}}</td>
+  </tr>
+</table>
+<div id="comments">
+  <h3>Comments</h3>
+  <textarea rows="10" cols="50"></textarea>
+</div>
+

@@ -1,0 +1,32 @@
+table{
+  border-spacing: 0;
+  width: 100%;
+}
+th{
+  font-size: 0.7em;
+  background-color: grey;
+  border: 1px solid black;
+}
+td{
+  width: auto;
+}
+td, td *{
+  border: 1px solid black;
+  font-size: 0.8em;
+}
+.currency-data{
+  width: 10%;
+}
+.currency-data input{
+  border: none;
+}
+.two-values-max{
+  text-align: center;
+  width: 2%;
+}
+#comments{
+  text-align: right;
+}
+#comments textarea{
+  resize: none;
+}

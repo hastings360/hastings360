@@ -1,0 +1,14 @@
+
+<h1>Refunds and Collections</h1>
+<mat-tab-group [selectedIndex]="state">
+  <mat-tab label="Overview">
+    <app-overview></app-overview>
+  </mat-tab>
+  <mat-tab *ngIf="state.refundFirstApproval" label="First Approval">
+    <app-refund-first></app-refund-first>>
+  </mat-tab>
+  <mat-tab *ngIf="state.refundSecondApproval" label="Second Approval">
+    yaha
+  </mat-tab>
+</mat-tab-group>
+
